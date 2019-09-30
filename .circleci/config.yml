@@ -26,9 +26,6 @@ jobs:
   publish:
     docker:
       - image: alpine
-    branches:
-      only:
-      - test
     steps:
       - checkout
       - run:
