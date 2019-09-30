@@ -1,0 +1,103 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "opsgenie-marid.fullname" . }}
+  labels:
+{{ include "opsgenie-marid.labels" . | indent 4 }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: {{ include "opsgenie-marid.name" . }}
+      app.kubernetes.io/instance: {{ .Release.Name }}
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: {{ include "opsgenie-marid.name" . }}
+        app.kubernetes.io/instance: {{ .Release.Name }}
+    spec:
+    {{- with .Values.imagePullSecrets }}
+      imagePullSecrets:
+        {{- toYaml . | nindent 8 }}
+    {{- end }}
+      containers:
+        - name: {{ .Chart.Name }}
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          securityContext:
+            runAsUser: 999
+            fsGroup: 65533
+          {{- if .Values.env }}
+          env:
+          {{ toYaml .Values.env | nindent 12 }}
+          {{- end }}
+          ports:
+          - name: http
+            containerPort: 80
+            protocol: TCP
+          resources:
+            {{- toYaml .Values.resources | nindent 12 }}
+          volumeMounts:
+          {{- if hasKey .Values.configmap "log4j.properties" }}
+          - name: config
+            mountPath: /etc/opsgenie/marid/log.properties
+            subPath: log4j.properties
+          {{- end }}
+          {{- if hasKey .Values.configmap "marid.conf" }}
+          - name: config
+            mountPath: /etc/opsgenie/marid/marid.conf
+            subPath: marid.conf
+          {{- end }}
+          {{- if .Values.gitSync.enabled }}
+          - name: scripts
+            mountPath: /var/opsgenie/marid
+          {{- end }}
+        {{- if .Values.gitSync.enabled }}
+        - name: git-sync
+          image: {{ .Values.gitSync.image.repository }}:{{ .Values.gitSync.image.tag }}
+          imagePullPolicy: {{ .Values.gitSync.image.pullPolicy }}
+          args:
+          - "-repo={{ .Values.gitSync.url }}"
+          - "-branch={{ .Values.gitSync.branch }}"
+          {{- toYaml .Values.gitSync.extraArgs | nindent 10 }}
+          resources:
+            {{- toYaml .Values.gitSync.resources | nindent 12 }}
+          volumeMounts:
+          - name: git-secret
+            mountPath: /etc/git-secret
+          - name: scripts
+            mountPath: /workspace
+          securityContext:
+            runAsUser: 65533 # git-sync user
+          env:
+          {{- toYaml .Values.gitSync.env | nindent 12 }}
+        {{- end }}
+      volumes:
+      {{- if .Values.configmap }}
+      - name: config
+        configMap:
+          name:  {{ include "opsgenie-marid.fullname" . }}
+      {{- end }}
+      {{- if .Values.gitSync.sshKey }}
+      - name: git-secret
+        secret:
+          secretName: {{ include "opsgenie-marid.fullname" . }}-sshkey
+          defaultMode: 256 #0440
+      - name: scripts
+        emptyDir:
+          defaultMode: 777
+      {{- end }}
+      securityContext:
+        fsGroup: 65533
+      {{- with .Values.nodeSelector }}
+      nodeSelector:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+    {{- with .Values.affinity }}
+      affinity:
+        {{- toYaml . | nindent 8 }}
+    {{- end }}
+    {{- with .Values.tolerations }}
+      tolerations:
+        {{- toYaml . | nindent 8 }}
+    {{- end }}

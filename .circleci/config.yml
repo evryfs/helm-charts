@@ -14,14 +14,21 @@ jobs:
     steps:
       - checkout
       - run:
-          command: ct lint --config test/ct.yaml
+          command: |
+            git remote add upstream https://github.com/evryfs/helm-charts
+            git fetch upstream master
+            git remote -v
+            ct lint --config test/ct.yaml
 
   install-charts:
     machine: true
     steps:
       - checkout
-      - run:
-          command: test/e2e-kind.sh
+      - run: 
+          command: |
+            git remote add upstream https://github.com/evryfs/helm-charts
+            git fetch upstream master
+            test/e2e-kind.sh
 
   publish:
     docker:
