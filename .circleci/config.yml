@@ -48,15 +48,15 @@ workflows:
   version: 2
   untagged-build:
     jobs:
-      - lint-scripts
+      - lint-scripts:
           filters:
             branches:
               ignore: master
-      - lint-charts
+      - lint-charts:
           filters:
             branches:
               ignore: master
-      - install-charts
+      - install-charts:
           filters:
             branches:
               ignore: master
