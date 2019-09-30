@@ -49,8 +49,17 @@ workflows:
   untagged-build:
     jobs:
       - lint-scripts
+          filters:
+            branches:
+              ignore: master
       - lint-charts
+          filters:
+            branches:
+              ignore: master
       - install-charts
+          filters:
+            branches:
+              ignore: master
   publish:
     jobs:
      - publish:
