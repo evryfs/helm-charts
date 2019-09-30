@@ -23,6 +23,30 @@ jobs:
       - run:
           command: test/e2e-kind.sh
 
+  publish:
+    docker:
+      - image: alpine
+    branches:
+      only:
+      - test
+    steps:
+      - checkout
+      - run:
+          name: helm-github-pages
+          command: cat publish.sh | sh
+          environment:
+            - GITHUB_PAGES_REPO: evryfs/helm-charts
+      - run:
+          name: Verify
+          command: |
+            alias helm=/tmp/helm/bin/linux-amd64/helm
+            if [ "$CIRCLE_BRANCH" = "master" ]; then
+              helm repo add evryfs-oss https://evryfs.github.io/helm-charts
+              helm repo update
+              helm repo list
+              helm inspect evryfs-oss/opsgenie-marid
+            fi
+
 workflows:
   version: 2
   untagged-build:
@@ -30,3 +54,9 @@ workflows:
       - lint-scripts
       - lint-charts
       - install-charts
+  publish:
+    jobs:
+     - publish
+         filters:
+           branches:
+             only: master
