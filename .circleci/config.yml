@@ -56,7 +56,7 @@ workflows:
       - install-charts
   publish:
     jobs:
-     - publish
+     - publish:
          filters:
            branches:
              only: master
