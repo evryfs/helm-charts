@@ -3,7 +3,7 @@ entries:
   opsgenie-marid:
   - apiVersion: v1
     appVersion: "1.0"
-    created: 2019-09-30T09:31:09.716237444Z
+    created: 2019-11-25T23:12:09.407817205Z
     description: A Helm chart for Kubernetes
     digest: 43333a8c8575132c0664a5cf93a1c61d5aeadd298842c3d4312a76d8bfdeb24b
     home: https://docs.opsgenie.com/docs/marid-integration-server-for-opsgenie
@@ -20,4 +20,4 @@ entries:
     urls:
     - opsgenie-marid/opsgenie-marid-0.1.0.tgz
     version: 0.1.0
-generated: 2019-09-30T09:31:09.715744939Z
+generated: 2019-11-25T23:12:09.407363689Z
