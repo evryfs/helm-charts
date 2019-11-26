@@ -30,4 +30,4 @@ jobs:
     steps:
     - name: publish charts
       run: |
-        ./publish.sh
+        ${GITHUB_WORKSPACE}/publish.sh
