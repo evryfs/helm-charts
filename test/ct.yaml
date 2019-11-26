@@ -1,6 +1,0 @@
-helm-extra-args: --timeout 800
-chart-dirs:
-  - charts
-remote: upstream
-target-branch: master
-debug: true

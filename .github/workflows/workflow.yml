@@ -1,0 +1,33 @@
+name: "Test using kind and chart-testing tool"
+on: [pull_request, push]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    if: github.ref != 'refs/heads/master'
+    steps:
+    - name: Checkout
+      uses: actions/checkout@master
+    - name: Shellcheck
+      uses: ludeeus/action-shellcheck@0.1.0
+    - name: Install kind
+      uses: engineerd/setup-kind@v0.1.0
+      with:
+        version: "v0.6.0"
+        image: "kindest/node:v1.16.3"
+    - name: Verify kind
+      run: |
+        export KUBECONFIG="$(kind get kubeconfig-path)"
+        kubectl cluster-info
+        kubectl get pods -n kube-system
+    - uses: davidkarlsen/chart-testing-action@master
+      #uses: helm/chart-testing-action@v1
+      with:
+        command: lint-and-install
+  publish:
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/master'
+    steps:
+    - name: publish charts
+      run: |
+        ./publish.sh
