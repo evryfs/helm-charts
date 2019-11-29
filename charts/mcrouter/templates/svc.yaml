@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ template "fullname" . }}
+  labels:
+    app: {{ template "fullname" . }}
+    chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
+    release: "{{ .Release.Name }}"
+    heritage: "{{ .Release.Service }}"
+spec:
+  clusterIP: {{ .Values.service.clusterIP }}
+  ports:
+  - name: mcrouter-port
+    port: {{ .Values.mcrouterCommandParams.port }}
+    targetPort: mcrouter-port
+  {{- if .Values.exporter.enabled }}
+  - name: monitoring
+    targetPort: monitoring
+  {{- end }}
+  selector:
+    app: {{ template "fullname" . }}
