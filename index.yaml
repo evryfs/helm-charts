@@ -3,9 +3,9 @@ entries:
   opsgenie-marid:
   - apiVersion: v1
     appVersion: "1.0"
-    created: "2019-11-29T13:30:40.702519008Z"
+    created: "2019-11-29T13:33:01.07473036Z"
     description: A Helm chart for Kubernetes
-    digest: f7af006e82259566171f8401c757336fa8d2af8c78a5d5f43bcd2748ed25403c
+    digest: 70e05f8e178fa85fe1be51fb6ce5efcd11fab8a66410e473f8812813af9a483f
     home: https://docs.opsgenie.com/docs/marid-integration-server-for-opsgenie
     icon: https://wac-cdn.atlassian.com/dam/jcr:8dbf0e36-5b84-4205-8dcb-3f7e94240ae7/marid-logo@2x.png?cdnVersion=565
     keywords:
@@ -22,7 +22,7 @@ entries:
     version: 0.1.1
   - apiVersion: v1
     appVersion: "1.0"
-    created: "2019-11-29T13:30:40.702941813Z"
+    created: "2019-11-29T13:33:01.075163265Z"
     description: A Helm chart for Kubernetes
     digest: 43333a8c8575132c0664a5cf93a1c61d5aeadd298842c3d4312a76d8bfdeb24b
     home: https://docs.opsgenie.com/docs/marid-integration-server-for-opsgenie
@@ -39,4 +39,4 @@ entries:
     urls:
     - opsgenie-marid/opsgenie-marid-0.1.0.tgz
     version: 0.1.0
-generated: "2019-11-29T13:30:40.7018677Z"
+generated: "2019-11-29T13:33:01.07391755Z"
