@@ -3,6 +3,9 @@ on: [pull_request, push]
 
 jobs:
   test:
+    strategy:
+      matrix:
+        kubernetesVersion: ["v1.13.12", "v1.16.3"]
     runs-on: ubuntu-latest
     if: github.ref != 'refs/heads/master'
     steps:
@@ -14,7 +17,7 @@ jobs:
       uses: engineerd/setup-kind@v0.1.0
       with:
         version: "v0.6.0"
-        image: "kindest/node:v1.16.3"
+        image: "kindest/node:${{ matrix.kubernetesVersion }}"
     - name: Verify kind
       run: |
         export KUBECONFIG="$(kind get kubeconfig-path)"
@@ -24,14 +27,3 @@ jobs:
       #uses: helm/chart-testing-action@v1
       with:
         command: lint-and-install
-  publish:
-    runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/master'
-    steps:
-    - name: Checkout
-      uses: actions/checkout@master
-    - name: publish charts
-      uses: J12934/helm-gh-pages-action@master
-      with:
-        deploy-branch: gh-pages
-        access-token: ${{ secrets.ACCESS_TOKEN }}
