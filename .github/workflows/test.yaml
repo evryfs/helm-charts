@@ -4,6 +4,7 @@ on: [pull_request, push]
 jobs:
   test:
     strategy:
+      fail-fast: false
       matrix:
         kubernetesVersion: ["v1.13.12", "v1.16.3"]
     runs-on: ubuntu-latest
