@@ -16,6 +16,7 @@ spec:
   {{- if .Values.exporter.enabled }}
   - name: monitoring
     targetPort: monitoring
+    port: {{ .Values.exporter.service.port }}
   {{- end }}
   selector:
     app: {{ template "fullname" . }}
