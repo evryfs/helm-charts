@@ -53,4 +53,9 @@ exporter:
     tag: 0.1.0
   resources: {}
 
-securityContext: {}
+securityContext:
+  readOnlyRootFileSystem: true
+  runAsNonRoot: true
+  allowPrivilegeEscalation: false
+  runAsUser: 65534
+  runAsGroup: 65534
