@@ -1,2 +1,4 @@
 ## Pod controller. Possible values: "daemonset", "statefulset".
 controller: "statefulset"
+exporter:
+  enabled: true
