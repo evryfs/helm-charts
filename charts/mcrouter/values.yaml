@@ -6,7 +6,7 @@ memcached:
   ## If true, the Memcached chart will be installed as a dependency
   enabled: true
   ## Number of Memcached replicas
-  replicaCount: 3
+  replicaCount: 2
 
 ## Configure resource requests and limits
 ## ref: http://kubernetes.io/docs/user-guide/compute-resources/
