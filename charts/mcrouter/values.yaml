@@ -52,3 +52,5 @@ exporter:
     repository: quay.io/dev25/mcrouter_exporter
     tag: 0.1.0
   resources: {}
+
+securityContext: {}

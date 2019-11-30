@@ -44,6 +44,8 @@ spec:
                   app:  {{ template "fullname" . }}
                   release: {{ .Release.Name | quote }}
         {{- end }}
+      securityContext:
+{{ toYaml .Values.securityContext | indent 8 }}
       containers:
       - name: {{ template "fullname" . }}
         image: {{ .Values.image }}
