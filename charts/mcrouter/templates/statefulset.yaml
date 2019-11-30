@@ -59,6 +59,8 @@ spec:
           mountPath: /etc/mcrouter
         - name: var-mcrouter
           mountPath: /var/mcrouter
+        - name: var-spool-mcrouter
+          mountPath: /var/spool/mcrouter
         ports:
         - name: mcrouter-port
           containerPort: {{ .Values.mcrouterCommandParams.port }}
@@ -98,5 +100,7 @@ spec:
         configMap:
           name: {{ template "fullname" . }}
       - name: var-mcrouter
+        emptyDir: {}
+      - name: var-spool-mcrouter
         emptyDir: {}
 {{- end }}
