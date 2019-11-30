@@ -1,0 +1,2 @@
+## Pod controller. Possible values: "daemonset", "statefulset".
+controller: "daemonset"
