@@ -51,7 +51,7 @@ spec:
 {{ toYaml .Values.resources | indent 10 }}
       {{- if .Values.exporter.enabled }}
       - name: exporter
-        image: {{ .Values.exporter.image.repository }}:{{ .Values.exporter.image.repository.tag }}
+        image: {{ .Values.exporter.image.repository }}:{{ .Values.exporter.image.tag }}
         resources:
 {{ toYaml .Values.exporter.resources | indent 10 }}
         ports:
