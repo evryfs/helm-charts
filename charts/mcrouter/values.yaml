@@ -20,6 +20,7 @@ resources:
 
 service:
   clusterIP: None
+  annotations: {}
 
 ## Parameters for the mcrouter command
 mcrouterCommandParams:
