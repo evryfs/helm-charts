@@ -3,7 +3,24 @@ entries:
   mcrouter:
   - apiVersion: v1
     appVersion: 0.40.0
-    created: "2019-12-04T18:34:28.358877784Z"
+    created: "2019-12-04T19:57:53.127382906Z"
+    description: Mcrouter is a memcached protocol router for scaling memcached deployments.
+    digest: ca3e0debe8d7837298fcd6f34df00a097da01f4220982d97fcd0a65c36574e63
+    engine: gotpl
+    home: https://github.com/facebook/mcrouter
+    maintainers:
+    - email: david@davidkarlsen.com
+      name: davidkarlsen
+    name: mcrouter
+    sources:
+    - https://github.com/facebook/mcrouter
+    - https://github.com/evryfs/docker-mcrouter
+    urls:
+    - mcrouter-0.0.3.tgz
+    version: 0.0.3
+  - apiVersion: v1
+    appVersion: 0.40.0
+    created: "2019-12-04T19:57:53.126016705Z"
     description: Mcrouter is a memcached protocol router for scaling memcached deployments.
     digest: 425356d77aca5475b1dc528f7c783598854c285b57b7f53458d6771552c27212
     engine: gotpl
@@ -20,7 +37,7 @@ entries:
     version: 0.0.2
   - apiVersion: v1
     appVersion: 0.40.0
-    created: "2019-12-04T18:34:28.358059486Z"
+    created: "2019-12-04T19:57:53.125202405Z"
     description: Mcrouter is a memcached protocol router for scaling memcached deployments.
     digest: 05325636c7f623fd62ab1b1ce7fb2c1adf1f41ee1b523024c2f41dd8532e13a5
     engine: gotpl
@@ -38,9 +55,9 @@ entries:
   opsgenie-marid:
   - apiVersion: v1
     appVersion: "1.0"
-    created: "2019-12-04T18:34:28.359295283Z"
+    created: "2019-12-04T19:57:53.127909406Z"
     description: A Helm chart for Kubernetes
-    digest: 8da8a9c3e1f7d2cb12d7b818ad07156f1fda5365400325f19983e3a1863bb1c4
+    digest: 22cbb4a6b395130ca87e5dff346a8a4430f8a57f40207a3407330769a19bc1e7
     home: https://docs.opsgenie.com/docs/marid-integration-server-for-opsgenie
     icon: https://wac-cdn.atlassian.com/dam/jcr:8dbf0e36-5b84-4205-8dcb-3f7e94240ae7/marid-logo@2x.png?cdnVersion=565
     keywords:
@@ -57,7 +74,7 @@ entries:
     version: 0.1.1
   - apiVersion: v1
     appVersion: "1.0"
-    created: "2019-12-04T18:34:28.359693683Z"
+    created: "2019-12-04T19:57:53.128473906Z"
     description: A Helm chart for Kubernetes
     digest: 43333a8c8575132c0664a5cf93a1c61d5aeadd298842c3d4312a76d8bfdeb24b
     home: https://docs.opsgenie.com/docs/marid-integration-server-for-opsgenie
@@ -74,4 +91,4 @@ entries:
     urls:
     - opsgenie-marid/opsgenie-marid-0.1.0.tgz
     version: 0.1.0
-generated: "2019-12-04T18:34:28.357040288Z"
+generated: "2019-12-04T19:57:53.124042405Z"
