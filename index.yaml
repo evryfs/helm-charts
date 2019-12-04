@@ -1,11 +1,29 @@
 apiVersion: v1
 entries:
+  mcrouter:
+  - apiVersion: v1
+    appVersion: 0.40.0
+    created: "2019-12-04T14:37:13.184274041Z"
+    description: Mcrouter is a memcached protocol router for scaling memcached deployments.
+    digest: 05325636c7f623fd62ab1b1ce7fb2c1adf1f41ee1b523024c2f41dd8532e13a5
+    engine: gotpl
+    home: https://github.com/facebook/mcrouter
+    maintainers:
+    - email: david@davidkarlsen.com
+      name: davidkarlsen
+    name: mcrouter
+    sources:
+    - https://github.com/facebook/mcrouter
+    - https://github.com/evryfs/docker-mcrouter
+    urls:
+    - mcrouter-0.0.1.tgz
+    version: 0.0.1
   opsgenie-marid:
   - apiVersion: v1
     appVersion: "1.0"
-    created: "2019-11-29T21:09:22.586072566Z"
+    created: "2019-12-04T14:37:13.184797247Z"
     description: A Helm chart for Kubernetes
-    digest: 728e0b321cc24b02d8325e10d6052940ce4347a54b25d0affc9651c6d1476e7d
+    digest: 58ac23853b87ea562764f2efa31aba8a95e2cb49df3cfb3f8c9dffd3c8c42adf
     home: https://docs.opsgenie.com/docs/marid-integration-server-for-opsgenie
     icon: https://wac-cdn.atlassian.com/dam/jcr:8dbf0e36-5b84-4205-8dcb-3f7e94240ae7/marid-logo@2x.png?cdnVersion=565
     keywords:
@@ -22,7 +40,7 @@ entries:
     version: 0.1.1
   - apiVersion: v1
     appVersion: "1.0"
-    created: "2019-11-29T21:09:22.586409667Z"
+    created: "2019-12-04T14:37:13.185250252Z"
     description: A Helm chart for Kubernetes
     digest: 43333a8c8575132c0664a5cf93a1c61d5aeadd298842c3d4312a76d8bfdeb24b
     home: https://docs.opsgenie.com/docs/marid-integration-server-for-opsgenie
@@ -39,4 +57,4 @@ entries:
     urls:
     - opsgenie-marid/opsgenie-marid-0.1.0.tgz
     version: 0.1.0
-generated: "2019-11-29T21:09:22.585600965Z"
+generated: "2019-12-04T14:37:13.180391298Z"
