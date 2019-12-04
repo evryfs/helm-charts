@@ -18,6 +18,8 @@ resources:
     cpu: 256m
     memory: 512Mi
 
+nodeSelector: {}
+
 service:
   clusterIP: None
   annotations: {}

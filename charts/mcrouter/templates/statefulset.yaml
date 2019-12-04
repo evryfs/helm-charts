@@ -25,6 +25,8 @@ spec:
         release: "{{ .Release.Name }}"
         heritage: "{{ .Release.Service }}"
     spec:
+      nodeSelector:
+{{ toYaml .Values.nodeSelector | indent 8 }}
       affinity:
         podAntiAffinity:
         {{- if eq .Values.statefulset.antiAffinity "hard" }}

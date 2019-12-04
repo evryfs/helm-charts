@@ -20,6 +20,8 @@ spec:
         app: {{ template "fullname" . }}
         release: "{{ .Release.Name }}"
     spec:
+      nodeSelector:
+{{ toYaml .Values.nodeSelector | indent 8 }}
       securityContext:
 {{ toYaml .Values.securityContext | indent 8 }}
       containers:
