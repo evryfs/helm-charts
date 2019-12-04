@@ -35,7 +35,7 @@ mcrouterCommandParams:
 ## Pod controller. Possible values: "daemonset", "statefulset".
 controller: "daemonset"
 
-clusterSuffix: .cluster.local
+clusterSuffix: cluster.local
 
 ## Values for the daemonset controller
 daemonset:
