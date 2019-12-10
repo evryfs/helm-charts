@@ -6,7 +6,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        kubernetesVersion: ["v1.13.12", "v1.16.3"]
+        kubernetesVersion: ["v1.13.12", "v1.17.0"]
     runs-on: ubuntu-latest
     if: github.ref != 'refs/heads/master'
     steps:
@@ -26,7 +26,11 @@ jobs:
         kubectl cluster-info
         kubectl get nodes -o wide
         kubectl get pods -n kube-system
-    - uses: davidkarlsen/chart-testing-action@master
-      #uses: helm/chart-testing-action@v1
+    - name: Run chart-testing (lint)
+      uses: helm/chart-testing-action@v1.0.0-alpha.1
       with:
-        command: lint-and-install
+        command: lint
+    - name: Run chart-testing (install)
+      uses: helm/chart-testing-action@v1.0.0-alpha.1
+      with:
+        command: install
