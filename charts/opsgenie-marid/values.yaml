@@ -6,7 +6,7 @@ replicaCount: 1
 
 image:
   repository: evryfs/docker-marid
-  tag: v2.15.0
+  tag: v2.15.0-1
   pullPolicy: IfNotPresent
 
 gitSync:
