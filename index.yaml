@@ -3,10 +3,10 @@ entries:
   dependency-track:
   - apiVersion: v1
     appVersion: 3.7.0
-    created: "2019-12-22T23:36:31.505955085Z"
+    created: "2019-12-27T23:02:28.78555643Z"
     description: |
       Dependency-Track is an intelligent Software Supply Chain Component Analysis platform that allows organizations to identify and reduce risk from the use of third-party and open source components. Dependency-Track takes a unique and highly beneficial approach by leveraging the capabilities of Software Bill-of-Materials (SBOM). This approach provides capabilities that traditional Software Composition Analysis (SCA) solutions cannot achieve.
-    digest: d58e8afedd949fac32f0551f3724aadb7d3516ac7c2ccdf22a642273cb2f6177
+    digest: e55f1076a61d82d5453c9f133aaf4a718671416d8af658fb216921f6e0f934c5
     home: https://dependencytrack.org/
     icon: https://www.owasp.org/images/e/e9/Dependency-Track-logo-large.png
     keywords:
@@ -28,7 +28,24 @@ entries:
   mcrouter:
   - apiVersion: v1
     appVersion: 0.40.0
-    created: "2019-12-22T23:36:31.508621785Z"
+    created: "2019-12-27T23:02:28.791724929Z"
+    description: Mcrouter is a memcached protocol router for scaling memcached deployments.
+    digest: 1d81a2eb438a8d1ed64b190ec9cc6ae7bda49ac41760a9405bacc81386ccf0ff
+    engine: gotpl
+    home: https://github.com/facebook/mcrouter
+    maintainers:
+    - email: david@davidkarlsen.com
+      name: davidkarlsen
+    name: mcrouter
+    sources:
+    - https://github.com/facebook/mcrouter
+    - https://github.com/evryfs/docker-mcrouter
+    urls:
+    - mcrouter-0.0.4.tgz
+    version: 0.0.4
+  - apiVersion: v1
+    appVersion: 0.40.0
+    created: "2019-12-27T23:02:28.790523129Z"
     description: Mcrouter is a memcached protocol router for scaling memcached deployments.
     digest: da42fcf4207b087d16b5ae202d515e9130633635c18081e12f06cf3214407f76
     engine: gotpl
@@ -45,7 +62,7 @@ entries:
     version: 0.0.3
   - apiVersion: v1
     appVersion: 0.40.0
-    created: "2019-12-22T23:36:31.507677885Z"
+    created: "2019-12-27T23:02:28.789539729Z"
     description: Mcrouter is a memcached protocol router for scaling memcached deployments.
     digest: 425356d77aca5475b1dc528f7c783598854c285b57b7f53458d6771552c27212
     engine: gotpl
@@ -62,7 +79,7 @@ entries:
     version: 0.0.2
   - apiVersion: v1
     appVersion: 0.40.0
-    created: "2019-12-22T23:36:31.506733385Z"
+    created: "2019-12-27T23:02:28.78743653Z"
     description: Mcrouter is a memcached protocol router for scaling memcached deployments.
     digest: 05325636c7f623fd62ab1b1ce7fb2c1adf1f41ee1b523024c2f41dd8532e13a5
     engine: gotpl
@@ -80,9 +97,9 @@ entries:
   opsgenie-marid:
   - apiVersion: v1
     appVersion: v2.15.0
-    created: "2019-12-22T23:36:31.510288685Z"
+    created: "2019-12-27T23:02:28.793606729Z"
     description: A Helm chart for Kubernetes
-    digest: 5d5dfe8ee47fb18161df287325bc98a01d094d51c81dafaacc8797cea80670c6
+    digest: b33d2f7aace45c63c567301a74b87b32158c33596464720178be6ee4f4c803e1
     home: https://docs.opsgenie.com/docs/marid-integration-server-for-opsgenie
     icon: https://wac-cdn.atlassian.com/dam/jcr:8dbf0e36-5b84-4205-8dcb-3f7e94240ae7/marid-logo@2x.png?cdnVersion=565
     keywords:
@@ -99,7 +116,7 @@ entries:
     version: 0.1.4
   - apiVersion: v1
     appVersion: v2.15.0
-    created: "2019-12-22T23:36:31.509884685Z"
+    created: "2019-12-27T23:02:28.793155829Z"
     description: A Helm chart for Kubernetes
     digest: 6a7ccb7611cb500b1434020d9ee6cd53c2367e400bdef00a9d8a4898ebf074fb
     home: https://docs.opsgenie.com/docs/marid-integration-server-for-opsgenie
@@ -118,7 +135,7 @@ entries:
     version: 0.1.3
   - apiVersion: v1
     appVersion: v2.15.0
-    created: "2019-12-22T23:36:31.509458085Z"
+    created: "2019-12-27T23:02:28.792680029Z"
     description: A Helm chart for Kubernetes
     digest: 253256b68851f4cb3b9d0dfb917e872d51fe2d953d329bc33b2915b15f947c6c
     home: https://docs.opsgenie.com/docs/marid-integration-server-for-opsgenie
@@ -137,7 +154,7 @@ entries:
     version: 0.1.2
   - apiVersion: v1
     appVersion: "1.0"
-    created: "2019-12-22T23:36:31.509017285Z"
+    created: "2019-12-27T23:02:28.792203029Z"
     description: A Helm chart for Kubernetes
     digest: 4e841c7315f987bdd537b3d3eb5279158be6f50734a8d4639810cb0452bb8e17
     home: https://docs.opsgenie.com/docs/marid-integration-server-for-opsgenie
@@ -156,7 +173,7 @@ entries:
     version: 0.1.1
   - apiVersion: v1
     appVersion: "1.0"
-    created: "2019-12-22T23:36:31.510669185Z"
+    created: "2019-12-27T23:02:28.794060328Z"
     description: A Helm chart for Kubernetes
     digest: 43333a8c8575132c0664a5cf93a1c61d5aeadd298842c3d4312a76d8bfdeb24b
     home: https://docs.opsgenie.com/docs/marid-integration-server-for-opsgenie
@@ -173,4 +190,4 @@ entries:
     urls:
     - opsgenie-marid/opsgenie-marid-0.1.0.tgz
     version: 0.1.0
-generated: "2019-12-22T23:36:31.503560384Z"
+generated: "2019-12-27T23:02:28.778064332Z"
