@@ -1,5 +1,5 @@
 dependencies:
 - name: memcached
-  version: 3.2.1
-  repository: https://kubernetes-charts.storage.googleapis.com/
+  version: 4.1.0
+  repository: https://charts.bitnami.com/bitnami
   condition: mcrouter.memcached.enabled

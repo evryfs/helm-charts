@@ -3,6 +3,8 @@ image: quay.io/evryfs/docker-mcrouter:0.40.0
 
 ## Memcached chart parameters
 memcached:
+  ## Use replicaset and HA
+  architecture: high-availability
   ## If true, the Memcached chart will be installed as a dependency
   enabled: true
   ## Number of Memcached replicas
