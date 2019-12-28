@@ -64,8 +64,7 @@ resources:
     cpu: 1500m
     memory: 4Gi
   limits:
-    cpu: 4
-    memory: 16Gi
+    memory: 4Gi
 
 nodeSelector: {}
 
@@ -74,6 +73,9 @@ tolerations: []
 affinity: {}
 
 env: []
+  ## Example: Configure JAVA_OPTIONS
+  # - name: JAVA_OPTIONS
+  #   value: -Xmx4g
 
 persistentVolume:
   enabled: true
