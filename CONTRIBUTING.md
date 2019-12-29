@@ -11,7 +11,7 @@ If you have direct contributions you would like considered for incorporation
 into the project you can [fork this repository][2] and
 [submit a pull request][3] for review.
 
-Sign-off commits to pass DCO-checks [4].
+Sign-off commits to pass [DCO-checks][4].
 
 
 [1]: https://github.com/evryfs/helm-chartstd/issues
