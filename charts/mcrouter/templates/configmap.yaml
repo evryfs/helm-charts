@@ -27,6 +27,7 @@ data:
       },
       "route": {
         "type": "OperationSelectorRoute",
+        "default_policy": "PoolRoute|A",
         "operation_policies": {
           "add": "AllSyncRoute|Pool|A",
           "delete": "AllSyncRoute|Pool|A",
