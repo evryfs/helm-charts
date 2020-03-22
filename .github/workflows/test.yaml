@@ -19,7 +19,6 @@ jobs:
       with:
         node_image: "kindest/node:${{ matrix.kubernetesVersion }}"
         config: kind-config.yaml
-        install_local_path_provisioner: true
     - name: Verify kind
       run: |
         kubectl cluster-info
