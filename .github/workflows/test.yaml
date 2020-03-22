@@ -15,7 +15,7 @@ jobs:
     - name: Shellcheck
       uses: ludeeus/action-shellcheck@0.1.0
     - name: Install kind
-      uses: helm/kind-action@v1.0.0-alpha.3
+      uses: helm/kind-action@v1.0.0-rc.1
       with:
         node_image: "kindest/node:${{ matrix.kubernetesVersion }}"
         config: kind-config.yaml
@@ -26,12 +26,12 @@ jobs:
         kubectl get nodes -o wide
         kubectl get pods -n kube-system
     - name: Run chart-testing (lint)
-      uses: helm/chart-testing-action@v1.0.0-alpha.3
+      uses: helm/chart-testing-action@v1.0.0-rc.1
       with:
         command: lint
         config: ct-config.yaml
     - name: Run chart-testing (install)
-      uses: helm/chart-testing-action@v1.0.0-alpha.3
+      uses: helm/chart-testing-action@v1.0.0-rc.1
       with:
         command: install
         config: ct-config.yaml
