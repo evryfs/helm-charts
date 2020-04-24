@@ -3,7 +3,7 @@ entries:
   dependency-track:
   - apiVersion: v1
     appVersion: 3.8.0
-    created: "2020-04-01T21:43:47.223488882Z"
+    created: "2020-04-24T10:43:35.504262062Z"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -11,7 +11,7 @@ entries:
       version: ~8.6
     description: |
       Dependency-Track is an intelligent Software Supply Chain Component Analysis platform that allows organizations to identify and reduce risk from the use of third-party and open source components. Dependency-Track takes a unique and highly beneficial approach by leveraging the capabilities of Software Bill-of-Materials (SBOM). This approach provides capabilities that traditional Software Composition Analysis (SCA) solutions cannot achieve.
-    digest: 6e39ab4180899d4e8c69349250fdbdc2d00a0ee9237b3038c2d5d440236da804
+    digest: f2f58496a190ffcceae467d8f2f8e92ebd6261199f9bd694cc306cc778a400d2
     home: https://dependencytrack.org/
     icon: https://www.owasp.org/images/e/e9/Dependency-Track-logo-large.png
     keywords:
@@ -32,7 +32,7 @@ entries:
     version: 0.2.1
   - apiVersion: v1
     appVersion: 3.8.0
-    created: "2020-04-01T21:43:47.220505273Z"
+    created: "2020-04-24T10:43:35.499758157Z"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -61,7 +61,7 @@ entries:
     version: 0.2.0
   - apiVersion: v1
     appVersion: 3.7.1
-    created: "2020-04-01T21:43:47.216094361Z"
+    created: "2020-04-24T10:43:35.495136451Z"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -90,7 +90,7 @@ entries:
     version: 0.1.1
   - apiVersion: v1
     appVersion: 3.7.1
-    created: "2020-04-01T21:43:47.213257852Z"
+    created: "2020-04-24T10:43:35.491250347Z"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -119,7 +119,7 @@ entries:
     version: 0.1.0
   - apiVersion: v1
     appVersion: 3.7.1
-    created: "2020-04-01T21:43:47.209441841Z"
+    created: "2020-04-24T10:43:35.486972842Z"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -148,7 +148,7 @@ entries:
     version: 0.0.6
   - apiVersion: v1
     appVersion: 3.7.1
-    created: "2020-04-01T21:43:47.204426126Z"
+    created: "2020-04-24T10:43:35.482183537Z"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -177,7 +177,7 @@ entries:
     version: 0.0.5
   - apiVersion: v1
     appVersion: 3.7.1
-    created: "2020-04-01T21:43:47.200472815Z"
+    created: "2020-04-24T10:43:35.478452532Z"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -206,7 +206,7 @@ entries:
     version: 0.0.4
   - apiVersion: v1
     appVersion: 3.7.1
-    created: "2020-04-01T21:43:47.196523203Z"
+    created: "2020-04-24T10:43:35.474523128Z"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -235,7 +235,7 @@ entries:
     version: 0.0.3
   - apiVersion: v1
     appVersion: 3.7.1
-    created: "2020-04-01T21:43:47.185726072Z"
+    created: "2020-04-24T10:43:35.469338722Z"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -264,7 +264,7 @@ entries:
     version: 0.0.2
   - apiVersion: v1
     appVersion: 3.7.0
-    created: "2020-04-01T21:43:47.183024964Z"
+    created: "2020-04-24T10:43:35.465353818Z"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -294,7 +294,28 @@ entries:
   mcrouter:
   - apiVersion: v1
     appVersion: 0.40.0
-    created: "2020-04-01T21:43:47.234231614Z"
+    created: "2020-04-24T10:43:35.522319182Z"
+    dependencies:
+    - condition: mcrouter.memcached.enabled
+      name: memcached
+      repository: https://charts.bitnami.com/bitnami
+      version: ~4.2
+    description: Mcrouter is a memcached protocol router for scaling memcached deployments.
+    digest: 4622b13c8f52a33b678528be70875d0d64630e5d12738989adee9f8c959b3677
+    home: https://github.com/facebook/mcrouter
+    maintainers:
+    - email: david@davidkarlsen.com
+      name: davidkarlsen
+    name: mcrouter
+    sources:
+    - https://github.com/facebook/mcrouter
+    - https://github.com/evryfs/docker-mcrouter
+    urls:
+    - mcrouter-0.0.9.tgz
+    version: 0.0.9
+  - apiVersion: v1
+    appVersion: 0.40.0
+    created: "2020-04-24T10:43:35.519998779Z"
     dependencies:
     - condition: mcrouter.memcached.enabled
       name: memcached
@@ -315,7 +336,7 @@ entries:
     version: 0.0.8
   - apiVersion: v1
     appVersion: 0.40.0
-    created: "2020-04-01T21:43:47.23293241Z"
+    created: "2020-04-24T10:43:35.517409276Z"
     dependencies:
     - condition: mcrouter.memcached.enabled
       name: memcached
@@ -336,7 +357,7 @@ entries:
     version: 0.0.7
   - apiVersion: v1
     appVersion: 0.40.0
-    created: "2020-04-01T21:43:47.231499606Z"
+    created: "2020-04-24T10:43:35.515163374Z"
     dependencies:
     - condition: mcrouter.memcached.enabled
       name: memcached
@@ -357,7 +378,7 @@ entries:
     version: 0.0.6
   - apiVersion: v1
     appVersion: 0.40.0
-    created: "2020-04-01T21:43:47.2297189Z"
+    created: "2020-04-24T10:43:35.512731071Z"
     dependencies:
     - condition: mcrouter.memcached.enabled
       name: memcached
@@ -378,7 +399,7 @@ entries:
     version: 0.0.5
   - apiVersion: v1
     appVersion: 0.40.0
-    created: "2020-04-01T21:43:47.227689194Z"
+    created: "2020-04-24T10:43:35.510543969Z"
     dependencies:
     - condition: mcrouter.memcached.enabled
       name: memcached
@@ -399,7 +420,7 @@ entries:
     version: 0.0.4
   - apiVersion: v1
     appVersion: 0.40.0
-    created: "2020-04-01T21:43:47.226386791Z"
+    created: "2020-04-24T10:43:35.508771267Z"
     dependencies:
     - condition: mcrouter.memcached.enabled
       name: memcached
@@ -420,7 +441,7 @@ entries:
     version: 0.0.3
   - apiVersion: v1
     appVersion: 0.40.0
-    created: "2020-04-01T21:43:47.225431188Z"
+    created: "2020-04-24T10:43:35.507425865Z"
     dependencies:
     - condition: mcrouter.memcached.enabled
       name: memcached
@@ -441,7 +462,7 @@ entries:
     version: 0.0.2
   - apiVersion: v1
     appVersion: 0.40.0
-    created: "2020-04-01T21:43:47.224473785Z"
+    created: "2020-04-24T10:43:35.505799063Z"
     dependencies:
     - condition: mcrouter.memcached.enabled
       name: memcached
@@ -463,9 +484,9 @@ entries:
   opsgenie-marid:
   - apiVersion: v1
     appVersion: v2.15.0
-    created: "2020-04-01T21:43:47.236656121Z"
+    created: "2020-04-24T10:43:35.525156185Z"
     description: A Helm chart for Kubernetes
-    digest: 88e0ef31a33b791a772569b3d9f41e22353ecaf4d15f115284dbf18b68a7c268
+    digest: c6993b237339dddc2ab79d570afb5f98bc1d74196147cb7354cba9bdb5ef3a7f
     home: https://docs.opsgenie.com/docs/marid-integration-server-for-opsgenie
     icon: https://wac-cdn.atlassian.com/dam/jcr:8dbf0e36-5b84-4205-8dcb-3f7e94240ae7/marid-logo@2x.png?cdnVersion=565
     keywords:
@@ -482,7 +503,7 @@ entries:
     version: 0.1.4
   - apiVersion: v1
     appVersion: v2.15.0
-    created: "2020-04-01T21:43:47.236131719Z"
+    created: "2020-04-24T10:43:35.524482884Z"
     description: A Helm chart for Kubernetes
     digest: 6a7ccb7611cb500b1434020d9ee6cd53c2367e400bdef00a9d8a4898ebf074fb
     home: https://docs.opsgenie.com/docs/marid-integration-server-for-opsgenie
@@ -501,7 +522,7 @@ entries:
     version: 0.1.3
   - apiVersion: v1
     appVersion: v2.15.0
-    created: "2020-04-01T21:43:47.235610118Z"
+    created: "2020-04-24T10:43:35.523796184Z"
     description: A Helm chart for Kubernetes
     digest: 253256b68851f4cb3b9d0dfb917e872d51fe2d953d329bc33b2915b15f947c6c
     home: https://docs.opsgenie.com/docs/marid-integration-server-for-opsgenie
@@ -520,7 +541,7 @@ entries:
     version: 0.1.2
   - apiVersion: v1
     appVersion: "1.0"
-    created: "2020-04-01T21:43:47.234863715Z"
+    created: "2020-04-24T10:43:35.523113083Z"
     description: A Helm chart for Kubernetes
     digest: 4e841c7315f987bdd537b3d3eb5279158be6f50734a8d4639810cb0452bb8e17
     home: https://docs.opsgenie.com/docs/marid-integration-server-for-opsgenie
@@ -539,7 +560,7 @@ entries:
     version: 0.1.1
   - apiVersion: v1
     appVersion: "1.0"
-    created: "2020-04-01T21:43:47.237223022Z"
+    created: "2020-04-24T10:43:35.525783486Z"
     description: A Helm chart for Kubernetes
     digest: 43333a8c8575132c0664a5cf93a1c61d5aeadd298842c3d4312a76d8bfdeb24b
     home: https://docs.opsgenie.com/docs/marid-integration-server-for-opsgenie
@@ -556,4 +577,4 @@ entries:
     urls:
     - opsgenie-marid/opsgenie-marid-0.1.0.tgz
     version: 0.1.0
-generated: "2020-04-01T21:43:47.179541554Z"
+generated: "2020-04-24T10:43:35.416365862Z"
