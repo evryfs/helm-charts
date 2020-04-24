@@ -25,8 +25,7 @@ spec:
         release: "{{ .Release.Name }}"
         heritage: "{{ .Release.Service }}"
     spec:
-      nodeSelector:
-{{ toYaml .Values.nodeSelector | indent 8 }}
+      nodeSelector: {{ toYaml .Values.nodeSelector | nindent 8 }}
       affinity:
         podAntiAffinity:
         {{- if eq .Values.statefulset.antiAffinity "hard" }}
@@ -46,8 +45,7 @@ spec:
                   app:  {{ template "fullname" . }}
                   release: {{ .Release.Name | quote }}
         {{- end }}
-      securityContext:
-{{ toYaml .Values.securityContext | indent 8 }}
+      securityContext: {{ toYaml .Values.securityContext | nindent 8 }}
       containers:
       - name: {{ template "fullname" . }}
         image: {{ .Values.image }}
@@ -56,6 +54,7 @@ spec:
         args:
         - -p {{ .Values.mcrouterCommandParams.port }}
         - --config-file=/etc/mcrouter/config.json
+        securityContext: {{ toYaml .Values.containerSecurityContext | nindent 10 }}
         volumeMounts:
         - name: config
           mountPath: /etc/mcrouter

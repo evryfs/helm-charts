@@ -61,8 +61,10 @@ exporter:
   resources: {}
 
 securityContext:
-  readOnlyRootFileSystem: true
   runAsNonRoot: true
-  allowPrivilegeEscalation: false
   runAsUser: 65534
   runAsGroup: 65534
+
+containerSecurityContext:
+  allowPrivilegeEscalation: false
+  readOnlyRootFilesystem: true
