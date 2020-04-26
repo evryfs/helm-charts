@@ -12,7 +12,7 @@ sources:
   - https://github.com/evryfs/github-actions-runner-operator/
   - https://github.com/evryfs/helm-charts/
 maintainers:
-  - name: David J. M. karlsen
+  - name: davidkarlsen
     email: david.karlsen@evry.com
     url: https://github.com/davidkarlsen/
 icon: https://media-exp1.licdn.com/dms/image/C4D0BAQFZ80eOhCewVw/company-logo_200_200/0?e=2159024400&v=beta&t=XFbeA46Og-bBC5Th2aFMwXfB1FssEqN5lx-hKraJuAg
