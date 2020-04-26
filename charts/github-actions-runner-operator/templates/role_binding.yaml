@@ -1,0 +1,14 @@
+kind: {{- if .Values.clusterScoped }} ClusterRoleBinding {{ else }} RoleBinding {{- end }}
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: {{ include "github-actions-runner-operator.fullname" . }}
+subjects:
+- kind: ServiceAccount
+  name: {{ include "github-actions-runner-operator.fullname" . }}
+{{- if .Values.clusterScoped }}
+  namespace: {{ .Release.Namespace }}
+{{- end }}
+roleRef:
+  kind: {{- if .Values.clusterScoped }} ClusterRole {{ else }} Role {{- end }}
+  name: {{ include "github-actions-runner-operator.fullname" . }}
+  apiGroup: rbac.authorization.k8s.io
