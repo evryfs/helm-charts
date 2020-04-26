@@ -1,0 +1,1 @@
+1. Install runners by defining githubactionrunner resources as described on: https://github.com/evryfs/github-actions-runner-operator/
