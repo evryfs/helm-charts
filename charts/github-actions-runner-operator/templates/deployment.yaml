@@ -6,6 +6,8 @@ metadata:
     {{- include "github-actions-runner-operator.labels" . | nindent 4 }}
 spec:
   replicas: 1
+  strategy:
+    type: Recreate
   selector:
     matchLabels:
       {{- include "github-actions-runner-operator.selectorLabels" . | nindent 6 }}
