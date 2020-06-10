@@ -45,8 +45,10 @@ app.kubernetes.io/managed-by: {{ .Release.Service }}
 
 {{/*
 Selector labels
+"name" is added so that the generated serviceobject selectors will work
 */}}
 {{- define "github-actions-runner-operator.selectorLabels" -}}
+name: {{ include "github-actions-runner-operator.name" . }}
 app.kubernetes.io/name: {{ include "github-actions-runner-operator.name" . }}
 app.kubernetes.io/instance: {{ .Release.Name }}
 {{- end }}
