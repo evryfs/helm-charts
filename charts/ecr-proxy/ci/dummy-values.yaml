@@ -1,0 +1,11 @@
+env:
+  - name: UPSTREAM
+    value: https://someaccount.dkr.ecr.eu-north-1.amazonaws.com
+  - name: AWS_REGION
+    value: eu-north-1
+  - name: RESOLVER
+    value: kube-dns.kube-system.svc
+secret:
+  create: true
+  awsAccessKeyId: dummy
+  awsSecretAccessKey: dummy
