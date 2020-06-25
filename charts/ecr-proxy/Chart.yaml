@@ -15,6 +15,7 @@ maintainers:
 - name: davidkarlsen
   email: david@davidkarlsen.com
 sources:
+- https://github.com/evryfs/helm-charts/tree/master/charts/ecr-proxy
 - https://github.com/Lotto24/aws-ecr-http-proxy/
 - https://hub.docker.com/r/esailors/aws-ecr-http-proxy/
 
@@ -31,7 +32,7 @@ type: application
 # This is the chart version. This version number should be incremented each time you make changes
 # to the chart and its templates, including the app version.
 # Versions are expected to follow Semantic Versioning (https://semver.org/)
-version: 0.2.0
+version: 0.2.1
 
 # This is the version number of the application being deployed. This version number should be
 # incremented each time you make changes to the application. Versions are not expected to
