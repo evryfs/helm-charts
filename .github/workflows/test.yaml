@@ -13,7 +13,7 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v1
     - name: Shellcheck
-      uses: ludeeus/action-shellcheck@0.4.1
+      uses: ludeeus/action-shellcheck@0.5.0
     - name: Install kind
       uses: helm/kind-action@v1.0.0-rc.1
       with:
