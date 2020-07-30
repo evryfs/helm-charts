@@ -3,7 +3,7 @@ entries:
   dependency-track:
   - apiVersion: v1
     appVersion: 3.8.0
-    created: "2020-07-30T06:52:17.137208136Z"
+    created: "2020-07-30T19:30:08.130664776Z"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -11,7 +11,7 @@ entries:
       version: ~8.10
     description: |
       Dependency-Track is an intelligent Software Supply Chain Component Analysis platform that allows organizations to identify and reduce risk from the use of third-party and open source components. Dependency-Track takes a unique and highly beneficial approach by leveraging the capabilities of Software Bill-of-Materials (SBOM). This approach provides capabilities that traditional Software Composition Analysis (SCA) solutions cannot achieve.
-    digest: 002d607b1a0125be1acc60a237f0c826ce8bbdb0f4406a34f0031e2625b52f5c
+    digest: 82266f3093ce1b422e78fc87aac9a0344d2d6ff7ff00413243cedeea1c5329da
     home: https://dependencytrack.org/
     icon: https://www.owasp.org/images/e/e9/Dependency-Track-logo-large.png
     keywords:
@@ -32,7 +32,7 @@ entries:
     version: 0.2.3
   - apiVersion: v1
     appVersion: 3.8.0
-    created: "2020-07-30T06:52:17.133261342Z"
+    created: "2020-07-30T19:30:08.126551139Z"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -61,7 +61,7 @@ entries:
     version: 0.2.2
   - apiVersion: v1
     appVersion: 3.8.0
-    created: "2020-07-30T06:52:17.127160352Z"
+    created: "2020-07-30T19:30:08.121609695Z"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -90,7 +90,7 @@ entries:
     version: 0.2.1
   - apiVersion: v1
     appVersion: 3.8.0
-    created: "2020-07-30T06:52:17.123046059Z"
+    created: "2020-07-30T19:30:08.115634041Z"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -119,7 +119,7 @@ entries:
     version: 0.2.0
   - apiVersion: v1
     appVersion: 3.7.1
-    created: "2020-07-30T06:52:17.119077166Z"
+    created: "2020-07-30T19:30:08.111970709Z"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -148,7 +148,7 @@ entries:
     version: 0.1.1
   - apiVersion: v1
     appVersion: 3.7.1
-    created: "2020-07-30T06:52:17.114413373Z"
+    created: "2020-07-30T19:30:08.108195375Z"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -177,7 +177,7 @@ entries:
     version: 0.1.0
   - apiVersion: v1
     appVersion: 3.7.1
-    created: "2020-07-30T06:52:17.11056108Z"
+    created: "2020-07-30T19:30:08.104058838Z"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -206,7 +206,7 @@ entries:
     version: 0.0.6
   - apiVersion: v1
     appVersion: 3.7.1
-    created: "2020-07-30T06:52:17.093297008Z"
+    created: "2020-07-30T19:30:08.099857101Z"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -235,7 +235,7 @@ entries:
     version: 0.0.5
   - apiVersion: v1
     appVersion: 3.7.1
-    created: "2020-07-30T06:52:17.087936017Z"
+    created: "2020-07-30T19:30:08.096053767Z"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -264,7 +264,7 @@ entries:
     version: 0.0.4
   - apiVersion: v1
     appVersion: 3.7.1
-    created: "2020-07-30T06:52:17.082978425Z"
+    created: "2020-07-30T19:30:08.092403434Z"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -293,7 +293,7 @@ entries:
     version: 0.0.3
   - apiVersion: v1
     appVersion: 3.7.1
-    created: "2020-07-30T06:52:17.078826932Z"
+    created: "2020-07-30T19:30:08.08633858Z"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -322,7 +322,7 @@ entries:
     version: 0.0.2
   - apiVersion: v1
     appVersion: 3.7.0
-    created: "2020-07-30T06:52:17.075071238Z"
+    created: "2020-07-30T19:30:08.056421514Z"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -352,9 +352,9 @@ entries:
   ecr-proxy:
   - apiVersion: v2
     appVersion: 1.4.0
-    created: "2020-07-30T06:52:17.139209833Z"
+    created: "2020-07-30T19:30:08.132562692Z"
     description: A Helm chart for Kubernetes
-    digest: 03bcf1a343b891ec4e2b884da6561a85f2bff401bf57ae15ccb7f89119713ca8
+    digest: 439c50c55ed8e2036d57fa970c85ace4faa653d3671eb5d8e863301df7926ba5
     home: https://github.com/Lotto24/aws-ecr-http-proxy/
     icon: https://xebialabs.com/wp-content/uploads/2018/10/AWS-ECR-logo-1.jpg
     keywords:
@@ -379,7 +379,7 @@ entries:
     version: 0.2.1
   - apiVersion: v2
     appVersion: 1.4.0
-    created: "2020-07-30T06:52:17.138539734Z"
+    created: "2020-07-30T19:30:08.131903787Z"
     description: A Helm chart for Kubernetes
     digest: af1de23a96d8689313363dcda69078f0613e51837cb3717557fbe8f77fc9b9da
     home: https://github.com/Lotto24/aws-ecr-http-proxy/
@@ -405,7 +405,7 @@ entries:
     version: 0.2.0
   - apiVersion: v2
     appVersion: 1.3.0
-    created: "2020-07-30T06:52:17.137866935Z"
+    created: "2020-07-30T19:30:08.131296481Z"
     description: A Helm chart for Kubernetes
     digest: 757607c106f373db395ee13654c2bb4c9c2a1f054e76fe6e1bedb34744623e35
     home: https://github.com/Lotto24/aws-ecr-http-proxy/
@@ -432,9 +432,9 @@ entries:
   github-actions-runner-operator:
   - apiVersion: v2
     appVersion: v0.2.1
-    created: "2020-07-30T06:52:17.166098488Z"
+    created: "2020-07-30T19:30:08.159032628Z"
     description: A Helm chart for the github action runner operator.
-    digest: 4b566e7fff3cea82cdc85ba1f3293d08b376e2a5ce12513375b6e724e84a556a
+    digest: b39d864fdf54168474765f751a067b747d976e10ba2bc6497e57e1e2d91f6a27
     home: https://github.com/evryfs/github-actions-runner-operator/
     icon: https://media-exp1.licdn.com/dms/image/C4D0BAQFZ80eOhCewVw/company-logo_200_200/0?e=2159024400&v=beta&t=XFbeA46Og-bBC5Th2aFMwXfB1FssEqN5lx-hKraJuAg
     keywords:
@@ -457,7 +457,7 @@ entries:
     version: 1.1.0
   - apiVersion: v2
     appVersion: v0.1.6
-    created: "2020-07-30T06:52:17.162781694Z"
+    created: "2020-07-30T19:30:08.156749508Z"
     description: A Helm chart for the github action runner operator.
     digest: a70feebe3343451b2d65d124e08d6e189144d29b44737ae865d659c16fd908ae
     home: https://github.com/evryfs/github-actions-runner-operator/
@@ -482,7 +482,7 @@ entries:
     version: 1.0.0
   - apiVersion: v2
     appVersion: v0.1.6
-    created: "2020-07-30T06:52:17.160573997Z"
+    created: "2020-07-30T19:30:08.15355648Z"
     description: A Helm chart for the github action runner operator.
     digest: 5fefd7304f6ac1da45b54e6c94ce8029b48b421b4a4a521dde30e81d9a5cb7f7
     home: https://github.com/evryfs/github-actions-runner-operator/
@@ -507,7 +507,7 @@ entries:
     version: 0.1.7
   - apiVersion: v2
     appVersion: v0.1.5
-    created: "2020-07-30T06:52:17.158417601Z"
+    created: "2020-07-30T19:30:08.151110758Z"
     description: A Helm chart for the github action runner operator.
     digest: 7b0a0f0ee9569f4dec479533c21e4de39235d40d02e738254e18af6ee1b56b1f
     home: https://github.com/evryfs/github-actions-runner-operator/
@@ -532,7 +532,7 @@ entries:
     version: 0.1.6
   - apiVersion: v2
     appVersion: v0.1.4
-    created: "2020-07-30T06:52:17.156018105Z"
+    created: "2020-07-30T19:30:08.148805737Z"
     description: A Helm chart for the github action runner operator.
     digest: f5f8616708e32d36f346226540ef887a6f895dd8848118a218c62741599053e0
     home: https://github.com/evryfs/github-actions-runner-operator/
@@ -557,7 +557,7 @@ entries:
     version: 0.1.5
   - apiVersion: v2
     appVersion: v0.1.3
-    created: "2020-07-30T06:52:17.15310311Z"
+    created: "2020-07-30T19:30:08.146486017Z"
     description: A Helm chart for the github action runner operator.
     digest: bd74da369414da165e14ec260bbc34d0ec8d89a1c5b24f73c4af819a2b9d76e1
     home: https://github.com/evryfs/github-actions-runner-operator/
@@ -582,7 +582,7 @@ entries:
     version: 0.1.4
   - apiVersion: v2
     appVersion: v0.1.2
-    created: "2020-07-30T06:52:17.150619714Z"
+    created: "2020-07-30T19:30:08.143611691Z"
     description: A Helm chart for the github action runner operator.
     digest: 7c67f7ab303d40024f5b4450837563711644548889a993c222f23855819a0a0f
     home: https://github.com/evryfs/github-actions-runner-operator/
@@ -607,7 +607,7 @@ entries:
     version: 0.1.3
   - apiVersion: v2
     appVersion: v0.1.2
-    created: "2020-07-30T06:52:17.147832818Z"
+    created: "2020-07-30T19:30:08.140894367Z"
     description: A Helm chart for the github action runner operator.
     digest: 5a6c994a6e8f4b2696fb8826a25ada812ca0490925d040d0308ecd8bbdc6d4a6
     home: https://github.com/evryfs/github-actions-runner-operator/
@@ -632,7 +632,7 @@ entries:
     version: 0.1.2
   - apiVersion: v2
     appVersion: v0.1.1
-    created: "2020-07-30T06:52:17.145587722Z"
+    created: "2020-07-30T19:30:08.138245943Z"
     description: A Helm chart for the github action runner operator.
     digest: 3a07371cdfd18d513364d719a832c3ab2a0a8fdeed23a5df3c764f12fa748f7e
     home: https://github.com/evryfs/github-actions-runner-operator/
@@ -657,7 +657,7 @@ entries:
     version: 0.1.1
   - apiVersion: v2
     appVersion: 0.0.4
-    created: "2020-07-30T06:52:17.141723428Z"
+    created: "2020-07-30T19:30:08.135909522Z"
     description: A Helm chart for the github action runner operator.
     digest: 3856793d141b9104856d3d2994e781f85df4e2c5ec82dae1c2e634c7378f23aa
     home: https://github.com/evryfs/github-actions-runner-operator/
@@ -683,7 +683,28 @@ entries:
   mcrouter:
   - apiVersion: v1
     appVersion: 0.40.0
-    created: "2020-07-30T06:52:17.169115883Z"
+    created: "2020-07-30T19:30:08.163634369Z"
+    dependencies:
+    - condition: mcrouter.memcached.enabled
+      name: memcached
+      repository: https://charts.bitnami.com/bitnami
+      version: ~4.2
+    description: Mcrouter is a memcached protocol router for scaling memcached deployments.
+    digest: a49f37c32032e0a861a18883d496d2bd23ce78a5d21256d2b747a67480872bcd
+    home: https://github.com/facebook/mcrouter
+    maintainers:
+    - email: david@davidkarlsen.com
+      name: davidkarlsen
+    name: mcrouter
+    sources:
+    - https://github.com/facebook/mcrouter
+    - https://github.com/evryfs/docker-mcrouter
+    urls:
+    - mcrouter-0.0.11.tgz
+    version: 0.0.11
+  - apiVersion: v1
+    appVersion: 0.40.0
+    created: "2020-07-30T19:30:08.161896854Z"
     dependencies:
     - condition: mcrouter.memcached.enabled
       name: memcached
@@ -704,7 +725,7 @@ entries:
     version: 0.0.10
   - apiVersion: v1
     appVersion: 0.40.0
-    created: "2020-07-30T06:52:17.186329155Z"
+    created: "2020-07-30T19:30:08.177574794Z"
     dependencies:
     - condition: mcrouter.memcached.enabled
       name: memcached
@@ -725,7 +746,7 @@ entries:
     version: 0.0.9
   - apiVersion: v1
     appVersion: 0.40.0
-    created: "2020-07-30T06:52:17.184380258Z"
+    created: "2020-07-30T19:30:08.17601758Z"
     dependencies:
     - condition: mcrouter.memcached.enabled
       name: memcached
@@ -746,7 +767,7 @@ entries:
     version: 0.0.8
   - apiVersion: v1
     appVersion: 0.40.0
-    created: "2020-07-30T06:52:17.181570263Z"
+    created: "2020-07-30T19:30:08.174285364Z"
     dependencies:
     - condition: mcrouter.memcached.enabled
       name: memcached
@@ -767,7 +788,7 @@ entries:
     version: 0.0.7
   - apiVersion: v1
     appVersion: 0.40.0
-    created: "2020-07-30T06:52:17.179709766Z"
+    created: "2020-07-30T19:30:08.17268635Z"
     dependencies:
     - condition: mcrouter.memcached.enabled
       name: memcached
@@ -788,7 +809,7 @@ entries:
     version: 0.0.6
   - apiVersion: v1
     appVersion: 0.40.0
-    created: "2020-07-30T06:52:17.177923369Z"
+    created: "2020-07-30T19:30:08.170968535Z"
     dependencies:
     - condition: mcrouter.memcached.enabled
       name: memcached
@@ -809,7 +830,7 @@ entries:
     version: 0.0.5
   - apiVersion: v1
     appVersion: 0.40.0
-    created: "2020-07-30T06:52:17.176127472Z"
+    created: "2020-07-30T19:30:08.167879107Z"
     dependencies:
     - condition: mcrouter.memcached.enabled
       name: memcached
@@ -830,7 +851,7 @@ entries:
     version: 0.0.4
   - apiVersion: v1
     appVersion: 0.40.0
-    created: "2020-07-30T06:52:17.171716779Z"
+    created: "2020-07-30T19:30:08.166172092Z"
     dependencies:
     - condition: mcrouter.memcached.enabled
       name: memcached
@@ -851,7 +872,7 @@ entries:
     version: 0.0.3
   - apiVersion: v1
     appVersion: 0.40.0
-    created: "2020-07-30T06:52:17.170411281Z"
+    created: "2020-07-30T19:30:08.164975381Z"
     dependencies:
     - condition: mcrouter.memcached.enabled
       name: memcached
@@ -872,7 +893,7 @@ entries:
     version: 0.0.2
   - apiVersion: v1
     appVersion: 0.40.0
-    created: "2020-07-30T06:52:17.167383186Z"
+    created: "2020-07-30T19:30:08.16029814Z"
     dependencies:
     - condition: mcrouter.memcached.enabled
       name: memcached
@@ -894,9 +915,9 @@ entries:
   opsgenie-marid:
   - apiVersion: v1
     appVersion: v2.15.0
-    created: "2020-07-30T06:52:17.18921115Z"
+    created: "2020-07-30T19:30:08.180144117Z"
     description: A Helm chart for Kubernetes
-    digest: 2ad36cfda969082654889972cc90604393d6e1b8c736bfaaa1254c50729fa5de
+    digest: a348db81a5701d915a17a65b1f925d1fd8b570f910b461e28281e89b68a225d3
     home: https://docs.opsgenie.com/docs/marid-integration-server-for-opsgenie
     icon: https://wac-cdn.atlassian.com/dam/jcr:8dbf0e36-5b84-4205-8dcb-3f7e94240ae7/marid-logo@2x.png?cdnVersion=565
     keywords:
@@ -913,7 +934,7 @@ entries:
     version: 0.1.4
   - apiVersion: v1
     appVersion: v2.15.0
-    created: "2020-07-30T06:52:17.188488051Z"
+    created: "2020-07-30T19:30:08.179484611Z"
     description: A Helm chart for Kubernetes
     digest: 6a7ccb7611cb500b1434020d9ee6cd53c2367e400bdef00a9d8a4898ebf074fb
     home: https://docs.opsgenie.com/docs/marid-integration-server-for-opsgenie
@@ -932,7 +953,7 @@ entries:
     version: 0.1.3
   - apiVersion: v1
     appVersion: v2.15.0
-    created: "2020-07-30T06:52:17.187825652Z"
+    created: "2020-07-30T19:30:08.178826305Z"
     description: A Helm chart for Kubernetes
     digest: 253256b68851f4cb3b9d0dfb917e872d51fe2d953d329bc33b2915b15f947c6c
     home: https://docs.opsgenie.com/docs/marid-integration-server-for-opsgenie
@@ -951,7 +972,7 @@ entries:
     version: 0.1.2
   - apiVersion: v1
     appVersion: "1.0"
-    created: "2020-07-30T06:52:17.187135153Z"
+    created: "2020-07-30T19:30:08.178201799Z"
     description: A Helm chart for Kubernetes
     digest: 4e841c7315f987bdd537b3d3eb5279158be6f50734a8d4639810cb0452bb8e17
     home: https://docs.opsgenie.com/docs/marid-integration-server-for-opsgenie
@@ -970,7 +991,7 @@ entries:
     version: 0.1.1
   - apiVersion: v1
     appVersion: "1.0"
-    created: "2020-07-30T06:52:17.189894149Z"
+    created: "2020-07-30T19:30:08.180862123Z"
     description: A Helm chart for Kubernetes
     digest: 43333a8c8575132c0664a5cf93a1c61d5aeadd298842c3d4312a76d8bfdeb24b
     home: https://docs.opsgenie.com/docs/marid-integration-server-for-opsgenie
@@ -987,4 +1008,4 @@ entries:
     urls:
     - opsgenie-marid/opsgenie-marid-0.1.0.tgz
     version: 0.1.0
-generated: "2020-07-30T06:52:17.049127481Z"
+generated: "2020-07-30T19:30:08.052280377Z"
