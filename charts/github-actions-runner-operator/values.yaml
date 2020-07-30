@@ -6,7 +6,7 @@ image:
   repository: quay.io/evryfs/github-actions-runner-operator
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart version.
-  tag: v0.2.1
+  tag: kubebuilder
 
 imagePullSecrets: []
 nameOverride: ""
@@ -44,10 +44,10 @@ resources: {}
   # lines, adjust them as necessary, and remove the curly braces after 'resources:'.
   # limits:
   #   cpu: 100m
-  #   memory: 128Mi
+  #   memory: 30Mi
   # requests:
   #   cpu: 100m
-  #   memory: 128Mi
+  #   memory: 20Mi
 
 nodeSelector: {}
 

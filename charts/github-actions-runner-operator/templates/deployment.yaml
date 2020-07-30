@@ -33,6 +33,11 @@ spec:
             {{- toYaml .Values.securityContext | nindent 12 }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
+          command:
+            - /manager
+          args:
+            - --enable-leader-election
+            - --health-probe-addr=:8081
           env:
             - name: WATCH_NAMESPACE
               value: {{- if .Values.clusterScoped }} "" {{ else }}{{.Release.namespace}}{{- end }}
@@ -44,19 +49,19 @@ spec:
               value: {{ .Release.Name }}
           ports:
             - name: metrics
-              containerPort: 8383
+              containerPort: 8080
               protocol: TCP
-            - name: opr-metrics
-              containerPort: 8686
+            - name: health-probe
+              containerPort: 8081
               protocol: TCP
           livenessProbe:
             httpGet:
               path: /healthz
-              port: opr-metrics
+              port: health-probe
           readinessProbe:
             httpGet:
-              path: /healthz
-              port: opr-metrics
+              path: /readyz
+              port: health-probe
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
       {{- with .Values.nodeSelector }}
