@@ -37,7 +37,6 @@ spec:
             - /manager
           args:
             - --enable-leader-election
-            - --health-probe-addr=:8081
           env:
             - name: WATCH_NAMESPACE
               value: {{- if .Values.clusterScoped }} "" {{ else }}{{.Release.namespace}}{{- end }}
