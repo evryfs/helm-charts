@@ -40,10 +40,6 @@ spec:
           env:
             - name: WATCH_NAMESPACE
               value: {{- if .Values.clusterScoped }} "" {{ else }}{{.Release.namespace}}{{- end }}
-            - name: POD_NAME
-              valueFrom:
-                fieldRef:
-                  fieldPath: metadata.name
           ports:
             - name: metrics
               containerPort: 8080
