@@ -43,6 +43,8 @@ securityContext:
 service:
   type: ClusterIP
   port: 80
+  annotations: {}
+    # cloud.google.com/load-balancer-type: "Internal"
 
 ingress:
   enabled: false
