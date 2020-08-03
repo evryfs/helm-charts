@@ -1,6 +1,11 @@
+
+---
 apiVersion: apiextensions.k8s.io/v1beta1
 kind: CustomResourceDefinition
 metadata:
+  annotations:
+    controller-gen.kubebuilder.io/version: v0.3.0
+  creationTimestamp: null
   name: githubactionrunners.garo.tietoevry.com
 spec:
   group: garo.tietoevry.com
@@ -5601,6 +5606,9 @@ spec:
               required:
               - containers
               type: object
+            reconciliationPeriod:
+              description: kubebuilder:default=1m
+              type: string
             repository:
               description: kubebuilder:validation:Optional
               type: string
@@ -5626,6 +5634,7 @@ spec:
           - minRunners
           - organization
           - podSpec
+          - reconciliationPeriod
           - tokenRef
           type: object
         status:
@@ -5637,3 +5646,9 @@ spec:
   - name: v1alpha1
     served: true
     storage: true
+status:
+  acceptedNames:
+    kind: ""
+    plural: ""
+  conditions: []
+  storedVersions: []

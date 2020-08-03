@@ -6,7 +6,7 @@ image:
   repository: quay.io/evryfs/github-actions-runner-operator
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart version.
-  tag: v0.2.1
+  tag: v0.3.0
 
 imagePullSecrets: []
 nameOverride: ""
@@ -25,6 +25,8 @@ serviceAccount:
 clusterScoped: true
 
 podAnnotations: {}
+  # prometheus.io/scrape: true
+  # prometheus.io/path: metrics
 
 podSecurityContext: {}
   # fsGroup: 2000
@@ -44,10 +46,10 @@ resources: {}
   # lines, adjust them as necessary, and remove the curly braces after 'resources:'.
   # limits:
   #   cpu: 100m
-  #   memory: 128Mi
+  #   memory: 30Mi
   # requests:
   #   cpu: 100m
-  #   memory: 128Mi
+  #   memory: 20Mi
 
 nodeSelector: {}
 
