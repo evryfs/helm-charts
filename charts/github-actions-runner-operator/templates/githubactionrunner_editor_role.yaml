@@ -1,0 +1,24 @@
+# permissions for end users to edit githubactionrunners.
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: {{ include "github-actions-runner-operator.fullname" . }}-editor-role
+rules:
+- apiGroups:
+  - garo.tietoevry.com
+  resources:
+  - githubactionrunners
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - garo.tietoevry.com
+  resources:
+  - githubactionrunners/status
+  verbs:
+  - get
