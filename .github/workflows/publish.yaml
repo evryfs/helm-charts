@@ -14,4 +14,4 @@ jobs:
       uses: J12934/helm-gh-pages-action@master
       with:
         deploy-branch: gh-pages
-        access-token: ${{ secrets.ACCESS_TOKEN }}
+        access-token: ${{ secrets.GITHUB_TOKEN }}
