@@ -50,6 +50,7 @@ spec:
           env:
             - name: PORT
               value: "80"
+            {{- if .Values.secret.create }}
             - name: AWS_ACCESS_KEY_ID
               valueFrom:
                 secretKeyRef:
@@ -60,6 +61,7 @@ spec:
                 secretKeyRef:
                   name: {{ include "ecr-proxy.secretName" . }}
                   key: AWS_SECRET_ACCESS_KEY
+            {{- end }}
             {{- with .Values.env }}
             {{- toYaml . | nindent 12 }}
             {{- end }}
