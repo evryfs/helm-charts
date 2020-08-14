@@ -352,6 +352,33 @@ entries:
   ecr-proxy:
   - apiVersion: v2
     appVersion: 1.4.0
+    created: "2020-08-14T23:29:02.987592645Z"
+    description: A Helm chart for Kubernetes
+    digest: 701140630f6e957480d464c68820c38dad2aceac126f78d4edc022c128c51d2d
+    home: https://github.com/Lotto24/aws-ecr-http-proxy/
+    icon: https://xebialabs.com/wp-content/uploads/2018/10/AWS-ECR-logo-1.jpg
+    keywords:
+    - ECR
+    - AWS
+    - Proxy
+    - Docker
+    - Container
+    - Image
+    - ElasticContainerRegistry
+    maintainers:
+    - email: david@davidkarlsen.com
+      name: davidkarlsen
+    name: ecr-proxy
+    sources:
+    - https://github.com/evryfs/helm-charts/tree/master/charts/ecr-proxy
+    - https://github.com/Lotto24/aws-ecr-http-proxy/
+    - https://hub.docker.com/r/esailors/aws-ecr-http-proxy/
+    type: application
+    urls:
+    - https://github.com/evryfs/helm-charts/releases/download/ecr-proxy-0.2.4/ecr-proxy-0.2.4.tgz
+    version: 0.2.4
+  - apiVersion: v2
+    appVersion: 1.4.0
     created: "2020-08-08T20:11:38.286578283Z"
     description: A Helm chart for Kubernetes
     digest: c7bae7514f2a6a3d6b518f5d93969c112292591a00e3fc691715cdf1a3e6f486
