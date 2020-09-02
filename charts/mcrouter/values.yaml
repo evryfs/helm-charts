@@ -1,5 +1,5 @@
 ## Container image
-image: quay.io/evryfs/docker-mcrouter:0.40.0-3
+image: quay.io/evryfs/docker-mcrouter:0.40.0-4
 
 ## Memcached chart parameters
 memcached:

@@ -10,7 +10,9 @@ metadata:
   annotations:
 {{ toYaml .Values.service.annotations | indent 4 }}
 spec:
-  clusterIP: {{ .Values.service.clusterIP }}
+  {{- with .Values.service.clusterIP }}
+  clusterIP: {{ . | quote }}
+  {{- end }}
   {{- with .Values.service.type }}
   type: {{ . }}
   {{- end }}
