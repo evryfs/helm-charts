@@ -83,7 +83,7 @@ spec:
           defaultMode: 256 #0440
       - name: scripts
         emptyDir:
-          defaultMode: 777
+          mode: 777
       {{- end }}
       {{- with .Values.podSecurityContext }}
       securityContext:
