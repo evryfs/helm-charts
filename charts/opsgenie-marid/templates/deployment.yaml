@@ -2,8 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: {{ include "opsgenie-marid.fullname" . }}
-  labels:
-{{ include "opsgenie-marid.labels" . | indent 4 }}
+  labels: {{ include "opsgenie-marid.labels" . | nindent 4 }}
 spec:
   replicas: {{ .Values.replicaCount }}
   selector:
