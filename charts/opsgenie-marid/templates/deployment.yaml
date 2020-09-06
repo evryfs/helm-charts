@@ -2,8 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: {{ include "opsgenie-marid.fullname" . }}
-  labels:
-{{ include "opsgenie-marid.labels" . | indent 4 }}
+  labels: {{ include "opsgenie-marid.labels" . | nindent 4 }}
 spec:
   replicas: {{ .Values.replicaCount }}
   selector:
@@ -16,17 +15,16 @@ spec:
         app.kubernetes.io/name: {{ include "opsgenie-marid.name" . }}
         app.kubernetes.io/instance: {{ .Release.Name }}
     spec:
-    {{- with .Values.imagePullSecrets }}
+      {{- with .Values.imagePullSecrets }}
       imagePullSecrets:
-        {{- toYaml . | nindent 8 }}
-    {{- end }}
+      {{- toYaml . | nindent 6 }}
+      {{- end }}
       containers:
         - name: {{ .Chart.Name }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           securityContext:
             runAsUser: 999
-            fsGroup: 65533
           {{- if .Values.env }}
           env:
           {{ toYaml .Values.env | nindent 12 }}
@@ -87,8 +85,10 @@ spec:
         emptyDir:
           defaultMode: 777
       {{- end }}
+      {{- with .Values.podSecurityContext }}
       securityContext:
-        fsGroup: 65533
+        {{ . | toYaml | nindent 8 }}
+      {{- end }}
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
