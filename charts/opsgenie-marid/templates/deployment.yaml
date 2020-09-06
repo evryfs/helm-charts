@@ -82,8 +82,7 @@ spec:
           secretName: {{ include "opsgenie-marid.fullname" . }}-sshkey
           defaultMode: 256 #0440
       - name: scripts
-        emptyDir:
-          mode: 777
+        emptyDir: {}
       {{- end }}
       {{- with .Values.podSecurityContext }}
       securityContext:
