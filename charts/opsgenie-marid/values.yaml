@@ -9,6 +9,9 @@ image:
   tag: v2.15.0-3
   pullPolicy: IfNotPresent
 
+podSecurityContext:
+  fsGroup: 65533
+
 gitSync:
   enabled: false
   image:

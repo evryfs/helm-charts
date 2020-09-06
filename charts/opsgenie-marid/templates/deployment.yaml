@@ -26,7 +26,6 @@ spec:
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           securityContext:
             runAsUser: 999
-            fsGroup: 65533
           {{- if .Values.env }}
           env:
           {{ toYaml .Values.env | nindent 12 }}
@@ -87,8 +86,10 @@ spec:
         emptyDir:
           defaultMode: 777
       {{- end }}
+      {{- with .Values.podSecurityContext }}
       securityContext:
-        fsGroup: 65533
+        {{ . | toYaml | nindent 8 }}
+      {{- end }}
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
