@@ -1138,6 +1138,25 @@ entries:
   opsgenie-marid:
   - apiVersion: v1
     appVersion: v2.15.0
+    created: "2020-09-11T22:50:31.911586974Z"
+    description: A Helm chart for Kubernetes
+    digest: 82715233b55133a4b6e5e1ba608eb4ec8711d2b76d86e673ce1504da75d52463
+    home: https://docs.opsgenie.com/docs/marid-integration-server-for-opsgenie
+    icon: https://wac-cdn.atlassian.com/dam/jcr:8dbf0e36-5b84-4205-8dcb-3f7e94240ae7/marid-logo@2x.png?cdnVersion=565
+    keywords:
+    - monitoring
+    - alerting
+    - opsgenie
+    - marid
+    maintainers:
+    - email: david@davidkarlsen.com
+      name: davidkarlsen
+    name: opsgenie-marid
+    urls:
+    - https://github.com/evryfs/helm-charts/releases/download/opsgenie-marid-0.2.0/opsgenie-marid-0.2.0.tgz
+    version: 0.2.0
+  - apiVersion: v1
+    appVersion: v2.15.0
     created: "2020-09-06T19:03:55.287828476Z"
     description: A Helm chart for Kubernetes
     digest: 49b49e8f7875ecd129db2bbeb2a2a48e63cffe81bb039190703b7053e83a7c40
