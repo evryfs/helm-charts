@@ -65,6 +65,12 @@ spec:
             mountPath: /etc/git-secret
           - name: scripts
             mountPath: /workspace
+          {{- if hasKey .Values.configmap "sshConfig" }}
+          - name: config
+            mountPath: /tmp/.ssh/config
+            readOnly: true
+            subPath: sshConfig
+          {{- end }}
           securityContext:
             runAsUser: 65533 # git-sync user
           env:

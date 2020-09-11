@@ -15,8 +15,8 @@ podSecurityContext:
 gitSync:
   enabled: false
   image:
-    repository: k8s.gcr.io/git-sync
-    tag: v3.1.6
+    repository: k8s.gcr.io/git-sync/git-sync
+    tag: v3.1.7
     pullPolicy: IfNotPresent
   sshKey: ""
   knownHosts: ""
@@ -120,6 +120,14 @@ configmap:
 #    log4j.appender.console.layout=org.apache.log4j.PatternLayout
 #    log4j.appender.console.layout.conversionPattern=%d [%t] %-5p %c - %m%n
 #    log4j.appender.console.encoding=UTF-8
+
+#  sshConfig: |
+#    Host github.com
+#    ProxyCommand socat STDIO PROXY:<theProxyHost>:%h:%p,proxyport=<theProxyPort>
+#    User git
+#    Hostname ssh.github.com
+#    Port 443
+
 
 nodeSelector: {}
 
