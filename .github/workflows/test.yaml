@@ -25,12 +25,12 @@ jobs:
         kubectl get nodes -o wide
         kubectl get pods -n kube-system
     - name: Run chart-testing (lint)
-      uses: helm/chart-testing-action@v1.0.0
+      uses: helm/chart-testing-action@v1.1.0
       with:
         command: lint
         config: ct-config.yaml
     - name: Run chart-testing (install)
-      uses: helm/chart-testing-action@v1.0.0
+      uses: helm/chart-testing-action@v1.1.0
       with:
         command: install
         config: ct-config.yaml
