@@ -16,7 +16,7 @@ gitSync:
   enabled: false
   image:
     repository: k8s.gcr.io/git-sync/git-sync
-    tag: v3.1.7
+    tag: v3.2.0
     pullPolicy: IfNotPresent
   sshKey: ""
   knownHosts: ""
