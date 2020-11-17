@@ -1,5 +1,5 @@
 name: "Test using kind and chart-testing tool"
-on: [pull_request, push]
+on: [pull_request]
 
 jobs:
   test:
@@ -11,26 +11,48 @@ jobs:
     if: github.ref != 'refs/heads/master'
     steps:
     - name: Checkout
-      uses: actions/checkout@v1
+      uses: actions/checkout@v2
+      with:
+        fetch-depth: 0
+
     - name: Shellcheck
       uses: ludeeus/action-shellcheck@1.0.0
+
+    - name: Set up Helm
+      uses: azure/setup-helm@v1
+      with:
+        version: v3.4.1
+
+    - uses: actions/setup-python@v2
+      with:
+        python-version: 3.7
+
+    - name: Set up chart-testing
+      uses: helm/chart-testing-action@v2.0.1
+
+    - name: Run chart-testing (list-changed)
+      id: list-changed
+      run: |
+        changed=$(ct list-changed --config ct-config.yaml)
+        if [[ -n "$changed" ]]; then
+          echo "::set-output name=changed::true"
+        fi
+
+    - name: Run chart-testing (lint)
+      run: ct lint --config ct-config.yaml
+
     - name: Install kind
-      uses: helm/kind-action@v1.1.0
+      if: steps.list-changed.outputs.changed == 'true'
+      uses: helm/kind-action@v1.0.0
       with:
         node_image: "kindest/node:${{ matrix.kubernetesVersion }}"
         config: kind-config.yaml
     - name: Verify kind
+      if: steps.list-changed.outputs.changed == 'true'
       run: |
         kubectl cluster-info
         kubectl get nodes -o wide
         kubectl get pods -n kube-system
-    - name: Run chart-testing (lint)
-      uses: helm/chart-testing-action@v1.1.0
-      with:
-        command: lint
-        config: ct-config.yaml
+
     - name: Run chart-testing (install)
-      uses: helm/chart-testing-action@v1.1.0
-      with:
-        command: install
-        config: ct-config.yaml
+      run: ct install --config ct-config.yaml
