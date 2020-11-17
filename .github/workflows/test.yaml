@@ -6,7 +6,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        kubernetesVersion: ["v1.13.12", "v1.17.5"]
+        kubernetesVersion: ["v1.14.10", "v1.17.11"]
     runs-on: ubuntu-latest
     if: github.ref != 'refs/heads/master'
     steps:
@@ -15,7 +15,7 @@ jobs:
     - name: Shellcheck
       uses: ludeeus/action-shellcheck@1.0.0
     - name: Install kind
-      uses: helm/kind-action@v1.0.0
+      uses: helm/kind-action@v1.1.0
       with:
         node_image: "kindest/node:${{ matrix.kubernetesVersion }}"
         config: kind-config.yaml
