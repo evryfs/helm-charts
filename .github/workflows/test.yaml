@@ -17,7 +17,6 @@ jobs:
     - name: Install kind
       uses: helm/kind-action@v1.1.0
       with:
-        node_image: "kindest/node:${{ matrix.kubernetesVersion }}"
         config: kind-config.yaml
     - name: Verify kind
       run: |
