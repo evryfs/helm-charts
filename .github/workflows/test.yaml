@@ -48,6 +48,7 @@ jobs:
         node_image: "kindest/node:${{ matrix.kubernetesVersion }}"
         config: kind-config.yaml
     - name: Verify kind
+      if: steps.list-changed.outputs.changed == 'true'
       run: |
         kubectl cluster-info
         kubectl get nodes -o wide
