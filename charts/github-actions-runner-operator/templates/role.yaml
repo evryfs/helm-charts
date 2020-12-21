@@ -34,6 +34,7 @@ rules:
   - garo.tietoevry.com
   resources:
   - githubactionrunners
+  - githubactionrunners/finalizers
   verbs:
   - create
   - delete
@@ -48,6 +49,7 @@ rules:
   - githubactionrunners/status
   verbs:
   - get
+  - delete
   - patch
   - update
 # permissions to do leader election.
@@ -78,3 +80,14 @@ rules:
   verbs:
   - create
   - patch
+- apiGroups:
+  - coordination.k8s.io
+  resources:
+  - leases
+  verbs:
+  - get
+  - create
+  - delete
+  - patch
+  - list
+  - update
