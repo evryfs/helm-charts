@@ -24,7 +24,7 @@ serviceAccount:
 # limit to target namespace or cluster-wide
 clusterScoped: true
 
-## Set WATCH_NAMESPACE, when clusterScoped is false equls the release namespace
+## Set WATCH_NAMESPACE, when clusterScoped is false equals the release namespace
 # watchNamespace:
 
 podAnnotations: {}
