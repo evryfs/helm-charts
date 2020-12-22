@@ -24,6 +24,9 @@ serviceAccount:
 # limit to target namespace or cluster-wide
 clusterScoped: true
 
+## Set WATCH_NAMESPACE, when clusterScoped is false equls the release namespace
+# watchNamespace:
+
 podAnnotations: {}
   # prometheus.io/scrape: true
   # prometheus.io/path: metrics
