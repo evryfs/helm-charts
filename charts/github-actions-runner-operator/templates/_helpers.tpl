@@ -63,3 +63,14 @@ Create the name of the service account to use
 {{- default "default" .Values.serviceAccount.name }}
 {{- end }}
 {{- end }}
+
+{{/*
+Specifies the name watch namespace to use
+*/}}
+{{- define "github-actions-runner-operator.watchNamespace" -}}
+{{- if .Values.clusterScoped -}}
+""
+{{- else -}}
+{{- .Values.watchNamespace | default .Release.Namespace | quote }}
+{{- end -}}
+{{- end -}}

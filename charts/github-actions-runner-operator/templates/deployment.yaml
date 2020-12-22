@@ -39,7 +39,7 @@ spec:
             - --enable-leader-election
           env:
             - name: WATCH_NAMESPACE
-              value: {{- if .Values.clusterScoped }} "" {{ else }}{{.Release.namespace}}{{- end }}
+              value: {{ template "github-actions-runner-operator.watchNamespace" . }}
           ports:
             - name: metrics
               containerPort: 8080
