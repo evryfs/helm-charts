@@ -14,72 +14,20 @@ rules:
   - ""
   resources:
   - pods
-  verbs:
-  - create
-  - delete
-  - get
-  - list
-  - patch
-  - update
-  - watch
-- apiGroups:
-  - ""
-  resources:
   - secrets
+  - configmaps
+  - configmaps/status
   verbs:
-  - get
-  - list
-  - watch
+  - '*'
 - apiGroups:
   - garo.tietoevry.com
   resources:
   - githubactionrunners
   - githubactionrunners/finalizers
-  verbs:
-  - create
-  - delete
-  - get
-  - list
-  - patch
-  - update
-  - watch
-- apiGroups:
-  - garo.tietoevry.com
-  resources:
   - githubactionrunners/status
   verbs:
-  - get
-  - delete
-  - patch
-  - update
+  - *
 # permissions to do leader election.
-- apiGroups:
-  - ""
-  resources:
-  - configmaps
-  verbs:
-  - get
-  - list
-  - watch
-  - create
-  - update
-  - patch
-  - delete
-- apiGroups:
-  - ""
-  resources:
-  - configmaps/status
-  verbs:
-  - get
-  - update
-  - patch
-- apiGroups:
-  - ""
-  resources:
-  - events
-  verbs:
-  - create
-  - patch
 - apiGroups:
   - coordination.k8s.io
   resources:
