@@ -43,6 +43,13 @@ spec:
           spec:
             description: GithubActionRunnerSpec defines the desired state of GithubActionRunner
             properties:
+              deletionOrder:
+                default: LeastRecent
+                description: What order to delete idle pods in
+                enum:
+                - MostRecent
+                - LeastRecent
+                type: string
               maxRunners:
                 description: Maximum pool-size. Must be greater or equal to minRunners
                 minimum: 1
@@ -6309,7 +6316,8 @@ spec:
                 description: Optional Github repository name, if repo scoped.
                 type: string
               tokenRef:
-                description: SecretKeySelector selects a key of a Secret.
+                description: PAT to un/register runners. Required if the operator
+                  is not running in github-application mode.
                 properties:
                   key:
                     description: The key of the secret to select from.  Must be a
@@ -6330,7 +6338,6 @@ spec:
             - minRunners
             - organization
             - podTemplateSpec
-            - tokenRef
             type: object
           status:
             description: GithubActionRunnerStatus defines the observed state of GithubActionRunner

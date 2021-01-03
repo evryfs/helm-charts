@@ -37,6 +37,11 @@ spec:
             - /manager
           args:
             - --enable-leader-election
+          {{- if .Values.githubapp.enabled }}
+          envFrom:
+            - secretRef:
+                name: {{ include "github-actions-runner-operator.secretName" . }}
+          {{- end }}
           env:
             - name: WATCH_NAMESPACE
               value: {{ template "github-actions-runner-operator.watchNamespace" . }}

@@ -64,6 +64,10 @@ Create the name of the service account to use
 {{- end }}
 {{- end }}
 
+{{- define "github-actions-runner-operator.secretName" -}}
+{{- default (include "github-actions-runner-operator.fullname" .) .Values.githubapp.existingSecret }}
+{{- end }}
+
 {{/*
 Specifies the name watch namespace to use
 */}}
