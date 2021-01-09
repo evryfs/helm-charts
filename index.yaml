@@ -488,6 +488,32 @@ entries:
   github-actions-runner-operator:
   - apiVersion: v2
     appVersion: v0.8.0
+    created: "2021-01-09T10:15:58.788659397Z"
+    description: A Helm chart for the github action runner operator.
+    digest: d92e0abea857e792278b85ac009ba43576455992c0d39351de5440057cdf4653
+    home: https://github.com/evryfs/github-actions-runner-operator/
+    icon: https://media-exp1.licdn.com/dms/image/C4D0BAQFZ80eOhCewVw/company-logo_200_200/0?e=2159024400&v=beta&t=XFbeA46Og-bBC5Th2aFMwXfB1FssEqN5lx-hKraJuAg
+    keywords:
+    - github
+    - action runner
+    - operator
+    - ci
+    - agent
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: david.karlsen@evry.com
+      name: davidkarlsen
+      url: https://github.com/davidkarlsen/
+    name: github-actions-runner-operator
+    sources:
+    - https://github.com/evryfs/github-actions-runner-operator/
+    - https://github.com/evryfs/helm-charts/
+    type: application
+    urls:
+    - https://github.com/evryfs/helm-charts/releases/download/github-actions-runner-operator-2.5.1/github-actions-runner-operator-2.5.1.tgz
+    version: 2.5.1
+  - apiVersion: v2
+    appVersion: v0.8.0
     created: "2021-01-03T11:58:17.716338442Z"
     description: A Helm chart for the github action runner operator.
     digest: 225c7b4bdb10599ade3db42f48c1389b4220011a6538b166cda6bec3ab6f9617
