@@ -1,96 +1,191 @@
 # Default values for dependency-track.
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
+# Since dependency-track 4.0, there are now two separate images. One for frontend, one for the apiserver.
 
-# Max: 1 - DT is not designed for HA
-replicaCount: 1
 
-image:
-  repository: docker.io/owasp/dependency-track
-  tag: 3.8.0
-  pullPolicy: IfNotPresent
 
-imagePullSecrets: []
-nameOverride: ""
-fullnameOverride: ""
-initContainers: []
+#The frontend
+frontend:
+  enabled: true
+  # Max: 1 - DT is not designed for HA
+  replicaCount: 1
+  image: 
+    registry: docker.io
+    repository: dependencytrack/frontend
+    tag: 1.1.0
+    pullPolicy: IfNotPresent
+    imagePullSecrets: []
+    ports:
+      containerPort: 8080
+    env:
+      - name: "API_BASE_URL"
+        value: "http://localhost:8081"
+    #See https://docs.dependencytrack.org/getting-started/configuration/ for frontend ENV variables.
 
-readinessProbe:
-  initialDelaySeconds: 60
+  persistentVolume:
+    enabled: true
+    size: 8Gi
+    annotations: {}
+    storageClass: ""
+  podSecurityContext:
+    fsGroup: 1000
 
-livenessProbe:
-  initialDelaySeconds: 60
+  securityContext:
+    capabilities:
+      drop:
+      - ALL
+    readOnlyRootFilesystem: false
+    runAsNonRoot: true
+    runAsUser: 1000
+    runAsGroup: 1000
 
-serviceAccount:
-  # Specifies whether a service account should be created
-  create: true
-  # The name of the service account to use.
-  # If not set and create is true, a name is generated using the fullname template
-  name:
+  ingress:
+    enabled: false
+    annotations: {}
+      # kubernetes.io/ingress.class: nginx
+      # kubernetes.io/tls-acme: "true"
+      ## allow large bom.xml uploads:
+      # nginx.ingress.kubernetes.io/proxy-body-size: 10m
+    hosts:
+      - host: chart-example.local
+        paths:
+          - "/frontend"
 
-podSecurityContext:
-  fsGroup: 1000
+  service:
+    type: ClusterIP
+    port: 80
+    annotations: {}
 
-securityContext:
-  capabilities:
-    drop:
-    - ALL
-  readOnlyRootFilesystem: true
-  runAsNonRoot: true
-  runAsUser: 1000
-  runAsGroup: 1000
+  nodeSelector: {}
+  tolerations: []
+  affinity: {}
 
-service:
-  type: ClusterIP
-  port: 80
-  annotations: {}
-    # cloud.google.com/load-balancer-type: "Internal"
+  emptyDir:
+    sizeLimit: 8Gi
 
-ingress:
-  enabled: false
-  annotations: {}
-    # kubernetes.io/ingress.class: nginx
-    # kubernetes.io/tls-acme: "true"
-    ## allow large bom.xml uploads:
-    # nginx.ingress.kubernetes.io/proxy-body-size: 10m
-  hosts:
-    - host: chart-example.local
-      paths:
-        - "/"
-
-  tls: []
-  #  - secretName: chart-example-tls
-  #    hosts:
-  #      - chart-example.local
-
-resources:
+  resources:
   # We usually recommend not to specify default resources and to leave this as a conscious
   # choice for the user. This also increases chances charts run on environments with little
   # resources, such as Minikube. If you do want to specify resources, uncomment the following
   # lines, adjust them as necessary, and remove the curly braces after 'resources:'.
-  requests:
-    cpu: 1500m
-    memory: 4Gi
-  limits:
-    cpu: 4
-    memory: 16Gi
+    requests:
+      cpu: 1500m
+      memory: 4Gi
+    limits:
+      cpu: 4
+      memory: 8Gi
 
-nodeSelector: {}
+  nameOverride: ""
+  fullnameOverride: ""
+  initContainers: []
 
-tolerations: []
+  serviceAccount:
+    # Specifies whether a service account should be created
+    create: true
+    # The name of the service account to use.
+    # If not set and create is true, a name is generated using the fullname template
+    name: frontend-serviceaccount
 
-affinity: {}
 
-env: []
-
-persistentVolume:
+#The apiserver
+apiserver:
   enabled: true
-  size: 8Gi
-  annotations: {}
-  storageClass: ""
+# Max: 1 - DT is not designed for HA
+  replicaCount: 1
+  image:
+    registry: docker.io
+    repository: dependencytrack/apiserver
+    tag: 4.0.1
+    imagePullSecrets: []
+    pullPolicy: IfNotPresent
+    ports:
+      containerPort: 8081
+    env:
 
-emptyDir:
-  sizeLimit: 8Gi
+  persistentVolume:
+    enabled: true
+    size: 8Gi
+    annotations: {}
+    storageClass: "hostpath"
+
+  podSecurityContext:
+    fsGroup: 1000
+
+  securityContext:
+    capabilities:
+      drop:
+      - ALL
+    readOnlyRootFilesystem: true
+    runAsNonRoot: true
+    runAsUser: 1000
+    runAsGroup: 1000
+
+  ingress:
+    enabled: false
+    annotations: {}
+      # kubernetes.io/ingress.class: nginx
+      # kubernetes.io/tls-acme: "true"
+      ## allow large bom.xml uploads:
+      # nginx.ingress.kubernetes.io/proxy-body-size: 10m
+    hosts:
+      - host: chart-example.local
+        paths:
+          - "/apiserver"
+
+  service:
+    type: ClusterIP
+    port: 81
+    annotations: {}
+
+  nodeSelector: {}
+  tolerations: []
+  affinity: {}
+  
+  emptyDir:
+    sizeLimit: 8Gi
+
+  resources:
+  # We usually recommend not to specify default resources and to leave this as a conscious
+  # choice for the user. This also increases chances charts run on environments with little
+  # resources, such as Minikube. If you do want to specify resources, uncomment the following
+  # lines, adjust them as necessary, and remove the curly braces after 'resources:'.
+    requests:
+      cpu: 1500m
+      memory: 4Gi
+    limits:
+      cpu: 4
+      memory: 16Gi
+
+  nameOverride: ""
+  fullnameOverride: ""
+  initContainers: []
+
+  serviceAccount:
+    # Specifies whether a service account should be created
+    create: true
+    # The name of the service account to use.
+    # If not set and create is true, a name is generated using the fullname template
+    name: apiserver-serviceaccount
+
+  configmap:
+    application.properties: |
+    #See https://docs.dependencytrack.org/getting-started/configuration/ for backend configuration options.
+
+
+  readinessProbe:
+    initialDelaySeconds: 60
+
+  livenessProbe:
+    initialDelaySeconds: 60
+
+#Postgres variables
+postgresql:
+  enabled: true
+  postgresqlUsername: deptrack
+  postgresqlPassword: deptrack
+  postgresqlDatabase: deptrack
+
 
 configmap:
   application.properties: |
@@ -335,8 +430,4 @@ configmap:
     #alpine.cors.allow.credentials=true
     #alpine.cors.max.age=3600
 
-postgresql:
-  enabled: true
-  postgresqlUsername: deptrack
-  postgresqlPassword: deptrack
-  postgresqlDatabase: deptrack
+
