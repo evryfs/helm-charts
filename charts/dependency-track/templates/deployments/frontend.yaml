@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "dependency-track.fullname" . }}-frontend
+  labels:
+{{ include "dependency-track.labels" . | indent 4 }}
+spec:
+  replicas: {{ .Values.frontend.replicaCount }}
+  {{- if .Values.frontend.persistentVolume.enabled }}
+  strategy:
+    type: Recreate
+  {{- end }}
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: {{ include "dependency-track.name" . }}
+      app.kubernetes.io/instance: {{ .Release.Name }}
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: {{ include "dependency-track.name" . }}
+        app.kubernetes.io/instance: {{ .Release.Name }}
+    spec:
+    {{- with .Values.frontend.imagePullSecrets }}
+      imagePullSecrets:
+        {{- toYaml . | nindent 8 }}
+    {{- end }}
+      serviceAccountName: {{ template "dependency-track-frontend.serviceAccountName" . }}
+      securityContext: {{- toYaml .Values.frontend.podSecurityContext | nindent 8 }}
+    {{- with .Values.frontend.initContainers }}
+      initContainers: {{- toYaml . | nindent 8 }}
+    {{- end }}
+      containers:
+        - name: {{ .Chart.Name }}-frontend
+          securityContext: {{- toYaml .Values.frontend.securityContext | nindent 12 }}
+          image: "{{ .Values.frontend.image.repository }}:{{ .Values.frontend.image.tag }}"
+          imagePullPolicy: {{ .Values.frontend.image.pullPolicy }}
+          env:
+          {{- with .Values.env }}
+          {{- toYaml . | nindent 10 }}
+          {{- end }}
