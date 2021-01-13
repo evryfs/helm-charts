@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: "{{ include "dependency-track.fullname" . }}-test-apiserver"
+  labels:
+{{ include "dependency-track.labels" . | indent 4 }}
+  annotations:
+    "helm.sh/hook": test-success
+spec:
+  containers:
+    - name: wget
+      image: busybox
+      command: ['wget']
+      args:  ['{{ include "dependency-track.fullname" . }}:{{ .Values.apiserver.service.port }}']
+  restartPolicy: Never
