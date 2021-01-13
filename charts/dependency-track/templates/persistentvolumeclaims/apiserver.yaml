@@ -1,0 +1,23 @@
+{{- if .Values.apiserver.persistentVolume.enabled -}}
+{{- if not .Values.apiserver.persistentVolume.existingClaim -}}
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  {{- if .Values.apiserver.persistentVolume.annotations }}
+  annotations:
+{{ toYaml .Values.apiserver.persistentVolume.annotations | indent 4 }}
+  {{- end }}
+  labels:
+    {{- include "dependency-track.labels" . | nindent 4 }}
+  name: {{ template "dependency-track.fullname" . }}-apiserver
+spec:
+  accessModes:
+    - ReadWriteOnce
+{{- with .Values.apiserver.persistentVolume.storageClass }}
+  storageClassName: "{{ . }}"
+{{- end }}
+  resources:
+    requests:
+      storage: "{{ .Values.apiserver.persistentVolume.size }}"
+{{- end -}}
+{{- end -}}
