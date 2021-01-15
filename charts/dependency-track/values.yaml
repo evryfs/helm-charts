@@ -3,9 +3,7 @@
 # Declare variables to be passed into your templates.
 # Since dependency-track 4.0, there are now two separate images. One for frontend, one for the apiserver.
 
-
-
-#The frontend
+# The frontend
 frontend:
   enabled: true
   # Max: 1 - DT is not designed for HA
@@ -21,8 +19,7 @@ frontend:
     env:
       - name: "API_BASE_URL"
         value: "http://localhost:8081"
-    #See https://docs.dependencytrack.org/getting-started/configuration/ for frontend ENV variables.
-
+    # See https://docs.dependencytrack.org/getting-started/configuration/ for frontend ENV variables.
   persistentVolume:
     enabled: true
     size: 8Gi
@@ -30,7 +27,6 @@ frontend:
     storageClass: ""
   podSecurityContext:
     fsGroup: 1000
-
   securityContext:
     capabilities:
       drop:
@@ -39,7 +35,6 @@ frontend:
     runAsNonRoot: true
     runAsUser: 1000
     runAsGroup: 1000
-
   ingress:
     enabled: false
     annotations: {}
@@ -51,19 +46,15 @@ frontend:
       - host: chart-example.local
         paths:
           - "/frontend"
-
   service:
     type: ClusterIP
     port: 80
     annotations: {}
-
   nodeSelector: {}
   tolerations: []
   affinity: {}
-
   emptyDir:
     sizeLimit: 8Gi
-
   resources:
   # We usually recommend not to specify default resources and to leave this as a conscious
   # choice for the user. This also increases chances charts run on environments with little
@@ -75,20 +66,21 @@ frontend:
     limits:
       cpu: 4
       memory: 8Gi
-
   nameOverride: ""
   fullnameOverride: ""
   initContainers: []
-
   serviceAccount:
     # Specifies whether a service account should be created
     create: true
     # The name of the service account to use.
     # If not set and create is true, a name is generated using the fullname template
     name: frontend-serviceaccount
+  readinessProbe:
+    initialDelaySeconds: 60
+  livenessProbe:
+    initialDelaySeconds: 60
 
-
-#The apiserver
+# The apiserver
 apiserver:
   enabled: true
 # Max: 1 - DT is not designed for HA
@@ -102,16 +94,13 @@ apiserver:
     ports:
       containerPort: 8081
     env:
-
   persistentVolume:
     enabled: true
     size: 8Gi
     annotations: {}
-    storageClass: "hostpath"
-
+    storageClass: ""
   podSecurityContext:
     fsGroup: 1000
-
   securityContext:
     capabilities:
       drop:
@@ -120,7 +109,6 @@ apiserver:
     runAsNonRoot: true
     runAsUser: 1000
     runAsGroup: 1000
-
   ingress:
     enabled: false
     annotations: {}
@@ -132,19 +120,15 @@ apiserver:
       - host: chart-example.local
         paths:
           - "/apiserver"
-
   service:
     type: ClusterIP
     port: 81
     annotations: {}
-
   nodeSelector: {}
   tolerations: []
   affinity: {}
-  
   emptyDir:
     sizeLimit: 8Gi
-
   resources:
   # We usually recommend not to specify default resources and to leave this as a conscious
   # choice for the user. This also increases chances charts run on environments with little
@@ -156,28 +140,23 @@ apiserver:
     limits:
       cpu: 4
       memory: 16Gi
-
   nameOverride: ""
   fullnameOverride: ""
   initContainers: []
-
   serviceAccount:
     # Specifies whether a service account should be created
     create: true
     # The name of the service account to use.
     # If not set and create is true, a name is generated using the fullname template
     name: apiserver-serviceaccount
-
-  configmap:
-    application.properties: |
-    #See https://docs.dependencytrack.org/getting-started/configuration/ for backend configuration options.
-
-
+  # See https://docs.dependencytrack.org/getting-started/configuration/ for backend configuration options.
   readinessProbe:
     initialDelaySeconds: 60
-
   livenessProbe:
     initialDelaySeconds: 60
+  configmap:
+    application.properties: |
+
 
 #Postgres variables
 postgresql:

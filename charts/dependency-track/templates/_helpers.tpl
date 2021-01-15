@@ -45,12 +45,23 @@ app.kubernetes.io/managed-by: {{ .Release.Service }}
 {{- end -}}
 
 {{/*
-Create the name of the service account to use
+Create the name of the frontend service account to use
 */}}
-{{- define "dependency-track.serviceAccountName" -}}
-{{- if .Values.serviceAccount.create -}}
-    {{ default (include "dependency-track.fullname" .) .Values.serviceAccount.name }}
+{{- define "dependency-track-frontend.serviceAccountName" -}}
+{{- if .Values.frontend.serviceAccount.create -}}
+    {{ default (include "dependency-track.fullname" .) .Values.frontend.serviceAccount.name }}
 {{- else -}}
-    {{ default "default" .Values.serviceAccount.name }}
+    {{ default "default" .Values.frontend.serviceAccount.name }}
+{{- end -}}
+{{- end -}}
+
+{{/*
+Create the name of the apiserver service account to use
+*/}}
+{{- define "dependency-track-apiserver.serviceAccountName" -}}
+{{- if .Values.apiserver.serviceAccount.create -}}
+    {{ default (include "dependency-track.fullname" .) .Values.apiserver.serviceAccount.name }}
+{{- else -}}
+    {{ default "default" .Values.apiserver.serviceAccount.name }}
 {{- end -}}
 {{- end -}}
