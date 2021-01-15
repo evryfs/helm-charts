@@ -8,7 +8,7 @@ frontend:
   enabled: true
   # Max: 1 - DT is not designed for HA
   replicaCount: 1
-  image: 
+  image:
     registry: docker.io
     repository: dependencytrack/frontend
     tag: 1.1.0
@@ -158,7 +158,7 @@ apiserver:
     application.properties: |
 
 
-#Postgres variables
+# Postgres variables
 postgresql:
   enabled: true
   postgresqlUsername: deptrack
@@ -408,5 +408,3 @@ configmap:
     #alpine.cors.expose.headers=Origin, Content-Type, Authorization, X-Requested-With, Content-Length, Accept, Origin, X-Api-Key, X-Total-Count
     #alpine.cors.allow.credentials=true
     #alpine.cors.max.age=3600
-
-
