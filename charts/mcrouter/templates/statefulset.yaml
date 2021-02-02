@@ -26,7 +26,7 @@ spec:
         heritage: "{{ .Release.Service }}"
     spec:
       nodeSelector: {{ toYaml .Values.nodeSelector | nindent 8 }}
-      tolerations: {{ toYaml .Values.tolerations | nident 8 }}
+      tolerations: {{ toYaml .Values.tolerations | nindent 8 }}
       affinity:
         podAntiAffinity:
         {{- if eq .Values.statefulset.antiAffinity "hard" }}
