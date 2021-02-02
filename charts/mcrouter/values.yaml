@@ -1,5 +1,5 @@
 ## Container image
-image: quay.io/evryfs/docker-mcrouter:0.40.0-4
+image: quay.io/evryfs/docker-mcrouter:0.40.0-5
 
 ## Memcached chart parameters
 memcached:
@@ -21,6 +21,8 @@ resources:
     memory: 512Mi
 
 nodeSelector: {}
+
+tolerations: []
 
 service:
   clusterIP: None
