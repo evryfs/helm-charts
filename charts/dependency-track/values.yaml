@@ -11,7 +11,7 @@ frontend:
   image:
     registry: docker.io
     repository: dependencytrack/frontend
-    tag: 1.1.0
+    tag: snapshot
     pullPolicy: IfNotPresent
     imagePullSecrets: []
     ports:
@@ -26,15 +26,15 @@ frontend:
     annotations: {}
     storageClass: ""
   podSecurityContext:
-    fsGroup: 1000
+    fsGroup: 101
   securityContext:
     capabilities:
       drop:
       - ALL
     readOnlyRootFilesystem: false
     runAsNonRoot: true
-    runAsUser: 1000
-    runAsGroup: 1000
+    runAsUser: 101
+    runAsGroup: 101
   ingress:
     enabled: false
     annotations: {}
