@@ -88,7 +88,7 @@ apiserver:
   image:
     registry: docker.io
     repository: dependencytrack/apiserver
-    tag: 4.0.1
+    tag: snapshot
     imagePullSecrets: []
     pullPolicy: IfNotPresent
     ports:
