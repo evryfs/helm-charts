@@ -38,6 +38,10 @@ spec:
           env:
             - name: WATCH_NAMESPACE
               value: {{ template "github-actions-runner-operator.watchNamespace" . }}
+            - name: GITHUB_V3_API_URL
+              value: {{ .Values.github.apiEndpoint }}
+            - name: GITHUB_V4_API_URL
+              value: {{ .Values.github.apiEndpoint }}
           ports:
             - name: metrics
               containerPort: 8080

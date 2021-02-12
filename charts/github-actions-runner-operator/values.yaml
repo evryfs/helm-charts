@@ -60,6 +60,10 @@ tolerations: []
 
 affinity: {}
 
+github:
+  # If you run github-enterprise, then change the endpoint as appropiate
+  apiEndpoint: https://api.github.com
+
 githubapp:
   enabled: false
   integrationId: ""
