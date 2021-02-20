@@ -24,6 +24,9 @@ serviceAccount:
 # limit to target namespace or cluster-wide
 clusterScoped: true
 
+# Extra env vars to pass
+extraEnv: []
+
 ## Set WATCH_NAMESPACE, when clusterScoped is false equals the release namespace
 # watchNamespace:
 
