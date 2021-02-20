@@ -42,8 +42,8 @@ spec:
               value: {{ .Values.github.apiEndpoint }}
             - name: GITHUB_V4_API_URL
               value: {{ .Values.github.apiEndpoint }}
-            {{- if .Values.extraEnv }}
-            {{ toYaml .Values.extraEnv | nindent 12 }}
+            {{- with .Values.extraEnv }}
+            {{ toYaml . | indent 12 }}
             {{- end }}
           ports:
             - name: metrics
