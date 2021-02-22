@@ -539,6 +539,32 @@ entries:
     version: 0.1.0
   github-actions-runner-operator:
   - apiVersion: v2
+    appVersion: v0.8.6
+    created: "2021-02-22T18:48:16.237983849Z"
+    description: A Helm chart for the github action runner operator.
+    digest: 31ddd4dfbe1ae24f8dd980387ed06a28b6e6a210664ea82a64a84b4346d604d1
+    home: https://github.com/evryfs/github-actions-runner-operator/
+    icon: https://media-exp1.licdn.com/dms/image/C4D0BAQFZ80eOhCewVw/company-logo_200_200/0?e=2159024400&v=beta&t=XFbeA46Og-bBC5Th2aFMwXfB1FssEqN5lx-hKraJuAg
+    keywords:
+    - github
+    - action runner
+    - operator
+    - ci
+    - agent
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: david.karlsen@evry.com
+      name: davidkarlsen
+      url: https://github.com/davidkarlsen/
+    name: github-actions-runner-operator
+    sources:
+    - https://github.com/evryfs/github-actions-runner-operator/
+    - https://github.com/evryfs/helm-charts/
+    type: application
+    urls:
+    - https://github.com/evryfs/helm-charts/releases/download/github-actions-runner-operator-2.5.10/github-actions-runner-operator-2.5.10.tgz
+    version: 2.5.10
+  - apiVersion: v2
     appVersion: v0.8.5
     created: "2021-02-20T23:01:18.75710454Z"
     description: A Helm chart for the github action runner operator.
@@ -1812,4 +1838,4 @@ entries:
     urls:
     - opsgenie-marid/opsgenie-marid-0.1.0.tgz
     version: 0.1.0
-generated: "2021-02-20T23:01:18.75751364Z"
+generated: "2021-02-22T18:48:16.238967901Z"
