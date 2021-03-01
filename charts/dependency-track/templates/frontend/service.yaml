@@ -12,6 +12,4 @@ spec:
   ports:
     - port: {{ .Values.frontend.service.port }}
       targetPort: http
-  selector:
-    app.kubernetes.io/name: {{ include "dependency-track.name" . }}-frontend
-    app.kubernetes.io/instance: {{ .Release.Name }}-frontend
+  selector: {{- include "common.labels.matchLabels" . | nindent 4 }}

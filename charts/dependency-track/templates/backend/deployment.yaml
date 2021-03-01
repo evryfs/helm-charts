@@ -10,14 +10,10 @@ spec:
     type: Recreate
   {{- end }}
   selector:
-    matchLabels:
-      app.kubernetes.io/name: {{ include "dependency-track.name" . }}-apiserver
-      app.kubernetes.io/instance: {{ .Release.Name }}-apiserver
+    matchLabels: {{- include "common.labels.matchLabels" . | nindent 6 }}
   template:
     metadata:
-      labels:
-        app.kubernetes.io/name: {{ include "dependency-track.name" . }}-apiserver
-        app.kubernetes.io/instance: {{ .Release.Name }}-apiserver
+      labels: {{- include "common.labels.standard" . | nindent 8 }}
     spec:
       {{- with .Values.imagePullSecrets }}
       imagePullSecret: {{- toYaml . | nindent 6 }}
