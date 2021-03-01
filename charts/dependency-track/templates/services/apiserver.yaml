@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "dependency-track.fullname" . }}-apiserver
+  labels:
+{{ include "dependency-track-apiserver.labels" . | indent 4 }}
+  {{- with .Values.apiserver.service.annotations }}
+  annotations:
+    {{- toYaml . | nindent 4 }}
+  {{- end }}
+spec:
+  type: {{ .Values.apiserver.service.type }}
+  ports:
+    - port: {{ .Values.apiserver.service.port }}
+      targetPort: api
+      protocol: TCP
+      name: http
+  selector:
+    app.kubernetes.io/name: {{ include "dependency-track.name" . }}-apiserver
+    app.kubernetes.io/instance: {{ .Release.Name }}-apiserver
