@@ -65,7 +65,7 @@ spec:
       - name: data
         {{- if .Values.apiserver.persistentVolume.enabled }}
         persistentVolumeClaim:
-          claimName: {{ if .Values.apiserver.persistentVolume.existingClaim }}{{ .Values.apiserver.persistentVolume.existingClaim }}{{- else }}{{ template "dependency-track.fullname" . }}-apiserver {{- end }}
+          claimName: {{ if .Values.apiserver.persistentVolume.existingClaim }}{{ .Values.apiserver.persistentVolume.existingClaim }}{{- else }}{{ include "common.names.fullname" . }}-apiserver{{- end }}
         {{- else }}
         emptyDir:
         {{- if .Values.apiserver.emptyDir.sizeLimit }}
