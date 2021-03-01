@@ -8,7 +8,7 @@ apiVersion: extensions/v1beta1
 {{- end }}
 kind: Ingress
 metadata:
-  name: {{ $fullName }}
+  name: {{ $fullName }}-apiserver
   labels:
 {{ include "dependency-track.labels" . | indent 4 }}
   {{- with .Values.apiserver.ingress.annotations }}
