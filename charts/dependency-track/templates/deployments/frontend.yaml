@@ -2,14 +2,9 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: {{ include "dependency-track.fullname" . }}-frontend
-  labels:
-{{ include "dependency-track-frontend.labels" . | indent 4 }}
+  labels: {{ include "dependency-track-frontend.labels" . | nindent 4 }}
 spec:
   replicas: {{ .Values.frontend.replicaCount }}
-  {{- if .Values.frontend.persistentVolume.enabled }}
-  strategy:
-    type: Recreate
-  {{- end }}
   selector:
     matchLabels:
       app.kubernetes.io/name: {{ include "dependency-track.name" . }}-frontend
@@ -20,59 +15,20 @@ spec:
         app.kubernetes.io/name: {{ include "dependency-track.name" . }}-frontend
         app.kubernetes.io/instance: {{ .Release.Name }}-frontend
     spec:
-    {{- with .Values.frontend.imagePullSecrets }}
-      imagePullSecrets:
-        {{- toYaml . | nindent 8 }}
-    {{- end }}
+      {{- with .Values.frontend.imagePullSecrets }}
+      imagePullSecrets: {{- toYaml . | nindent 6 }}
+      {{- end }}
       serviceAccountName: {{ template "dependency-track-frontend.serviceAccountName" . }}
       securityContext: {{- toYaml .Values.frontend.podSecurityContext | nindent 8 }}
-    {{- with .Values.frontend.initContainers }}
-      initContainers: {{- toYaml . | nindent 8 }}
-    {{- end }}
       containers:
-        - name: {{ .Chart.Name }}-frontend
-          securityContext: {{- toYaml .Values.frontend.securityContext | nindent 12 }}
-          image: "{{ .Values.frontend.image.repository }}:{{ .Values.frontend.image.tag }}"
-          imagePullPolicy: {{ .Values.frontend.image.pullPolicy }}
-          env:
-          {{- with .Values.frontend.env }}
-          {{- toYaml . | nindent 10 }}
-          {{- end }}
-          ports:
-            - name: http
-              containerPort: 80
-              protocol: TCP
-
-
-
-#          volumeMounts:
-#          - name: config
-#            mountPath: /app
-#          - name: temp
-#            mountPath: /tmp
-          
-      volumes:
-#        - name: config
-#          {{- if .Values.frontend.persistentVolume.enabled }}
-#          persistentVolumeClaim:
-#            claimName: {{ if .Values.frontend.persistentVolume.existingClaim }}{{ .Values.frontend.persistentVolume.existingClaim }}{{- else }}{{ template "dependency-track.fullname" . }}-frontend {{- end }}
-#          {{- else }}
-#          emptyDir:
-#          {{- if .Values.frontend.emptyDir.sizeLimit }}
-#            sizeLimit: {{ .Values.frontend.emptyDir.sizeLimit }}
-#          {{- else }}
-#            {}
-#          {{- end -}}
-#          {{- end }}
-#        - name: temp
-#          {{- if .Values.frontend.persistentVolume.enabled }}
-#          persistentVolumeClaim:
-#            claimName: {{ if .Values.frontend.persistentVolume.existingClaim }}{{ .Values.frontend.persistentVolume.existingClaim }}{{- else }}{{ template "dependency-track.fullname" . }}-temp-frontend {{- end }}
-#          {{- else }}
-#          emptyDir:
-#          {{- if .Values.frontend.emptyDir.sizeLimit }}
-#            sizeLimit: {{ .Values.frontend.emptyDir.sizeLimit }}
-#          {{- else }}
-#            {}
-#          {{- end -}}
-#          {{- end }}
+      - name: {{ .Chart.Name }}-frontend
+        securityContext: {{- toYaml .Values.frontend.securityContext | nindent 12 }}
+        image: "{{ .Values.frontend.image.repository }}:{{ .Values.frontend.image.tag }}"
+        imagePullPolicy: {{ .Values.frontend.image.pullPolicy }}
+        {{- with .Values.frontend.env }}
+        env: {{- toYaml . | nindent 10 }}
+        {{- end }}
+        ports:
+        - name: http
+          containerPort: 80
+          protocol: TCP
