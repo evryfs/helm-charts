@@ -18,11 +18,6 @@ frontend:
     - name: API_BASE_URL
       value: ""
     # See https://docs.dependencytrack.org/getting-started/configuration/ for frontend ENV variables.
-  persistentVolume:
-    enabled: true
-    size: 8Gi
-    annotations: {}
-    storageClass: ""
 #  podSecurityContext:
 #    fsGroup: 1000
   securityContext:
