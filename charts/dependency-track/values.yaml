@@ -14,27 +14,26 @@ frontend:
     tag: snapshot
     pullPolicy: IfNotPresent
     imagePullSecrets: []
-    ports:
-      containerPort: 8080
-    env:
-      - name: "API_BASE_URL"
-        value: "http://localhost:8081"
+  env:
+    - name: API_BASE_URL
+      value: ""
     # See https://docs.dependencytrack.org/getting-started/configuration/ for frontend ENV variables.
   persistentVolume:
     enabled: true
     size: 8Gi
     annotations: {}
     storageClass: ""
-  podSecurityContext:
-    fsGroup: 101
+#  podSecurityContext:
+#    fsGroup: 1000
   securityContext:
+    privileged: true
     capabilities:
       drop:
       - ALL
-    readOnlyRootFilesystem: false
-    runAsNonRoot: true
-    runAsUser: 101
-    runAsGroup: 101
+#    readOnlyRootFilesystem: true
+#    runAsNonRoot: true
+#    runAsUser: 1000
+#    runAsGroup: 1000
   ingress:
     enabled: false
     annotations: {}
@@ -48,7 +47,7 @@ frontend:
           - "/frontend"
   service:
     type: ClusterIP
-    port: 80
+    port: 8080
     annotations: {}
   nodeSelector: {}
   tolerations: []
@@ -91,9 +90,7 @@ apiserver:
     tag: snapshot
     imagePullSecrets: []
     pullPolicy: IfNotPresent
-    ports:
-      containerPort: 8081
-    env:
+  env:
   persistentVolume:
     enabled: true
     size: 8Gi
@@ -105,7 +102,7 @@ apiserver:
     capabilities:
       drop:
       - ALL
-    readOnlyRootFilesystem: true
+    readOnlyRootFilesystem: false
     runAsNonRoot: true
     runAsUser: 1000
     runAsGroup: 1000
@@ -122,7 +119,7 @@ apiserver:
           - "/apiserver"
   service:
     type: ClusterIP
-    port: 81
+    port: 8081
     annotations: {}
   nodeSelector: {}
   tolerations: []
@@ -164,7 +161,6 @@ postgresql:
   postgresqlUsername: deptrack
   postgresqlPassword: deptrack
   postgresqlDatabase: deptrack
-
 
 configmap:
   application.properties: |
