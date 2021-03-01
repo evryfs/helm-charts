@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: {{ include "dependency-track.fullname" . }}-frontend
-  labels: {{ include "dependency-track-frontend.labels" . | nindent 4 }}
+  labels: {{- include "common.labels.standard" . | nindent 4 }}
 spec:
   replicas: {{ .Values.frontend.replicaCount }}
   selector:

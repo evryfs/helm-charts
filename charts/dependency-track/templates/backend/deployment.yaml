@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: {{ include "dependency-track.fullname" . }}-apiserver
-  labels: {{ include "dependency-track-apiserver.labels" . | nindent 4 }}
+  labels: {{- include "common.labels.standard" . | nindent 4 }}
 spec:
   replicas: {{ .Values.apiserver.replicaCount }}
   {{- if .Values.apiserver.persistentVolume.enabled }}

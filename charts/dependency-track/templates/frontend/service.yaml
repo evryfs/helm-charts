@@ -2,8 +2,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: {{ include "dependency-track.fullname" . }}-frontend
-  labels:
-{{ include "dependency-track-frontend.labels" . | indent 4 }}
+  labels: {{- include "common.labels.standard" . | nindent 4 }}
   {{- with .Values.frontend.service.annotations }}
   annotations:
     {{- toYaml . | nindent 4 }}

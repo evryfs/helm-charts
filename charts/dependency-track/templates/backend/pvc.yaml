@@ -7,8 +7,7 @@ metadata:
   annotations:
 {{ toYaml .Values.apiserver.persistentVolume.annotations | indent 4 }}
   {{- end }}
-  labels:
-    {{- include "dependency-track.labels" . | nindent 4 }}
+  labels: {{- include "common.labels.standard" . | nindent 4 }}
   name: {{ template "dependency-track.fullname" . }}-apiserver
 spec:
   accessModes:
