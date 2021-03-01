@@ -43,6 +43,26 @@ app.kubernetes.io/version: {{ .Chart.AppVersion | quote }}
 {{- end }}
 app.kubernetes.io/managed-by: {{ .Release.Service }}
 {{- end -}}
+#Frontend hacks
+{{- define "dependency-track-frontend.labels" -}}
+app.kubernetes.io/name: {{ include "dependency-track.name" . }}-frontend
+helm.sh/chart: {{ include "dependency-track.chart" . }}
+app.kubernetes.io/instance: {{ .Release.Name }}-frontend
+{{- if .Chart.AppVersion }}
+app.kubernetes.io/version: {{ .Chart.AppVersion | quote }}
+{{- end }}
+app.kubernetes.io/managed-by: {{ .Release.Service }}
+{{- end -}}
+#APIServer hacks
+{{- define "dependency-track-apiserver.labels" -}}
+app.kubernetes.io/name: {{ include "dependency-track.name" . }}-apiserver
+helm.sh/chart: {{ include "dependency-track.chart" . }}
+app.kubernetes.io/instance: {{ .Release.Name }}-apiserver
+{{- if .Chart.AppVersion }}
+app.kubernetes.io/version: {{ .Chart.AppVersion | quote }}
+{{- end }}
+app.kubernetes.io/managed-by: {{ .Release.Service }}
+{{- end -}}
 
 {{/*
 Create the name of the frontend service account to use
