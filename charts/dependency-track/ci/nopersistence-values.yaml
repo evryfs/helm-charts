@@ -1,4 +1,12 @@
 postgresql:
   enabled: false
-persistentVolume:
-  enabled: false
+apiserver:
+  persistentVolume:
+    enabled: false
+  resources:
+    requests:
+      cpu: 1900m
+      memory: 4Gi
+    limits:
+      cpu: 2
+      memory: 4Gi
