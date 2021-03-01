@@ -5,7 +5,7 @@ apiserver:
     enabled: false
   resources:
     requests:
-      cpu: 1900m
+      cpu: 1600m
       memory: 4Gi
     limits:
       cpu: 2
