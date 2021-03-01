@@ -6,7 +6,7 @@ apiserver:
   resources:
     requests:
       cpu: 1600m
-      memory: 4Gi
+      memory: 5Gi
     limits:
       cpu: 2
-      memory: 4Gi
+      memory: 5Gi
