@@ -1,41 +1,39 @@
-{{- if .Values.frontend.ingress.enabled -}}
-{{- $fullName := include "dependency-track.fullname" . -}}
-{{- $svcPort := .Values.frontend.service.port -}}
-{{- if semverCompare ">=1.14-0" .Capabilities.KubeVersion.GitVersion -}}
-apiVersion: networking.k8s.io/v1beta1
+{{- if .Values.ingress.enabled -}}
+{{- if semverCompare ">=1.19-0" .Capabilities.KubeVersion.GitVersion -}}
+apiVersion: networking.k8s.io/v1
 {{- else -}}
-apiVersion: extensions/v1beta1
+apiVersion: networking.k8s.io/v1beta1
 {{- end }}
 kind: Ingress
 metadata:
-  name: {{ $fullName }}-frontend
-  labels:
-{{ include "dependency-track.labels" . | indent 4 }}
-  {{- with .Values.frontend.ingress.annotations }}
-  annotations:
-    {{- toYaml . | nindent 4 }}
+  name: {{ include "dependency-track.fullname" . }}
+  labels: {{ include "dependency-track.labels" . | nindent 4 }}
+  {{- with .Values.ingress.annotations }}
+  annotations: {{- toYaml . | nindent 4 }}
   {{- end }}
 spec:
-{{- if .Values.frontend.ingress.tls }}
+  {{- if .Values.ingress.tls.enabled }}
   tls:
-  {{- range .Values.frontend.ingress.tls }}
-    - hosts:
-      {{- range .hosts }}
-        - {{ . | quote }}
-      {{- end }}
-      secretName: {{ .secretName }}
+  - hosts:
+    - {{ .Values.ingress.host }}
+    secretName: {{ .Values.ingress.tls.secretName }}
   {{- end }}
-{{- end }}
   rules:
-  {{- range .Values.frontend.ingress.hosts }}
-    - host: {{ .host | quote }}
-      http:
-        paths:
-        {{- range .paths }}
-          - path: {{ . }}
-            backend:
-              serviceName: {{ $fullName }}
-              servicePort: {{ $svcPort }}
-        {{- end }}
-  {{- end }}
+  - host: {{ .Values.ingress.host }}
+    http:
+      paths:
+      - path: /api
+        pathType: Prefix
+        backend:
+          service:
+            name: {{ include "dependency-track.fullname" . }}-apiserver
+            port:
+              number: 80
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: {{ include "dependency-track.fullname" . }}-frontend
+            port:
+              number: 80
 {{- end }}

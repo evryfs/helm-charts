@@ -29,17 +29,6 @@ frontend:
 #    runAsNonRoot: true
 #    runAsUser: 1000
 #    runAsGroup: 1000
-  ingress:
-    enabled: false
-    annotations: {}
-      # kubernetes.io/ingress.class: nginx
-      # kubernetes.io/tls-acme: "true"
-      ## allow large bom.xml uploads:
-      # nginx.ingress.kubernetes.io/proxy-body-size: 10m
-    hosts:
-      - host: chart-example.local
-        paths:
-          - "/frontend"
   service:
     type: ClusterIP
     port: 80
@@ -98,17 +87,6 @@ apiserver:
     runAsNonRoot: true
     runAsUser: 1000
     runAsGroup: 1000
-  ingress:
-    enabled: false
-    annotations: {}
-      # kubernetes.io/ingress.class: nginx
-      # kubernetes.io/tls-acme: "true"
-      ## allow large bom.xml uploads:
-      # nginx.ingress.kubernetes.io/proxy-body-size: 10m
-    hosts:
-      - host: chart-example.local
-        paths:
-          - "/apiserver"
   service:
     type: ClusterIP
     port: 80
@@ -143,6 +121,17 @@ apiserver:
   configmap:
     application.properties: |
 
+ingress:
+  enabled: false
+  tls:
+    enabled: false
+    secretName: ""
+  annotations: {}
+    # kubernetes.io/ingress.class: nginx
+    # kubernetes.io/tls-acme: "true"
+    ## allow large bom.xml uploads:
+    # nginx.ingress.kubernetes.io/proxy-body-size: 10m
+  host: chart-example.local
 
 # Postgres variables
 postgresql:
