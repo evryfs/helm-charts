@@ -63,7 +63,7 @@ spec:
           mountPath: /data
         ports:
         - name: api
-          containerPort: 8081
+          containerPort: 8080
           protocol: TCP
       volumes:
       - name: data
