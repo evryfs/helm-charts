@@ -8,7 +8,7 @@ metadata:
 {{ toYaml .Values.apiserver.persistentVolume.annotations | indent 4 }}
   {{- end }}
   labels: {{- include "common.labels.standard" . | nindent 4 }}
-  name: {{ template "dependency-track.fullname" . }}-apiserver
+  name: {{ include "common.names.fullname" . }}-apiserver
 spec:
   accessModes:
     - ReadWriteOnce

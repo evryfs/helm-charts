@@ -26,14 +26,14 @@ spec:
         pathType: Prefix
         backend:
           service:
-            name: {{ include "dependency-track.fullname" . }}-apiserver
+            name: {{ include "common.names.fullname" . }}-apiserver
             port:
               number: 80
       - path: /
         pathType: Prefix
         backend:
           service:
-            name: {{ include "dependency-track.fullname" . }}-frontend
+            name: {{ include "common.names.fullname" . }}-frontend
             port:
               number: 80
 {{- end }}

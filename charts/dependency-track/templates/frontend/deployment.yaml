@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ include "dependency-track.fullname" . }}-frontend
+  name: {{ include "common.names.fullname" . }}-frontend
   labels: {{- include "common.labels.standard" . | nindent 4 }}
 spec:
   replicas: {{ .Values.frontend.replicaCount }}
@@ -14,7 +14,7 @@ spec:
       {{- with .Values.frontend.imagePullSecrets }}
       imagePullSecrets: {{- toYaml . | nindent 6 }}
       {{- end }}
-      serviceAccountName: {{ template "dependency-track-frontend.serviceAccountName" . }}
+      serviceAccountName: {{ include "common.names.fullname" . }}-frontend
       securityContext: {{- toYaml .Values.frontend.podSecurityContext | nindent 8 }}
       containers:
       - name: {{ .Chart.Name }}-frontend

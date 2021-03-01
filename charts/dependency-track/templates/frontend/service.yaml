@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ include "dependency-track.fullname" . }}-frontend
+  name: {{ include "common.names.fullname" . }}-frontend
   labels: {{- include "common.labels.standard" . | nindent 4 }}
   {{- with .Values.frontend.service.annotations }}
   annotations:

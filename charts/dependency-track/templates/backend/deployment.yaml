@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ include "dependency-track.fullname" . }}-apiserver
+  name: {{ include "common.names.fullname" . }}-apiserver
   labels: {{- include "common.labels.standard" . | nindent 4 }}
 spec:
   replicas: {{ .Values.apiserver.replicaCount }}
@@ -18,7 +18,7 @@ spec:
       {{- with .Values.imagePullSecrets }}
       imagePullSecret: {{- toYaml . | nindent 6 }}
       {{- end }}
-      serviceAccountName: {{ template "dependency-track-apiserver.serviceAccountName" . }}
+      serviceAccountName: {{ include "common.names.fullname" . }}-apiserver
       securityContext: {{- toYaml .Values.apiserver.podSecurityContext | nindent 8 }}
       {{- with .Values.apiserver.initContainers }}
       initContainers: {{- toYaml . | nindent 6 }}
