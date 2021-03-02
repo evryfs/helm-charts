@@ -26,7 +26,7 @@ spec:
       containers:
       - name: {{ .Chart.Name }}-apiserver
         securityContext: {{- toYaml .Values.apiserver.securityContext | nindent 12 }}
-        image: "{{ .Values.apiserver.image.repository }}:{{ .Values.apiserver.image.tag }}"
+        image: {{ include "apiserver.image" . }}
         imagePullPolicy: {{ .Values.apiserver.image.pullPolicy }}
         {{- with .Values.apiserver.resources }}
         resources: {{ . | toYaml | nindent 10 }}

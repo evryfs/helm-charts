@@ -3,13 +3,15 @@
 # Declare variables to be passed into your templates.
 # Since dependency-track 4.0, there are now two separate images. One for frontend, one for the apiserver.
 
+global:
+  imageRegistry: docker.io
+
 # The frontend
 frontend:
   enabled: true
   # Max: 1 - DT is not designed for HA
   replicaCount: 1
   image:
-    registry: docker.io
     repository: dependencytrack/frontend
     tag: snapshot
     pullPolicy: IfNotPresent
@@ -66,7 +68,6 @@ apiserver:
 # Max: 1 - DT is not designed for HA
   replicaCount: 1
   image:
-    registry: docker.io
     repository: dependencytrack/apiserver
     tag: snapshot
     imagePullSecrets: []

@@ -22,7 +22,7 @@ spec:
         {{- with .Values.frontend.resources }}
         resources: {{ . | toYaml | nindent 10 }}
         {{- end }}
-        image: "{{ .Values.frontend.image.repository }}:{{ .Values.frontend.image.tag }}"
+        image: {{ include "frontend.image" . }}
         imagePullPolicy: {{ .Values.frontend.image.pullPolicy }}
         {{- with .Values.frontend.env }}
         env: {{- toYaml . | nindent 10 }}
