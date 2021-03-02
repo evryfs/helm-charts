@@ -39,8 +39,6 @@ spec:
           value: "external"
         - name: ALPINE_DATABASE_DRIVER
           value: "org.postgresql.Driver"
-        - name: ALPINE_DATABASE_DRIVER_PATH
-          value: "/extlib/postgresql-42.2.5.jar"
         - name: ALPINE_DATABASE_URL
           value: jdbc:postgresql://{{ .Release.Name }}-postgresql/{{ .Values.postgresql.postgresqlDatabase }}
         - name: ALPINE_DATABASE_PASSWORD
