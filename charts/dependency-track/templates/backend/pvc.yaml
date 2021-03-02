@@ -6,7 +6,7 @@ metadata:
   {{- with .Values.apiserver.persistentVolume.annotations }}
   annotations: {{ toYaml .| nindent 4 }}
   {{- end }}
-  labels: {{- include "common.labels.standard" . | nindent 4 }}
+  labels: {{- include "backend.labels.standard" . | nindent 4 }}
   name: {{ include "common.names.fullname" . }}-apiserver
 spec:
   accessModes:

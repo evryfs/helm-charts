@@ -2,14 +2,14 @@ apiVersion: {{ include "common.capabilities.deployment.apiVersion" . }}
 kind: Deployment
 metadata:
   name: {{ include "common.names.fullname" . }}-frontend
-  labels: {{- include "common.labels.standard" . | nindent 4 }}
+  labels: {{- include "frontend.labels.standard" . | nindent 4 }}
 spec:
   replicas: {{ .Values.frontend.replicaCount }}
   selector:
-    matchLabels: {{- include "common.labels.matchLabels" . | nindent 6 }}
+    matchLabels: {{- include "frontend.labels.matchLabels" . | nindent 6 }}
   template:
     metadata:
-      labels: {{- include "common.labels.standard" . | nindent 8 }}
+      labels: {{- include "frontend.labels.standard" . | nindent 8 }}
     spec:
       {{- with .Values.frontend.imagePullSecrets }}
       imagePullSecrets: {{- toYaml . | nindent 6 }}

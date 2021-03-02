@@ -2,7 +2,7 @@ apiVersion: {{ include "common.capabilities.deployment.apiVersion" . }}
 kind: Deployment
 metadata:
   name: {{ include "common.names.fullname" . }}-apiserver
-  labels: {{- include "common.labels.standard" . | nindent 4 }}
+  labels: {{- include "backend.labels.standard" . | nindent 4 }}
 spec:
   replicas: {{ .Values.apiserver.replicaCount }}
   {{- if .Values.apiserver.persistentVolume.enabled }}
@@ -10,10 +10,10 @@ spec:
     type: Recreate
   {{- end }}
   selector:
-    matchLabels: {{- include "common.labels.matchLabels" . | nindent 6 }}
+    matchLabels: {{- include "backend.labels.matchLabels" . | nindent 6 }}
   template:
     metadata:
-      labels: {{- include "common.labels.standard" . | nindent 8 }}
+      labels: {{- include "backend.labels.standard" . | nindent 8 }}
     spec:
       {{- with .Values.imagePullSecrets }}
       imagePullSecret: {{- toYaml . | nindent 6 }}
