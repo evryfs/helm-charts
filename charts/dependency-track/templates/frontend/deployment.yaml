@@ -31,3 +31,18 @@ spec:
         - name: http
           containerPort: 80
           protocol: TCP
+        volumeMounts:
+        - name: tmp
+          mountPath: /tmp
+        #- name: config
+        #  mountPath: /app/static
+      volumes:
+      - name: tmp
+        emptyDir: {}
+      # https://github.com/DependencyTrack/frontend/issues/60
+      #- name: config
+      #  configMap:
+      #    name: {{ include "common.names.fullname" . }}-frontend
+      #    items:
+      #    - key: config.json
+      #      path: config.json

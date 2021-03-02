@@ -16,6 +16,16 @@ frontend:
     tag: snapshot
     pullPolicy: IfNotPresent
     imagePullSecrets: []
+  # https://github.com/DependencyTrack/frontend/issues/60
+  #configmap:
+  #  config: |
+  #    {
+  #      "API_BASE_URL": "",
+  #      "OIDC_ISSUER": "",
+  #      "OIDC_CLIENT_ID": "",
+  #      "OIDC_SCOPE": "openid profile email",
+  #      "OIDC_FLOW": ""
+  #    }
   env:
     - name: API_BASE_URL
       value: ""
@@ -23,14 +33,10 @@ frontend:
 #  podSecurityContext:
 #    fsGroup: 1000
   securityContext:
-    privileged: true
-    capabilities:
-      drop:
-      - ALL
-#    readOnlyRootFilesystem: true
-#    runAsNonRoot: true
-#    runAsUser: 1000
-#    runAsGroup: 1000
+    allowPrivilegeEscalation: false
+    # binds to port 80
+    runAsUser: 0
+    # rootfs cannot be R/O because there is some messing around with file generation and whatnot -
   service:
     type: ClusterIP
     port: 80
@@ -84,7 +90,7 @@ apiserver:
     capabilities:
       drop:
       - ALL
-    readOnlyRootFilesystem: false
+    readOnlyRootFilesystem: true
     runAsNonRoot: true
     runAsUser: 1000
     runAsGroup: 1000
