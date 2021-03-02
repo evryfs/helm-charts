@@ -69,7 +69,7 @@ apiserver:
   replicaCount: 1
   image:
     repository: dependencytrack/apiserver
-    tag: snapshot
+    tag: 4.1.0
     imagePullSecrets: []
     pullPolicy: IfNotPresent
   env:
