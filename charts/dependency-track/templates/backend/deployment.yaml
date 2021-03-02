@@ -55,11 +55,15 @@ spec:
         volumeMounts:
         - name: data
           mountPath: /data
+        - name: tmp
+          mountPath: /tmp
         ports:
         - name: api
           containerPort: 8080
           protocol: TCP
       volumes:
+      - name: tmp
+        emptyDir: {}
       - name: data
         {{- if .Values.apiserver.persistentVolume.enabled }}
         persistentVolumeClaim:
