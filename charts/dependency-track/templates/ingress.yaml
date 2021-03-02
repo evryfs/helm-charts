@@ -24,12 +24,12 @@ spec:
           service:
             name: {{ include "common.names.fullname" . }}-apiserver
             port:
-              number: 80
+              number: {{ .Values.apiserver.service.port }}
       - path: /
         pathType: Prefix
         backend:
           service:
             name: {{ include "common.names.fullname" . }}-frontend
             port:
-              number: 80
+              number: {{ .Values.frontend.service.port }}
 {{- end }}
