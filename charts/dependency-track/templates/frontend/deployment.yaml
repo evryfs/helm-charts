@@ -40,7 +40,7 @@ spec:
       - name: tmp
         emptyDir: {}
       # https://github.com/DependencyTrack/frontend/issues/60
-      #- name: config
+      # - name: config
       #  configMap:
       #    name: {{ include "common.names.fullname" . }}-frontend
       #    items:
