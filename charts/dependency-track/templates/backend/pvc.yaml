@@ -1,0 +1,21 @@
+{{- if .Values.apiserver.persistentVolume.enabled -}}
+{{- if not .Values.apiserver.persistentVolume.existingClaim -}}
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  {{- with .Values.apiserver.persistentVolume.annotations }}
+  annotations: {{ toYaml .| nindent 4 }}
+  {{- end }}
+  labels: {{- include "backend.labels.standard" . | nindent 4 }}
+  name: {{ include "common.names.fullname" . }}-apiserver
+spec:
+  accessModes:
+  - ReadWriteOnce
+{{- with .Values.apiserver.persistentVolume.storageClass }}
+  storageClassName: "{{ . }}"
+{{- end }}
+  resources:
+    requests:
+      storage: "{{ .Values.apiserver.persistentVolume.size }}"
+{{- end -}}
+{{- end -}}

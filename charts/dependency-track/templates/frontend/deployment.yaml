@@ -1,0 +1,48 @@
+apiVersion: {{ include "common.capabilities.deployment.apiVersion" . }}
+kind: Deployment
+metadata:
+  name: {{ include "common.names.fullname" . }}-frontend
+  labels: {{- include "frontend.labels.standard" . | nindent 4 }}
+spec:
+  replicas: {{ .Values.frontend.replicaCount }}
+  selector:
+    matchLabels: {{- include "frontend.labels.matchLabels" . | nindent 6 }}
+  template:
+    metadata:
+      labels: {{- include "frontend.labels.standard" . | nindent 8 }}
+    spec:
+      {{- with .Values.frontend.imagePullSecrets }}
+      imagePullSecrets: {{- toYaml . | nindent 6 }}
+      {{- end }}
+      serviceAccountName: {{ include "common.names.fullname" . }}-frontend
+      securityContext: {{- toYaml .Values.frontend.podSecurityContext | nindent 8 }}
+      containers:
+      - name: {{ .Chart.Name }}-frontend
+        securityContext: {{- toYaml .Values.frontend.securityContext | nindent 12 }}
+        {{- with .Values.frontend.resources }}
+        resources: {{ . | toYaml | nindent 10 }}
+        {{- end }}
+        image: {{ include "frontend.image" . }}
+        imagePullPolicy: {{ .Values.frontend.image.pullPolicy }}
+        {{- with .Values.frontend.env }}
+        env: {{- toYaml . | nindent 8 }}
+        {{- end }}
+        ports:
+        - name: http
+          containerPort: 80
+          protocol: TCP
+        volumeMounts:
+        - name: tmp
+          mountPath: /tmp
+        #- name: config
+        #  mountPath: /app/static
+      volumes:
+      - name: tmp
+        emptyDir: {}
+      # https://github.com/DependencyTrack/frontend/issues/60
+      # - name: config
+      #  configMap:
+      #    name: {{ include "common.names.fullname" . }}-frontend
+      #    items:
+      #    - key: config.json
+      #      path: config.json

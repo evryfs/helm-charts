@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "common.names.fullname" . }}-apiserver
+  labels: {{- include "backend.labels.standard" . | nindent 4 }}
+  {{- with .Values.apiserver.service.annotations }}
+  annotations: {{- toYaml . | nindent 4 }}
+  {{- end }}
+spec:
+  type: {{ .Values.apiserver.service.type }}
+  ports:
+  - port: {{ .Values.apiserver.service.port }}
+    targetPort: api
+  selector: {{- include "backend.labels.matchLabels" . | nindent 4 }}
