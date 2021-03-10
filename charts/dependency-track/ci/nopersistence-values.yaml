@@ -10,3 +10,5 @@ apiserver:
     limits:
       cpu: 2
       memory: 5Gi
+frontend:
+  replicaCount: 2
