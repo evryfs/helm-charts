@@ -25,7 +25,7 @@ spec:
         image: {{ include "frontend.image" . }}
         imagePullPolicy: {{ .Values.frontend.image.pullPolicy }}
         {{- with .Values.frontend.env }}
-        env: {{- toYaml . | nindent 10 }}
+        env: {{- toYaml . | nindent 8 }}
         {{- end }}
         ports:
         - name: http
