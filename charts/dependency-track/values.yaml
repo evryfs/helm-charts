@@ -9,8 +9,7 @@ global:
 # The frontend
 frontend:
   enabled: true
-  # Max: 1 - DT is not designed for HA
-  replicaCount: 1
+  replicaCount: 2
   image:
     repository: dependencytrack/frontend
     tag: 1.2.0
@@ -49,11 +48,11 @@ frontend:
   resources:
   # https://docs.dependencytrack.org/getting-started/deploy-docker/
     requests:
+      cpu: 100m
+      memory: 128Mi
+    limits:
       cpu: 1
       memory: 512Mi
-    limits:
-      cpu: 2
-      memory: 1Gi
   nameOverride: ""
   fullnameOverride: ""
   initContainers: []
