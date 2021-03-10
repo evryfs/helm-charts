@@ -13,7 +13,7 @@ frontend:
   replicaCount: 1
   image:
     repository: dependencytrack/frontend
-    tag: snapshot
+    tag: 1.2.0
     pullPolicy: IfNotPresent
     imagePullSecrets: []
   # https://github.com/DependencyTrack/frontend/issues/60
