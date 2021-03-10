@@ -50,7 +50,7 @@ spec:
           value: {{ .Values.postgresql.postgresqlUsername }}
         {{- end }}
         {{- with .Values.apiserver.env }}
-        {{- toYaml . | nindent 10 }}
+        {{- toYaml . | nindent 8 }}
         {{- end }}
         volumeMounts:
         - name: data
