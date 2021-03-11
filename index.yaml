@@ -3,6 +3,42 @@ entries:
   dependency-track:
   - apiVersion: v2
     appVersion: 4.1.0
+    created: "2021-03-11T22:34:16.372853002Z"
+    dependencies:
+    - condition: postgresql.enabled
+      name: postgresql
+      repository: https://charts.bitnami.com/bitnami
+      version: ~10.3
+    - name: common
+      repository: https://charts.bitnami.com/bitnami
+      version: 1.4.x
+    description: 'Dependency-Track is an intelligent Software Supply Chain Component
+      Analysis platform that allows organizations to identify and reduce risk from
+      the use of third-party and open source components. Dependency-Track takes a
+      unique and highly beneficial approach by leveraging the capabilities of Software
+      Bill-of-Materials (SBOM). This approach provides capabilities that traditional
+      Software Composition Analysis (SCA) solutions cannot achieve. '
+    digest: a902ed8c1ee3fdac2b3e3bf2ea9013a9153a50cedd00b0314c4db4a7eed1874f
+    home: https://dependencytrack.org/
+    icon: https://raw.githubusercontent.com/DependencyTrack/branding/master/dt-logo-black-text.svg
+    keywords:
+    - security
+    - dependency
+    - dependency-track
+    - OWASP
+    - Supply Chain Component Analysis
+    maintainers:
+    - email: david@davidkarlsen.com
+      name: davidkarlsen
+    name: dependency-track
+    sources:
+    - https://docs.dependencytrack.org/
+    - https://github.com/evryfs/helm-charts
+    urls:
+    - https://github.com/evryfs/helm-charts/releases/download/dependency-track-1.0.2/dependency-track-1.0.2.tgz
+    version: 1.0.2
+  - apiVersion: v2
+    appVersion: 4.1.0
     created: "2021-03-11T21:43:58.569795621Z"
     dependencies:
     - condition: postgresql.enabled
@@ -1910,4 +1946,4 @@ entries:
     urls:
     - opsgenie-marid/opsgenie-marid-0.1.0.tgz
     version: 0.1.0
-generated: "2021-03-11T21:43:58.570144043Z"
+generated: "2021-03-11T22:34:16.373548605Z"
