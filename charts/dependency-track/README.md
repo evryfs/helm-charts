@@ -2,7 +2,10 @@
 
 ## Installing
 
-`helm install evryfs-oss/dependency-track --namespace dependency-track --name dependency-track`
+```
+kubectl create namespace dependency-track
+helm install dependency-track evryfs-oss/dependency-track --namespace dependency-track
+```
 
 ## Configuration
 
