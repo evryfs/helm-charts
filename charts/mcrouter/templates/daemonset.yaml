@@ -62,7 +62,7 @@ spec:
 {{ toYaml .Values.exporter.resources | indent 10 }}
         ports:
         - name: monitoring
-          containerPort: {{ .Values.exporter.service.port }}
+          containerPort: {{ .Values.exporter.container.port }}
         livenessProbe:
           tcpSocket:
             port: monitoring

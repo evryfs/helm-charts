@@ -59,6 +59,8 @@ exporter:
   image:
     repository: quay.io/dev25/mcrouter_exporter
     tag: 0.1.0
+  container:
+    port: 9442
   service:
     port: 9442
   resources: {}
