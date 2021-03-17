@@ -20,6 +20,9 @@ resources:
     cpu: 256m
     memory: 512Mi
 
+service:
+  port: 5000
+
 nodeSelector: {}
 
 tolerations: []
