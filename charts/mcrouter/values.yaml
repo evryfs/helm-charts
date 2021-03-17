@@ -26,6 +26,7 @@ tolerations: []
 
 service:
   clusterIP: None
+  port: 5000
   annotations: {}
 
 ## Parameters for the mcrouter command

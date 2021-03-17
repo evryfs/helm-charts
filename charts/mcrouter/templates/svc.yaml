@@ -18,7 +18,7 @@ spec:
   {{- end }}
   ports:
   - name: mcrouter-port
-    port: {{ .Values.mcrouterCommandParams.port }}
+    port: {{ .Values.service.port }}
     targetPort: mcrouter-port
   {{- if .Values.exporter.enabled }}
   - name: monitoring
