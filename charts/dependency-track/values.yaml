@@ -12,7 +12,7 @@ frontend:
   replicaCount: 2
   image:
     repository: dependencytrack/frontend
-    tag: 1.2.0
+    tag: 4.2.0
     pullPolicy: IfNotPresent
     imagePullSecrets: []
   # https://github.com/DependencyTrack/frontend/issues/60
@@ -74,7 +74,7 @@ apiserver:
   replicaCount: 1
   image:
     repository: dependencytrack/apiserver
-    tag: 4.1.0
+    tag: 4.2.0
     imagePullSecrets: []
     pullPolicy: IfNotPresent
   env: []
