@@ -12,7 +12,7 @@ frontend:
   replicaCount: 2
   image:
     repository: dependencytrack/frontend
-    tag: 1.2.0
+    tag: 4.2.0
     pullPolicy: IfNotPresent
     imagePullSecrets: []
   # https://github.com/DependencyTrack/frontend/issues/60
@@ -33,9 +33,8 @@ frontend:
 #    fsGroup: 1000
   securityContext:
     allowPrivilegeEscalation: false
-    # binds to port 80
-    runAsUser: 0
-    # rootfs cannot be R/O because there is some messing around with file generation and whatnot -
+    # rootfs cannot be R/O because there is some messing around with file generation and whatnot
+    runAsUser: 101
   service:
     type: ClusterIP
     port: 80
@@ -74,7 +73,7 @@ apiserver:
   replicaCount: 1
   image:
     repository: dependencytrack/apiserver
-    tag: 4.1.0
+    tag: 4.2.0
     imagePullSecrets: []
     pullPolicy: IfNotPresent
   env: []
