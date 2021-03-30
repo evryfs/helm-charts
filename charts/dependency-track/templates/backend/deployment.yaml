@@ -31,7 +31,7 @@ spec:
         resources: {{- toYaml . | nindent 10 }}
         {{- end }}
         {{- if .Values.postgresql.enabled }}
-        command: ["/bin/sh", "-c", "for i in $(seq 1 200); do nc -z -w3 {{ .Release.Name}}-postgresql 5432 && exit 0 || sleep 2; done; exit 1"]
+        command: ['/bin/sh', '-c', 'for i in $(seq 1 200); do nc -z -w3 {{ .Release.Name}}-postgresql 5432 && exit 0 || sleep 2; done; exit 1']
         {{- else }}
         command: ["{{ .Values.initContainer.command }}"]
         {{- end }}
