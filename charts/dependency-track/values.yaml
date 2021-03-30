@@ -139,7 +139,7 @@ apiserver:
   livenessProbe:
     initialDelaySeconds: 60
 
-initContainer: #initContainer to check DB is up and contactable
+initContainer: # initContainer to check DB is up and contactable
   enabled: true
   name: wait-for-db
   image: 
@@ -196,7 +196,7 @@ postgresql:
   securityContext:
     # enabled needs to false for restricted SCC or true for anyuid SCC and Kubernetes
     enabled: true
-    #fsGroup and runAsUser specifications below are not applied if enabled=false. enabled=false is the required setting for OpenShift "restricted SCC" to work successfully.
+    # fsGroup and runAsUser specifications below are not applied if enabled=false. enabled=false is the required setting for OpenShift "restricted SCC" to work successfully.
     fsGroup: 1001
     runAsUser: 1001
   volumePermissions:
