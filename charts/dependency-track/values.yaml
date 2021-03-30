@@ -146,7 +146,7 @@ initContainer: # initContainer to check DB is up and contactable
     repository: busybox
     tag: 1.33.0-uclibc
     pullPolicy: IfNotPresent
-  imagePullSecrets: []    
+  imagePullSecrets: []
   resources:
     limits:
       cpu: 200m
@@ -190,7 +190,7 @@ postgresql:
     annotations:
       helm.sh/resource-policy: "keep"
   containerSecurityContext:
-   # enabled needs to false for restricted SCC or true for anyuid SCC and Kubernetes
+    # enabled needs to false for restricted SCC or true for anyuid SCC and Kubernetes
     enabled: true
     runAsUser: 1001
   securityContext:
