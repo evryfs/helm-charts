@@ -139,10 +139,11 @@ apiserver:
   livenessProbe:
     initialDelaySeconds: 60
 
-initContainer: # initContainer to check DB is up and contactable
+# initContainer to check DB is up and contactable
+initContainer:
   enabled: true
   name: wait-for-db
-  image: 
+  image:
     repository: busybox
     tag: 1.33.0-uclibc
     pullPolicy: IfNotPresent
