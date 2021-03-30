@@ -28,10 +28,19 @@ frontend:
   env:
     - name: API_BASE_URL
       value: ""
+    # Note: leave this blank if you are using the ingress provided by this chart-example
+    # If you don't use the ingress (or route in OpenShift) then set this to be "http://127.0.0.1:8081" and use port-forwarding
+    # This avoids exposing the apiserver to the Internet.
+    # To use DepTrack, you will need to "<kubectl|oc> port-forward svc/<release-name>-frontend 8080:80" and at the same time "<kubectl|oc> port-forward svc/<release-name>-apiserver 8081:80"
+    # Then browse to 127.0.0.1:8080 to login to the UI. This will then communicate with the apiserver via loopback on port tcp/8081
     # See https://docs.dependencytrack.org/getting-started/configuration/ for frontend ENV variables.
-#  podSecurityContext:
-#    fsGroup: 1000
+  # enabled needs to false for restricted SCC or true for anyuid SCC and Kubernetes
+  podSecurityContext:
+    enabled: false
+    fsGroup: 1000
+  # enabled needs to false for restricted SCC or true for anyuid SCC and Kubernetes
   securityContext:
+    enabled: true
     allowPrivilegeEscalation: false
     # rootfs cannot be R/O because there is some messing around with file generation and whatnot
     runAsUser: 101
@@ -54,7 +63,8 @@ frontend:
       memory: 512Mi
   nameOverride: ""
   fullnameOverride: ""
-  initContainers: []
+  initContainers:
+    enabled: true
   serviceAccount:
     # Specifies whether a service account should be created
     create: true
@@ -82,13 +92,20 @@ apiserver:
     size: 8Gi
     annotations: {}
     storageClass: ""
+  # enabled needs to false for restricted SCC or true for anyuid SCC and Kubernetes
   podSecurityContext:
+    enabled: true
     fsGroup: 1000
+  # enabled needs to false for restricted SCC or true for anyuid SCC and Kubernetes
   securityContext:
+    enabled: true
     readOnlyRootFilesystem: true
     runAsNonRoot: true
     runAsUser: 1000
     runAsGroup: 1000
+    capabilities:
+      drop:
+      - ALL
   service:
     type: ClusterIP
     port: 80
@@ -108,7 +125,8 @@ apiserver:
       memory: 16Gi
   nameOverride: ""
   fullnameOverride: ""
-  initContainers: []
+  initContainers:
+    enabled: true
   serviceAccount:
     # Specifies whether a service account should be created
     create: true
@@ -120,6 +138,22 @@ apiserver:
     initialDelaySeconds: 60
   livenessProbe:
     initialDelaySeconds: 60
+
+initContainer: #initContainer to check DB is up and contactable
+  enabled: true
+  name: wait-for-db
+  image: 
+    repository: busybox
+    tag: 1.33.0-uclibc
+    pullPolicy: IfNotPresent
+  imagePullSecrets: []    
+  resources:
+    limits:
+      cpu: 200m
+      memory: 500Mi
+    requests:
+      cpu: 100m
+      memory: 200Mi
 
 ingress:
   enabled: false
@@ -139,3 +173,37 @@ postgresql:
   postgresqlUsername: deptrack
   postgresqlPassword: deptrack
   postgresqlDatabase: deptrack
+  serviceAccount:
+    enabled: true
+  resources:
+    requests:
+      memory: 256Mi
+      cpu: 250m
+    limits:
+      memory: 2Gi
+      cpu: 2
+  persistence:
+    enabled: true
+    accessMode: ReadWriteOnce
+    size: 20Gi
+    storageClass:
+    annotations:
+      helm.sh/resource-policy: "keep"
+  containerSecurityContext:
+   # enabled needs to false for restricted SCC or true for anyuid SCC and Kubernetes
+    enabled: true
+    runAsUser: 1001
+  securityContext:
+    # enabled needs to false for restricted SCC or true for anyuid SCC and Kubernetes
+    enabled: true
+    #fsGroup and runAsUser specifications below are not applied if enabled=false. enabled=false is the required setting for OpenShift "restricted SCC" to work successfully.
+    fsGroup: 1001
+    runAsUser: 1001
+  volumePermissions:
+    enabled: true
+    # if using restricted SCC set runAsUser: "auto" and if running under anyuid SCC - runAsUser needs to match the above
+    securityContext:
+      runAsUser: 1001
+  shmVolume:
+    chmod:
+      enabled: false

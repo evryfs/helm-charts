@@ -19,13 +19,24 @@ spec:
       imagePullSecret: {{- toYaml . | nindent 6 }}
       {{- end }}
       serviceAccountName: {{ include "common.names.fullname" . }}-apiserver
-      securityContext: {{- toYaml .Values.apiserver.podSecurityContext | nindent 8 }}
-      {{- with .Values.apiserver.initContainers }}
-      initContainers: {{- toYaml . | nindent 6 }}
+      {{- if .Values.apiserver.podSecurityContext.enabled }}
+      securityContext: {{- omit .Values.apiserver.podSecurityContext "enabled" | toYaml | nindent 8 }}
+      {{- end }}
+      {{- if .Values.apiserver.initContainers.enabled }}
+      initContainers:
+      - name: "{{ .Values.initContainer.name }}"
+        image: "{{ .Values.initContainer.image.repository }}:{{ .Values.initContainer.image.tag }}"
+        imagePullPolicy: "{{ .Values.initContainer.image.pullPolicy }}"
+        {{- with .Values.initContainer.resources }}
+        resources: {{- toYaml . | nindent 10 }}
+        {{- end }}
+        command: ["/bin/sh", "-c", "for i in $(seq 1 200); do nc -z -w3 {{ .Release.Name}}-postgresql 5432 && exit 0 || sleep 2; done; exit 1"]
       {{- end }}
       containers:
       - name: {{ .Chart.Name }}-apiserver
-        securityContext: {{- toYaml .Values.apiserver.securityContext | nindent 12 }}
+        {{- if .Values.apiserver.securityContext.enabled }}
+        securityContext: {{- omit .Values.apiserver.securityContext "enabled" | toYaml | nindent 12 }}
+        {{- end }}
         image: {{ include "apiserver.image" . }}
         imagePullPolicy: {{ .Values.apiserver.image.pullPolicy }}
         {{- with .Values.apiserver.resources }}

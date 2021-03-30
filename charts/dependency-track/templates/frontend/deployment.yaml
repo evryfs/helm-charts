@@ -15,10 +15,24 @@ spec:
       imagePullSecrets: {{- toYaml . | nindent 6 }}
       {{- end }}
       serviceAccountName: {{ include "common.names.fullname" . }}-frontend
-      securityContext: {{- toYaml .Values.frontend.podSecurityContext | nindent 8 }}
+      {{- if .Values.frontend.podSecurityContext.enabled }}
+      securityContext: {{- omit .Values.frontend.podSecurityContext "enabled" | toYaml | nindent 8 }}
+      {{- end }}
+      {{- if .Values.frontend.initContainers.enabled }}
+      initContainers:
+      - name: "{{ .Values.initContainer.name }}"
+        image: "{{ .Values.initContainer.image.repository }}:{{ .Values.initContainer.image.tag }}"
+        imagePullPolicy: "{{ .Values.initContainer.image.pullPolicy }}"
+        {{- with .Values.initContainer.resources }}
+        resources: {{- toYaml . | nindent 10 }}
+        {{- end }}
+        command: ["/bin/sh", "-c", "for i in $(seq 1 200); do nc -z -w3 {{ .Release.Name}}-postgresql 5432 && exit 0 || sleep 2; done; exit 1"]
+      {{- end }}
       containers:
       - name: {{ .Chart.Name }}-frontend
-        securityContext: {{- toYaml .Values.frontend.securityContext | nindent 12 }}
+        {{- if .Values.frontend.securityContext.enabled }}
+        securityContext: {{- omit .Values.frontend.securityContext "enabled" | toYaml | nindent 12 }}
+        {{- end }}
         {{- with .Values.frontend.resources }}
         resources: {{ . | toYaml | nindent 10 }}
         {{- end }}
