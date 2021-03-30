@@ -155,6 +155,7 @@ initContainer:
     requests:
       cpu: 100m
       memory: 200Mi
+  command: []
 
 ingress:
   enabled: false
