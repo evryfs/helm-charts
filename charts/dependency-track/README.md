@@ -35,5 +35,8 @@ helm install dependency-track evryfs-oss/dependency-track --set apiserver.podSec
 Therefore as of release 4.2.1, these PRs have not yet been released.
 
 ## Configuration
-PostgreSQL is enabled by default.
+PostgreSQL is enabled by default. In conjunction with PostgreSQL, by default in initContainer `wait-for-db` is enabled and configured to check the database is up before the frontend and backend are started.
+
+If this is not required, it can be disabled via `--set apiserver.initContainers.enabled=false --set frontend.initContainers.enabled=false` at install time.
+
 See [values.yaml](values.yaml) for configuration parameters.
