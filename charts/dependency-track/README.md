@@ -4,7 +4,7 @@
 To install this chart on Kubernetes, use the following commands:
 ```
 kubectl create namespace dependency-track
-helm install dependency-track evryfs-oss/dependency-track [--set ingress.enabled=true --set ingress.host=<desired_URL>] --namespace dependency-track
+helm install dependency-track evryfs-oss/dependency-track [--set ingress.enabled=true --set ingress.host=<desired_fqdn>] --namespace dependency-track
 ```
 
 **Note:** Depending on how you install the chart, the `API_BASE_URL` value in values.yaml may need to be amended.
