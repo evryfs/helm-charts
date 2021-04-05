@@ -1560,6 +1560,28 @@ entries:
     - github-actions-runner-operator-0.1.0.tgz
     version: 0.1.0
   mcrouter:
+  - apiVersion: v2
+    appVersion: 0.40.0
+    created: "2021-04-05T21:46:36.691700596Z"
+    dependencies:
+    - condition: mcrouter.memcached.enabled
+      name: memcached
+      repository: https://charts.bitnami.com/bitnami
+      version: ~5.8
+    description: Mcrouter is a memcached protocol router for scaling memcached deployments.
+    digest: 5ed833e3bb005471078226b86011d606493a0adc301f8becb4fbc4d26be74b48
+    home: https://github.com/facebook/mcrouter
+    icon: https://img.stackshare.io/service/4370/G7xgmEZ.png
+    maintainers:
+    - email: david@davidkarlsen.com
+      name: davidkarlsen
+    name: mcrouter
+    sources:
+    - https://github.com/facebook/mcrouter
+    - https://github.com/evryfs/docker-mcrouter
+    urls:
+    - https://github.com/evryfs/helm-charts/releases/download/mcrouter-0.2.0/mcrouter-0.2.0.tgz
+    version: 0.2.0
   - apiVersion: v1
     appVersion: 0.40.0
     created: "2021-03-17T14:38:38.246716252Z"
@@ -2087,4 +2109,4 @@ entries:
     urls:
     - opsgenie-marid/opsgenie-marid-0.1.0.tgz
     version: 0.1.0
-generated: "2021-04-04T17:54:24.953781926Z"
+generated: "2021-04-05T21:46:36.692205193Z"
