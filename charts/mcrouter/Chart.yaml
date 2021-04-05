@@ -1,7 +1,8 @@
-apiVersion: v1
+apiVersion: v2
 name: mcrouter
 home: https://github.com/facebook/mcrouter
-version: 0.1.2
+icon: https://img.stackshare.io/service/4370/G7xgmEZ.png
+version: 0.2.0
 appVersion: 0.40.0
 description: Mcrouter is a memcached protocol router for scaling memcached deployments.
 sources:
@@ -10,4 +11,8 @@ sources:
 maintainers:
 - name: davidkarlsen
   email: david@davidkarlsen.com
-engine: gotpl
+dependencies:
+- name: memcached
+  version: ~5.8
+  repository: https://charts.bitnami.com/bitnami
+  condition: mcrouter.memcached.enabled
