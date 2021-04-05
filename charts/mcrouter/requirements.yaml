@@ -1,5 +1,0 @@
-dependencies:
-- name: memcached
-  version: ~5.8
-  repository: https://charts.bitnami.com/bitnami
-  condition: mcrouter.memcached.enabled
