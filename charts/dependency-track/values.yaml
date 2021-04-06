@@ -177,35 +177,3 @@ postgresql:
   postgresqlDatabase: deptrack
   serviceAccount:
     enabled: true
-  resources:
-    requests:
-      memory: 256Mi
-      cpu: 250m
-    limits:
-      memory: 2Gi
-      cpu: 2
-  persistence:
-    enabled: true
-    accessMode: ReadWriteOnce
-    size: 20Gi
-    storageClass:
-    annotations:
-      helm.sh/resource-policy: "keep"
-  containerSecurityContext:
-    # enabled needs to false for restricted SCC or true for anyuid SCC and Kubernetes
-    enabled: true
-    runAsUser: 1001
-  securityContext:
-    # enabled needs to false for restricted SCC or true for anyuid SCC and Kubernetes
-    enabled: true
-    # fsGroup and runAsUser specifications below are not applied if enabled=false. enabled=false is the required setting for OpenShift "restricted SCC" to work successfully.
-    fsGroup: 1001
-    runAsUser: 1001
-  volumePermissions:
-    enabled: true
-    # if using restricted SCC set runAsUser: "auto" and if running under anyuid SCC - runAsUser needs to match the above
-    securityContext:
-      runAsUser: 1001
-  shmVolume:
-    chmod:
-      enabled: false
