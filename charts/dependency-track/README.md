@@ -12,12 +12,10 @@ helm install dependency-track evryfs-oss/dependency-track [--set ingress.enabled
  - If ingress is not used, or separate ingress URLs are desired for the frontend and backend, then the `API_BASE_URL` will need to be set as the URL for the Backend
  - If you wish to use port-forwarding then `API_BASE_URL=http://127.0.0.1:<port>`, see values.yaml for more information
 
-To install this chart on OpenShift, using the `anyuid` or `nonroot` SCCs, use the following commands (choosing anyuid or nonroot as the SCC):
+To install this chart on OpenShift, using the `nonroot` SCC, use the following command:
 ```
-oc adm policy add-scc-to-user <anyuid|nonroot> -z dependency-track-frontend
-oc adm policy add-scc-to-user <anyuid|nonroot> -z dependency-track-apiserver
-oc adm policy add-scc-to-user <anyuid|nonroot> -z dependency-track-postgresql
 oc create namespace dependency-track
+oc create rolebinding nonroot --clusterrole=system:openshift:scc:nonroot --serviceaccount=<namespace>:dependency-track-frontend --serviceaccount=<namespace>:dependency-track-apiserver --serviceaccount=<namespace>:dependency-track-postgresql
 helm install dependency-track evryfs-oss/dependency-track [--set ingress.enabled=true] --namespace dependency-track
 ```
 
