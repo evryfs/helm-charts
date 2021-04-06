@@ -23,7 +23,12 @@ helm install dependency-track evryfs-oss/dependency-track [--set ingress.enabled
 
 To install this chart on OpenShift using the Restricted SCC, use the following command:
 ```
-helm install dependency-track evryfs-oss/dependency-track --set apiserver.podSecurityContext.enabled=false --set apiserver.securityContext.enabled=false --set frontend.securityContext.enabled=false --set frontend.podSecurityContext.enabled=false [--set ingress.enabled=true --set ingress.host=<desired_URL>]
+helm install dependency-track evryfs-oss/dependency-track --set apiserver.podSecurityContext.enabled=false \
+   --set apiserver.securityContext.enabled=false --set frontend.securityContext.enabled=false \
+   --set frontend.podSecurityContext.enabled=false [--set ingress.enabled=true --set ingress.host=<desired_URL>] \
+   --set postgresql.serviceAccount.enabled=true --set postgresql.containerSecurityContext.enabled=false \
+   --set postgresql.securityContext.enabled=false --set postgresql.volumePermissions.enabled=true \
+   --set postgresql.volumePermissions.securityContext.runAsUser="auto"
 ```
 
 **Note:** To use the chart with the Restricted SCC it requires changes to the Frontend and Backend Dockerfiles to be compatible. PRs have been raised and these will need to be merged and released before installation under Restricted SCC can take place.
