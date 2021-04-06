@@ -25,7 +25,7 @@ To install this chart on OpenShift using the Restricted SCC, use the following c
 ```
 helm install dependency-track evryfs-oss/dependency-track --set apiserver.podSecurityContext.enabled=false \
    --set apiserver.securityContext.enabled=false --set frontend.securityContext.enabled=false \
-   --set frontend.podSecurityContext.enabled=false [--set ingress.enabled=true --set ingress.host=<desired_URL>] \
+   --set frontend.podSecurityContext.enabled=false [--set ingress.enabled=true --set ingress.host=<desired_fqdn>] \
    --set postgresql.serviceAccount.enabled=true --set postgresql.containerSecurityContext.enabled=false \
    --set postgresql.securityContext.enabled=false --set postgresql.volumePermissions.enabled=true \
    --set postgresql.volumePermissions.securityContext.runAsUser="auto"
