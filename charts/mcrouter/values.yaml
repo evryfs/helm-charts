@@ -9,6 +9,8 @@ memcached:
   enabled: true
   ## Number of Memcached replicas
   replicaCount: 2
+  podDisruptionBudget:
+    create: true
 
 ## Configure resource requests and limits
 ## ref: http://kubernetes.io/docs/user-guide/compute-resources/
