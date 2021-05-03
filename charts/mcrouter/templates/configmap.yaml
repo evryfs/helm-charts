@@ -29,10 +29,10 @@ data:
         "type": "OperationSelectorRoute",
         "default_policy": "PoolRoute|A",
         "operation_policies": {
-          "add": "AllSyncRoute|Pool|A",
-          "delete": "AllSyncRoute|Pool|A",
+          "add": "AllFastestRoute|Pool|A",
+          "delete": "AllFastestRoute|Pool|A",
           "get": "LatestRoute|Pool|A",
-          "set": "AllSyncRoute|Pool|A"
+          "set": "AllFastestRoute|Pool|A"
         }
       }
     }
