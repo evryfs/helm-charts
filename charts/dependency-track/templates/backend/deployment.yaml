@@ -15,7 +15,7 @@ spec:
     metadata:
       labels: {{- include "backend.labels.standard" . | nindent 8 }}
     spec:
-      {{- with .Values.apiserver.image.imagePullSecrets }}
+      {{- with .Values.global.imagePullSecrets }}
       imagePullSecrets: {{- toYaml . | nindent 6 }}
       {{- end }}
       serviceAccountName: {{ include "common.names.fullname" . }}-apiserver

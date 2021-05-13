@@ -11,7 +11,7 @@ spec:
     metadata:
       labels: {{- include "frontend.labels.standard" . | nindent 8 }}
     spec:
-      {{- with .Values.frontend.image.imagePullSecrets }}
+      {{- with .Values.global.imagePullSecrets }}
       imagePullSecrets: {{- toYaml . | nindent 6 }}
       {{- end }}
       serviceAccountName: {{ include "common.names.fullname" . }}-frontend
