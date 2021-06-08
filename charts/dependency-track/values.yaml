@@ -62,10 +62,16 @@ frontend:
     # The name of the service account to use.
     # If not set and create is true, a name is generated using the fullname template
     name: frontend-serviceaccount
-  readinessProbe:
-    initialDelaySeconds: 60
   livenessProbe:
+    enabled: true
+    port: ""
+    path: ""
     initialDelaySeconds: 60
+    periodSeconds: ""
+    timeoutSeconds: ""
+    successThreshold: ""
+    failureThreshold: ""
+
 
 # The apiserver
 apiserver:
@@ -116,10 +122,16 @@ apiserver:
     # If not set and create is true, a name is generated using the fullname template
     name: apiserver-serviceaccount
   # See https://docs.dependencytrack.org/getting-started/configuration/ for backend configuration options.
-  readinessProbe:
-    initialDelaySeconds: 60
   livenessProbe:
+    enabled: true
+    port: ""
+    path: ""
     initialDelaySeconds: 60
+    periodSeconds: ""
+    timeoutSeconds: ""
+    successThreshold: ""
+    failureThreshold: ""
+
 
 ingress:
   enabled: false

@@ -61,6 +61,17 @@ spec:
         - name: api
           containerPort: 8080
           protocol: TCP
+        {{- if .Values.apiserver.livenessProbe.enabled }}
+        livenessProbe:
+          httpGet:
+            port: {{ .Values.apiserver.livenessProbe.port | default 8080 }}
+            path: {{ .Values.apiserver.livenessProbe.path | default "/" }}
+          initialDelaySeconds: {{ .Values.apiserver.livenessProbe.initialDelaySeconds | default 45 }}
+          periodSeconds: {{ .Values.apiserver.livenessProbe.periodSeconds | default 10 }}
+          timeoutSeconds: {{ .Values.apiserver.livenessProbe.timeoutSeconds | default 5 }}
+          successThreshold: {{ .Values.apiserver.livenessProbe.successThreshold | default 3 }}
+          failureThreshold: {{ .Values.apiserver.livenessProbe.failureThreshold | default 3 }}
+        {{- end }}
       volumes:
       - name: tmp
         emptyDir: {}
