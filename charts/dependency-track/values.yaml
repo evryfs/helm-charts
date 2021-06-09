@@ -131,7 +131,7 @@ apiserver:
   # See https://docs.dependencytrack.org/getting-started/configuration/ for backend configuration options.
   livenessProbe:
     enabled: true
-    path: "/"
+    path: "/api/version"
     initialDelaySeconds: 60
     periodSeconds: 10
     timeoutSeconds: 2
