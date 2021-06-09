@@ -64,22 +64,20 @@ frontend:
     name: frontend-serviceaccount
   livenessProbe:
     enabled: true
-    port: ""
-    path: ""
+    path: "/"
     initialDelaySeconds: 60
-    periodSeconds: ""
-    timeoutSeconds: ""
-    successThreshold: ""
-    failureThreshold: ""
+    periodSeconds: 10
+    timeoutSeconds: 2
+    successThreshold: 1
+    failureThreshold: 3
   readinessProbe:
     enabled: true
-    port: ""
-    path: ""
+    path: "/"
     initialDelaySeconds: 60
-    periodSeconds: ""
-    timeoutSeconds: ""
-    successThreshold: ""
-    failureThreshold: ""
+    periodSeconds: 10
+    timeoutSeconds: 2
+    successThreshold: 1
+    failureThreshold: 3
 
 
 # The apiserver
@@ -133,22 +131,20 @@ apiserver:
   # See https://docs.dependencytrack.org/getting-started/configuration/ for backend configuration options.
   livenessProbe:
     enabled: true
-    port: ""
-    path: ""
+    path: "/"
     initialDelaySeconds: 60
-    periodSeconds: ""
-    timeoutSeconds: ""
-    successThreshold: ""
-    failureThreshold: ""
+    periodSeconds: 10
+    timeoutSeconds: 2
+    successThreshold: 1
+    failureThreshold: 3
   readinessProbe:
     enabled: true
-    port: ""
-    path: ""
+    path: "/"
     initialDelaySeconds: 60
-    periodSeconds: ""
-    timeoutSeconds: ""
-    successThreshold: ""
-    failureThreshold: ""
+    periodSeconds: 10
+    timeoutSeconds: 2
+    successThreshold: 1
+    failureThreshold: 3
 
 
 ingress:
