@@ -65,23 +65,23 @@ spec:
         livenessProbe:
           httpGet:
             port: api
-            path: {{ .Values.apiserver.livenessProbe.path | default "/" }}
-          initialDelaySeconds: {{ .Values.apiserver.livenessProbe.initialDelaySeconds | default 45 }}
-          periodSeconds: {{ .Values.apiserver.livenessProbe.periodSeconds | default 10 }}
-          timeoutSeconds: {{ .Values.apiserver.livenessProbe.timeoutSeconds | default 5 }}
-          successThreshold: {{ .Values.apiserver.livenessProbe.successThreshold | default 1 }}
-          failureThreshold: {{ .Values.apiserver.livenessProbe.failureThreshold | default 3 }}
+            path: {{ .Values.apiserver.livenessProbe.path }}
+          initialDelaySeconds: {{ .Values.apiserver.livenessProbe.initialDelaySeconds }}
+          periodSeconds: {{ .Values.apiserver.livenessProbe.periodSeconds }}
+          timeoutSeconds: {{ .Values.apiserver.livenessProbe.timeoutSeconds }}
+          successThreshold: {{ .Values.apiserver.livenessProbe.successThreshold }}
+          failureThreshold: {{ .Values.apiserver.livenessProbe.failureThreshold }}
         {{- end }}
         {{- if .Values.apiserver.livenessProbe.enabled }}
         readinessProbe:
           httpGet:
             port: api
-            path: {{ .Values.apiserver.readinessProbe.path | default "/" }}
-          initialDelaySeconds: {{ .Values.apiserver.readinessProbe.initialDelaySeconds | default 45 }}
-          periodSeconds: {{ .Values.apiserver.readinessProbe.periodSeconds | default 10 }}
-          timeoutSeconds: {{ .Values.apiserver.readinessProbe.timeoutSeconds | default 5 }}
-          successThreshold: {{ .Values.apiserver.readinessProbe.successThreshold | default 1 }}
-          failureThreshold: {{ .Values.apiserver.readinessProbe.failureThreshold | default 3 }}
+            path: {{ .Values.apiserver.readinessProbe.path }}
+          initialDelaySeconds: {{ .Values.apiserver.readinessProbe.initialDelaySeconds }}
+          periodSeconds: {{ .Values.apiserver.readinessProbe.periodSeconds }}
+          timeoutSeconds: {{ .Values.apiserver.readinessProbe.timeoutSeconds }}
+          successThreshold: {{ .Values.apiserver.readinessProbe.successThreshold }}
+          failureThreshold: {{ .Values.apiserver.readinessProbe.failureThreshold }}
         {{- end }}
       volumes:
       - name: tmp

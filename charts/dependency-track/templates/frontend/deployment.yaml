@@ -40,23 +40,23 @@ spec:
         livenessProbe:
           httpGet:
             port: http
-            path: {{ .Values.frontend.livenessProbe.path | default "/" }}
-          initialDelaySeconds: {{ .Values.frontend.livenessProbe.initialDelaySeconds | default 45 }}
-          periodSeconds: {{ .Values.frontend.livenessProbe.periodSeconds | default 10 }}
-          timeoutSeconds: {{ .Values.frontend.livenessProbe.timeoutSeconds | default 2 }}
-          successThreshold: {{ .Values.frontend.livenessProbe.successThreshold | default 1 }}
-          failureThreshold: {{ .Values.frontend.livenessProbe.failureThreshold | default 3 }}
+            path: {{ .Values.frontend.livenessProbe.path }}
+          initialDelaySeconds: {{ .Values.frontend.livenessProbe.initialDelaySeconds }}
+          periodSeconds: {{ .Values.frontend.livenessProbe.periodSeconds }}
+          timeoutSeconds: {{ .Values.frontend.livenessProbe.timeoutSeconds }}
+          successThreshold: {{ .Values.frontend.livenessProbe.successThreshold }}
+          failureThreshold: {{ .Values.frontend.livenessProbe.failureThreshold }}
         {{- end }}
         {{- if .Values.apiserver.livenessProbe.enabled }}
         readinessProbe:
           httpGet:
             port: http
-            path: {{ .Values.frontend.readinessProbe.path | default "/" }}
-          initialDelaySeconds: {{ .Values.frontend.readinessProbe.initialDelaySeconds | default 45 }}
-          periodSeconds: {{ .Values.frontend.readinessProbe.periodSeconds | default 10 }}
-          timeoutSeconds: {{ .Values.frontend.readinessProbe.timeoutSeconds | default 5 }}
-          successThreshold: {{ .Values.frontend.readinessProbe.successThreshold | default 1 }}
-          failureThreshold: {{ .Values.frontend.readinessProbe.failureThreshold | default 3 }}
+            path: {{ .Values.frontend.readinessProbe.path }}
+          initialDelaySeconds: {{ .Values.frontend.readinessProbe.initialDelaySeconds }}
+          periodSeconds: {{ .Values.frontend.readinessProbe.periodSeconds }}
+          timeoutSeconds: {{ .Values.frontend.readinessProbe.timeoutSeconds }}
+          successThreshold: {{ .Values.frontend.readinessProbe.successThreshold }}
+          failureThreshold: {{ .Values.frontend.readinessProbe.failureThreshold }}
         {{- end }}
       volumes:
       - name: tmp
