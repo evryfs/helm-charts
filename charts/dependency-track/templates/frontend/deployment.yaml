@@ -50,7 +50,7 @@ spec:
         {{- if .Values.apiserver.livenessProbe.enabled }}
         readinessProbe:
           httpGet:
-            port: {{ .Values.frontend.readinessProbe.port | default 8080 }}
+            port: http
             path: {{ .Values.frontend.readinessProbe.path | default "/" }}
           initialDelaySeconds: {{ .Values.frontend.readinessProbe.initialDelaySeconds | default 45 }}
           periodSeconds: {{ .Values.frontend.readinessProbe.periodSeconds | default 10 }}
