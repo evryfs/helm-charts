@@ -61,6 +61,28 @@ spec:
         - name: api
           containerPort: 8080
           protocol: TCP
+        {{- if .Values.apiserver.livenessProbe.enabled }}
+        livenessProbe:
+          httpGet:
+            port: api
+            path: {{ .Values.apiserver.livenessProbe.path }}
+          initialDelaySeconds: {{ .Values.apiserver.livenessProbe.initialDelaySeconds }}
+          periodSeconds: {{ .Values.apiserver.livenessProbe.periodSeconds }}
+          timeoutSeconds: {{ .Values.apiserver.livenessProbe.timeoutSeconds }}
+          successThreshold: {{ .Values.apiserver.livenessProbe.successThreshold }}
+          failureThreshold: {{ .Values.apiserver.livenessProbe.failureThreshold }}
+        {{- end }}
+        {{- if .Values.apiserver.livenessProbe.enabled }}
+        readinessProbe:
+          httpGet:
+            port: api
+            path: {{ .Values.apiserver.readinessProbe.path }}
+          initialDelaySeconds: {{ .Values.apiserver.readinessProbe.initialDelaySeconds }}
+          periodSeconds: {{ .Values.apiserver.readinessProbe.periodSeconds }}
+          timeoutSeconds: {{ .Values.apiserver.readinessProbe.timeoutSeconds }}
+          successThreshold: {{ .Values.apiserver.readinessProbe.successThreshold }}
+          failureThreshold: {{ .Values.apiserver.readinessProbe.failureThreshold }}
+        {{- end }}
       volumes:
       - name: tmp
         emptyDir: {}

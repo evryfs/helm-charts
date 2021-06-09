@@ -36,6 +36,28 @@ spec:
           mountPath: /tmp
         #- name: config
         #  mountPath: /app/static
+        {{- if .Values.frontend.livenessProbe.enabled }}
+        livenessProbe:
+          httpGet:
+            port: http
+            path: {{ .Values.frontend.livenessProbe.path }}
+          initialDelaySeconds: {{ .Values.frontend.livenessProbe.initialDelaySeconds }}
+          periodSeconds: {{ .Values.frontend.livenessProbe.periodSeconds }}
+          timeoutSeconds: {{ .Values.frontend.livenessProbe.timeoutSeconds }}
+          successThreshold: {{ .Values.frontend.livenessProbe.successThreshold }}
+          failureThreshold: {{ .Values.frontend.livenessProbe.failureThreshold }}
+        {{- end }}
+        {{- if .Values.apiserver.livenessProbe.enabled }}
+        readinessProbe:
+          httpGet:
+            port: http
+            path: {{ .Values.frontend.readinessProbe.path }}
+          initialDelaySeconds: {{ .Values.frontend.readinessProbe.initialDelaySeconds }}
+          periodSeconds: {{ .Values.frontend.readinessProbe.periodSeconds }}
+          timeoutSeconds: {{ .Values.frontend.readinessProbe.timeoutSeconds }}
+          successThreshold: {{ .Values.frontend.readinessProbe.successThreshold }}
+          failureThreshold: {{ .Values.frontend.readinessProbe.failureThreshold }}
+        {{- end }}
       volumes:
       - name: tmp
         emptyDir: {}
