@@ -75,7 +75,7 @@ spec:
         {{- if .Values.apiserver.livenessProbe.enabled }}
         readinessProbe:
           httpGet:
-            port: {{ .Values.apiserver.readinessProbe.port | default 8080 }}
+            port: api
             path: {{ .Values.apiserver.readinessProbe.path | default "/" }}
           initialDelaySeconds: {{ .Values.apiserver.readinessProbe.initialDelaySeconds | default 45 }}
           periodSeconds: {{ .Values.apiserver.readinessProbe.periodSeconds | default 10 }}
