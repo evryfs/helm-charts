@@ -71,6 +71,15 @@ frontend:
     timeoutSeconds: ""
     successThreshold: ""
     failureThreshold: ""
+  readinessProbe:
+    enabled: true
+    port: ""
+    path: ""
+    initialDelaySeconds: 60
+    periodSeconds: ""
+    timeoutSeconds: ""
+    successThreshold: ""
+    failureThreshold: ""
 
 
 # The apiserver
@@ -123,6 +132,15 @@ apiserver:
     name: apiserver-serviceaccount
   # See https://docs.dependencytrack.org/getting-started/configuration/ for backend configuration options.
   livenessProbe:
+    enabled: true
+    port: ""
+    path: ""
+    initialDelaySeconds: 60
+    periodSeconds: ""
+    timeoutSeconds: ""
+    successThreshold: ""
+    failureThreshold: ""
+  readinessProbe:
     enabled: true
     port: ""
     path: ""

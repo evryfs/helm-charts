@@ -69,8 +69,19 @@ spec:
           initialDelaySeconds: {{ .Values.apiserver.livenessProbe.initialDelaySeconds | default 45 }}
           periodSeconds: {{ .Values.apiserver.livenessProbe.periodSeconds | default 10 }}
           timeoutSeconds: {{ .Values.apiserver.livenessProbe.timeoutSeconds | default 5 }}
-          successThreshold: {{ .Values.apiserver.livenessProbe.successThreshold | default 3 }}
+          successThreshold: {{ .Values.apiserver.livenessProbe.successThreshold | default 1 }}
           failureThreshold: {{ .Values.apiserver.livenessProbe.failureThreshold | default 3 }}
+        {{- end }}
+        {{- if .Values.apiserver.livenessProbe.enabled }}
+        readinessProbe:
+          httpGet:
+            port: {{ .Values.apiserver.readinessProbe.port | default 8080 }}
+            path: {{ .Values.apiserver.readinessProbe.path | default "/" }}
+          initialDelaySeconds: {{ .Values.apiserver.readinessProbe.initialDelaySeconds | default 45 }}
+          periodSeconds: {{ .Values.apiserver.readinessProbe.periodSeconds | default 10 }}
+          timeoutSeconds: {{ .Values.apiserver.readinessProbe.timeoutSeconds | default 5 }}
+          successThreshold: {{ .Values.apiserver.readinessProbe.successThreshold | default 1 }}
+          failureThreshold: {{ .Values.apiserver.readinessProbe.failureThreshold | default 3 }}
         {{- end }}
       volumes:
       - name: tmp
