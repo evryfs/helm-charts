@@ -39,7 +39,7 @@ spec:
         {{- if .Values.frontend.livenessProbe.enabled }}
         livenessProbe:
           httpGet:
-            port: {{ .Values.frontend.livenessProbe.port | default 8080 }}
+            port: http
             path: {{ .Values.frontend.livenessProbe.path | default "/" }}
           initialDelaySeconds: {{ .Values.frontend.livenessProbe.initialDelaySeconds | default 45 }}
           periodSeconds: {{ .Values.frontend.livenessProbe.periodSeconds | default 10 }}
