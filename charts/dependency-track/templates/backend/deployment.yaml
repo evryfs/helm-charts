@@ -64,7 +64,7 @@ spec:
         {{- if .Values.apiserver.livenessProbe.enabled }}
         livenessProbe:
           httpGet:
-            port: {{ .Values.apiserver.livenessProbe.port | default 8080 }}
+            port: api
             path: {{ .Values.apiserver.livenessProbe.path | default "/" }}
           initialDelaySeconds: {{ .Values.apiserver.livenessProbe.initialDelaySeconds | default 45 }}
           periodSeconds: {{ .Values.apiserver.livenessProbe.periodSeconds | default 10 }}
