@@ -58,6 +58,10 @@ spec:
           successThreshold: {{ .Values.frontend.readinessProbe.successThreshold }}
           failureThreshold: {{ .Values.frontend.readinessProbe.failureThreshold }}
         {{- end }}
+      {{- with .Values.frontend.nodeSelector }}
+      nodeSelector:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
       volumes:
       - name: tmp
         emptyDir: {}
