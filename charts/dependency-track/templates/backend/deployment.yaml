@@ -44,7 +44,7 @@ spec:
         - name: ALPINE_DATABASE_PASSWORD
           valueFrom:
             secretKeyRef:
-              name: {{ .Values.postgresql.existingSecret }}
+              name: {{- if .Values.postgresql.existingSecret }} {{ .Values.postgresql.existingSecret }} {{ else }} {{ .Release.Name }}-postgresql {{- end }}
               key: {{ .Values.postgresql.secretKey }}
         - name: ALPINE_DATABASE_USERNAME
           value: {{ .Values.postgresql.postgresqlUsername }}
