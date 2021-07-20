@@ -159,7 +159,7 @@ ingress:
     # nginx.ingress.kubernetes.io/proxy-body-size: 10m
   host: chart-example.local
   
-createPostgresqlSecret: true 
+createPostgresqlSecret: true # create the postgresql secret in Dependency Track chart, outside of the postgresql chart.
 
 # Postgres variables
 postgresql:
