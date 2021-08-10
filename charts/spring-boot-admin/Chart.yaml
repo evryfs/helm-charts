@@ -1,0 +1,14 @@
+apiVersion: v2
+name: spring-boot-admin
+description: Spring Boot Admin. Admin console for sb apps.
+type: application
+version: 0.0.1
+appVersion: "2.4.3"
+sources:
+- https://github.com/codecentric/spring-boot-admin
+- https://github.com/evryfs/spring-boot-admin/
+- https://github.com/evryfs/helm-charts
+dependencies:
+- name: common
+  version: 1.8.x
+  repository: https://charts.bitnami.com/bitnami
