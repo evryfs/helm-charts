@@ -12,3 +12,6 @@ dependencies:
 - name: common
   version: 1.8.x
   repository: https://charts.bitnami.com/bitnami
+maintainers:
+- name: davidkarlsen
+  email: david@davidkarlsen.com
