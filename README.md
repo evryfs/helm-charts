@@ -10,3 +10,8 @@ Add the repo:
 `helm repo add evryfs-oss https://evryfs.github.io/helm-charts/`
 
 this repo contains charts for the following deployments
+-
+-
+-
+-
+
