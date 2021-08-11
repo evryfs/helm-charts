@@ -8,8 +8,7 @@ image:
   registry: quay.io
   repository: evryfs/spring-boot-admin
   pullPolicy: IfNotPresent
-  # Overrides the image tag whose default is the chart appVersion.
-  tag: 1.0-SNAPSHOT-39ecf78
+  tag: "2.4.3-3e5d0a0"
 
 imagePullSecrets: []
 nameOverride: ""
