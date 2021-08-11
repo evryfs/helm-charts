@@ -5,7 +5,7 @@ metadata:
   labels: {{- include "common.labels.standard" . | nindent 4 }}
 roleRef:
   apiGroup: rbac.authorization.k8s.io
-  kind: Role
+  kind: {{- if eq .Values.namespaced true }} Role {{- else }} ClusterRole {{- end }}
   name: {{ include "common.names.name" . }}
 subjects:
 - apiGroup: ""
