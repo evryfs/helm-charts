@@ -1,13 +1,14 @@
 apiVersion: rbac.authorization.k8s.io/v1
 kind: {{- if eq .Values.namespaced true }} RoleBinding {{- else }} ClusterRoleBinding {{- end }}
 metadata:
-  name: {{ include "common.names.name" . }}
+  name: {{ include "common.names.fullname" . }}
   labels: {{- include "common.labels.standard" . | nindent 4 }}
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: {{- if eq .Values.namespaced true }} Role {{- else }} ClusterRole {{- end }}
-  name: {{ include "common.names.name" . }}
+  name: {{ include "common.names.fullname" . }}
 subjects:
 - apiGroup: ""
   kind: ServiceAccount
   name: {{ include "spring-boot-admin.serviceAccountName" . }}
+  namespace: {{ .Release.Namespace }}
