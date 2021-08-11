@@ -10,6 +10,9 @@ image:
   pullPolicy: IfNotPresent
   tag: "2.4.3"
 
+# if SBA should discover cluster-wide or namespaced:
+namespaced: true
+
 imagePullSecrets: []
 nameOverride: ""
 fullnameOverride: ""

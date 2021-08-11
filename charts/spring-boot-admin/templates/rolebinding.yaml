@@ -1,5 +1,5 @@
 apiVersion: rbac.authorization.k8s.io/v1
-kind: RoleBinding
+kind: {{- if eq .Values.namespaced true }} RoleBinding {{- else }} ClusterRoleBinding {{- end }}
 metadata:
   name: {{ include "common.names.name" . }}
   labels: {{- include "common.labels.standard" . | nindent 4 }}
