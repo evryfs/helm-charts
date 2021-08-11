@@ -43,11 +43,10 @@ service:
 ingress:
   enabled: false
   className: ""
-  annotations: {}
   hostname: chart-example.local
   pathType: ImplementationSpecific
   path: /
-  annotations:
+  annotations: {}
     # kubernetes.io/ingress.class: nginx
     # kubernetes.io/tls-acme: "true"
   tls: []
