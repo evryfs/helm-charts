@@ -10,10 +10,11 @@ spec:
       {{- include "common.labels.matchLabels" . | nindent 6 }}
   template:
     metadata:
-      {{- with .Values.podAnnotations }}
       annotations:
+        checksum/config: {{ include (print $.Template.BasePath "/configmap.yaml") . | sha256sum }}
+        {{- with .Values.podAnnotations }}
         {{- toYaml . | nindent 8 }}
-      {{- end }}
+        {{- end }}
       labels:
         {{- include "common.labels.matchLabels" . | nindent 8 }}
     spec:
@@ -27,6 +28,14 @@ spec:
             {{- toYaml .Values.securityContext | nindent 12 }}
           image: {{ include "common.images.image" ( dict "imageRoot" .Values.image "global" $) }}
           imagePullPolicy: {{ .Values.image.pullPolicy }}
+          {{- with .Values.env }}
+          env: {{ toYaml . | nindent 10 }}
+          {{- end }}
+          volumeMounts:
+          - name: config
+            mountPath: /app/resources
+          - name: tmp
+            mountPath: /tmp
           ports:
             - name: http
               containerPort: 8080
@@ -53,3 +62,9 @@ spec:
       tolerations:
         {{- toYaml . | nindent 8 }}
       {{- end }}
+      volumes:
+      - name: config
+        configMap:
+          name: {{ include "common.names.fullname" . }}
+      - name: tmp
+        emptyDir: {}

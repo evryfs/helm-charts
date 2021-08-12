@@ -31,11 +31,11 @@ podAnnotations: {}
 podSecurityContext: {}
   # fsGroup: 2000
 
-securityContext: {}
+securityContext:
+  readOnlyRootFilesystem: true
   # capabilities:
   #   drop:
   #   - ALL
-  # readOnlyRootFilesystem: true
   # runAsNonRoot: true
   # runAsUser: 1000
 
@@ -56,6 +56,29 @@ ingress:
   #  - secretName: chart-example-tls
   #    hosts:
   #      - chart-example.local
+
+env:
+- name: LOADER_PATH
+  value: /app/resources
+
+configmap:
+  # see docs at https://codecentric.github.io/spring-boot-admin/2.4.3/#getting-started
+  application.yaml: |
+    server:
+      forward-headers-strategy: NATIVE
+    spring:
+      cloud:
+        kubernetes:
+          discovery:
+            all-namespaces: true
+      boot:
+        admin:
+          # set this to the ingress url and protocol
+          # ui:
+          #   public-url: http://chart-example.local
+          discovery:
+            instances-metadata:
+              spring-boot: "true"
 
 resources: {}
   # We usually recommend not to specify default resources and to leave this as a conscious
