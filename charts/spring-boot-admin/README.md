@@ -1,6 +1,6 @@
 # spring-boot-admin
 
-![Version: 0.0.1](https://img.shields.io/badge/Version-0.0.1-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 2.4.3](https://img.shields.io/badge/AppVersion-2.4.3-informational?style=flat-square)
+![Version: 0.0.3](https://img.shields.io/badge/Version-0.0.3-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 2.5.0](https://img.shields.io/badge/AppVersion-2.5.0-informational?style=flat-square)
 
 Spring Boot Admin. Admin console for sb apps.
 
@@ -27,14 +27,14 @@ Spring Boot Admin. Admin console for sb apps.
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
 | affinity | object | `{}` |  |
-| configmap."application.yaml" | string | `"server:\n  forward-headers-strategy: NATIVE\nspring:\n  cloud:\n    kubernetes:\n      discovery:\n        all-namespaces: true\n  boot:\n    admin:\n      # set this to the ingress url and protocol\n      # ui:\n      #   public-url: http://chart-example.local\n      discovery:\n        instances-metadata:\n          spring-boot: \"true\"\n"` |  |
+| configmap."application.yaml" | string | `"server:\n  forward-headers-strategy: NATIVE\nspring:\n  cloud:\n    kubernetes:\n      discovery:\n        # set this to false if running namespaced\n        all-namespaces: true\n  boot:\n    admin:\n      # set this to the ingress url and protocol\n      # ui:\n      #   public-url: http://chart-example.local\n      discovery:\n        instances-metadata:\n          spring-boot: \"true\"\n"` |  |
 | env[0].name | string | `"LOADER_PATH"` |  |
 | env[0].value | string | `"/app/resources"` |  |
 | fullnameOverride | string | `""` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.registry | string | `"quay.io"` |  |
 | image.repository | string | `"evryfs/spring-boot-admin"` |  |
-| image.tag | string | `"2.4.3"` |  |
+| image.tag | string | `"2.5.0"` |  |
 | imagePullSecrets | list | `[]` |  |
 | ingress.annotations | object | `{}` |  |
 | ingress.className | string | `""` |  |
@@ -44,7 +44,7 @@ Spring Boot Admin. Admin console for sb apps.
 | ingress.pathType | string | `"ImplementationSpecific"` |  |
 | ingress.tls | list | `[]` |  |
 | nameOverride | string | `""` |  |
-| namespaced | bool | `true` |  |
+| namespaced | bool | `false` |  |
 | nodeSelector | object | `{}` |  |
 | podAnnotations | object | `{}` |  |
 | podSecurityContext | object | `{}` |  |
