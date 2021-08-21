@@ -865,6 +865,33 @@ entries:
   ecr-proxy:
   - apiVersion: v2
     appVersion: 1.4.0
+    created: "2021-08-21T14:13:38.274968192Z"
+    description: A Helm chart for Kubernetes
+    digest: cd0acf3283385062807fdfe908a49b87a66da7a3de9d8e3989de73032d3955b0
+    home: https://github.com/Lotto24/aws-ecr-http-proxy/
+    icon: https://xebialabs.com/wp-content/uploads/2018/10/AWS-ECR-logo-1.jpg
+    keywords:
+    - ECR
+    - AWS
+    - Proxy
+    - Docker
+    - Container
+    - Image
+    - ElasticContainerRegistry
+    maintainers:
+    - email: david@davidkarlsen.com
+      name: davidkarlsen
+    name: ecr-proxy
+    sources:
+    - https://github.com/evryfs/helm-charts/tree/master/charts/ecr-proxy
+    - https://github.com/Lotto24/aws-ecr-http-proxy/
+    - https://hub.docker.com/r/esailors/aws-ecr-http-proxy/
+    type: application
+    urls:
+    - https://github.com/evryfs/helm-charts/releases/download/ecr-proxy-0.2.6/ecr-proxy-0.2.6.tgz
+    version: 0.2.6
+  - apiVersion: v2
+    appVersion: 1.4.0
     created: "2021-04-04T17:54:24.953379723Z"
     description: A Helm chart for Kubernetes
     digest: c412c9b471db4f779211a4c59d5a35eb5fd213d7281c4897552db53526d32db4
@@ -2576,4 +2603,4 @@ entries:
     urls:
     - https://github.com/evryfs/helm-charts/releases/download/spring-boot-admin-0.0.1/spring-boot-admin-0.0.1.tgz
     version: 0.0.1
-generated: "2021-08-13T11:36:55.215292161Z"
+generated: "2021-08-21T14:13:38.275560441Z"
