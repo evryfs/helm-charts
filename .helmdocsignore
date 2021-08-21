@@ -1,0 +1,5 @@
+# ignore for now
+dependency-track
+opsgenie-marid
+mcrouter
+github-actions-runner-operator

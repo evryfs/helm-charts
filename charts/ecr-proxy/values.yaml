@@ -4,6 +4,7 @@
 
 replicaCount: 1
 
+# -- image configuration
 image:
   repository: esailors/aws-ecr-http-proxy
   pullPolicy: IfNotPresent
@@ -14,6 +15,7 @@ imagePullSecrets: []
 nameOverride: ""
 fullnameOverride: ""
 
+# -- configure service account
 serviceAccount:
   # Specifies whether a service account should be created
   create: true
@@ -23,11 +25,14 @@ serviceAccount:
   # If not set and create is true, a name is generated using the fullname template
   name: ""
 
+# -- annotations to place on pod
 podAnnotations: {}
 
+# -- security context for the pod
 podSecurityContext: {}
   # fsGroup: 2000
 
+# -- securityContext for the container
 securityContext:
   # capabilities:
   #  drop:
@@ -36,10 +41,12 @@ securityContext:
   # runAsNonRoot: true
   # runAsUser: 1000
 
+# -- Kubernetes service
 service:
   type: ClusterIP
   port: 80
 
+# -- ingress configuration
 ingress:
   enabled: false
   annotations: {}
@@ -81,6 +88,7 @@ resources: {}
   #   cpu: 100m
   #   memory: 128Mi
 
+# -- configure secret. AWS tokens go here
 secret:
   create: false
   annotations: {}
@@ -88,6 +96,7 @@ secret:
   # awsAccessKeyId: "someKeyId"
   # awsSecretAccessKey: "someAccessKey"
 
+# -- enable HPA
 autoscaling:
   enabled: false
   minReplicas: 1
