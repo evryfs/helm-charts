@@ -27,6 +27,7 @@ frontend:
   #      "OIDC_SCOPE": "openid profile email",
   #      "OIDC_FLOW": ""
   #    }
+  # --See https://docs.dependencytrack.org/getting-started/configuration/ for frontend ENV variables.
   env:
     - name: API_BASE_URL
       value: ""
