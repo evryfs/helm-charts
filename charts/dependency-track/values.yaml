@@ -3,12 +3,13 @@
 # Declare variables to be passed into your templates.
 # Since dependency-track 4.0, there are now two separate images. One for frontend, one for the apiserver.
 
+# -- global configuration
 global:
   imageRegistry: docker.io
   # imagePullSecrets:
   #   - name: "myRegistryKeySecretName"
 
-# The frontend
+# -- config of the frontend
 frontend:
   enabled: true
   replicaCount: 2
@@ -80,7 +81,7 @@ frontend:
     failureThreshold: 3
 
 
-# The apiserver
+# -- config of the apiserver
 apiserver:
   enabled: true
 # Max: 1 - DT is not designed for HA
@@ -146,7 +147,7 @@ apiserver:
     successThreshold: 1
     failureThreshold: 3
 
-
+# -- configuration of ingress
 ingress:
   enabled: false
   tls:
@@ -159,7 +160,7 @@ ingress:
     # nginx.ingress.kubernetes.io/proxy-body-size: 10m
   host: chart-example.local
 
-# Postgres variables
+# -- configuration of postgres
 postgresql:
   enabled: true
   postgresqlUsername: deptrack
