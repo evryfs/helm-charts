@@ -1,6 +1,9 @@
 postgresql:
   enabled: false
 apiserver:
+  serviceAccount:
+    annotations:
+      somekey: soevalue
   persistentVolume:
     enabled: false
   resources:
@@ -12,3 +15,6 @@ apiserver:
       memory: 5Gi
 frontend:
   replicaCount: 2
+  serviceAccount:
+    annotations:
+      somekey: soevalue
