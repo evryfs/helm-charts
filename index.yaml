@@ -3,6 +3,44 @@ entries:
   dependency-track:
   - apiVersion: v2
     appVersion: 4.3.4
+    created: "2021-09-17T20:39:29.266371184Z"
+    dependencies:
+    - condition: postgresql.enabled
+      name: postgresql
+      repository: https://charts.bitnami.com/bitnami
+      version: ~10.9
+    - name: common
+      repository: https://charts.bitnami.com/bitnami
+      version: 1.8.x
+    description: 'Dependency-Track is an intelligent Software Supply Chain Component
+      Analysis platform that allows organizations to identify and reduce risk from
+      the use of third-party and open source components. Dependency-Track takes a
+      unique and highly beneficial approach by leveraging the capabilities of Software
+      Bill-of-Materials (SBOM). This approach provides capabilities that traditional
+      Software Composition Analysis (SCA) solutions cannot achieve. '
+    digest: 3c1e2b566a780ab09db24d0c55c757a676dc1237b54d9f8711557b3b41848d2d
+    home: https://dependencytrack.org/
+    icon: https://raw.githubusercontent.com/DependencyTrack/branding/master/dt-logo-black-text.svg
+    keywords:
+    - security
+    - dependency
+    - dependency-track
+    - OWASP
+    - Supply Chain Component Analysis
+    maintainers:
+    - email: david@davidkarlsen.com
+      name: davidkarlsen
+    - email: eth0linak@gmail.com
+      name: otterian
+    name: dependency-track
+    sources:
+    - https://docs.dependencytrack.org/
+    - https://github.com/evryfs/helm-charts
+    urls:
+    - https://github.com/evryfs/helm-charts/releases/download/dependency-track-1.1.4/dependency-track-1.1.4.tgz
+    version: 1.1.4
+  - apiVersion: v2
+    appVersion: 4.3.4
     created: "2021-09-01T14:01:52.342707754Z"
     dependencies:
     - condition: postgresql.enabled
@@ -2701,4 +2739,4 @@ entries:
     urls:
     - https://github.com/evryfs/helm-charts/releases/download/spring-boot-admin-0.0.1/spring-boot-admin-0.0.1.tgz
     version: 0.0.1
-generated: "2021-09-01T14:01:52.343624093Z"
+generated: "2021-09-17T20:39:29.26726679Z"
