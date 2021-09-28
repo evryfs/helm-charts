@@ -16,6 +16,9 @@ spec:
   {{- with .Values.service.type }}
   type: {{ . }}
   {{- end }}
+  {{- with .Values.service.loadBalancerIP }}
+  loadBalancerIP: {{ . | quote }}
+  {{- end }}
   ports:
   - name: mcrouter-port
     port: {{ .Values.service.port }}
