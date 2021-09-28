@@ -2097,6 +2097,28 @@ entries:
   mcrouter:
   - apiVersion: v2
     appVersion: 0.40.0
+    created: "2021-09-28T11:18:47.959206099Z"
+    dependencies:
+    - condition: mcrouter.memcached.enabled
+      name: memcached
+      repository: https://charts.bitnami.com/bitnami
+      version: ~5.12
+    description: Mcrouter is a memcached protocol router for scaling memcached deployments.
+    digest: 1ed86a02179528992e5b483fe9dd465f9c606d8fdeb78950f933bd2ea11f81db
+    home: https://github.com/facebook/mcrouter
+    icon: https://img.stackshare.io/service/4370/G7xgmEZ.png
+    maintainers:
+    - email: david@davidkarlsen.com
+      name: davidkarlsen
+    name: mcrouter
+    sources:
+    - https://github.com/facebook/mcrouter
+    - https://github.com/evryfs/docker-mcrouter
+    urls:
+    - https://github.com/evryfs/helm-charts/releases/download/mcrouter-0.2.3/mcrouter-0.2.3.tgz
+    version: 0.2.3
+  - apiVersion: v2
+    appVersion: 0.40.0
     created: "2021-05-06T09:00:03.147024702Z"
     dependencies:
     - condition: mcrouter.memcached.enabled
@@ -2777,4 +2799,4 @@ entries:
     urls:
     - https://github.com/evryfs/helm-charts/releases/download/spring-boot-admin-0.0.1/spring-boot-admin-0.0.1.tgz
     version: 0.0.1
-generated: "2021-09-20T18:15:40.679189811Z"
+generated: "2021-09-28T11:18:47.959714302Z"
