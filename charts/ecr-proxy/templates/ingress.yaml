@@ -1,14 +1,8 @@
 {{- if .Values.ingress.enabled -}}
-{{- $fullName := include "ecr-proxy.fullname" . -}}
-{{- $svcPort := .Values.service.port -}}
-{{- if semverCompare ">=1.14-0" .Capabilities.KubeVersion.GitVersion -}}
-apiVersion: networking.k8s.io/v1beta1
-{{- else -}}
-apiVersion: extensions/v1beta1
-{{- end }}
+apiVersion: {{ include "common.capabilities.ingress.apiVersion" . }}
 kind: Ingress
 metadata:
-  name: {{ $fullName }}
+  name: {{ include "ecr-proxy.fullname" . }}
   labels:
     {{- include "ecr-proxy.labels" . | nindent 4 }}
   {{- with .Values.ingress.annotations }}
@@ -27,15 +21,16 @@ spec:
     {{- end }}
   {{- end }}
   rules:
-    {{- range .Values.ingress.hosts }}
-    - host: {{ .host | quote }}
-      http:
-        paths:
-          {{- range .paths }}
-          - path: {{ . }}
-            backend:
-              serviceName: {{ $fullName }}
-              servicePort: {{ $svcPort }}
-          {{- end }}
-    {{- end }}
+  {{- range .Values.ingress.hosts }}
+  - host: {{ .host | quote }}
+    http:
+      paths:
+      {{- range .paths }}
+      - path: {{ . }}
+        {{- if eq "true" (include "common.ingress.supportsPathType" $) }}
+        pathType: Prefix
+        {{- end }}
+        backend: {{ include "common.ingress.backend" (dict "serviceName" (include "ecr-proxy.fullname" $) "servicePort" "http" "context" $) | nindent 10 }}
+      {{- end }}
   {{- end }}
+{{- end }}

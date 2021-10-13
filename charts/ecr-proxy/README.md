@@ -1,6 +1,6 @@
 # ecr-proxy
 
-![Version: 0.2.6](https://img.shields.io/badge/Version-0.2.6-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.4.0](https://img.shields.io/badge/AppVersion-1.4.0-informational?style=flat-square)
+![Version: 0.2.7](https://img.shields.io/badge/Version-0.2.7-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.4.0](https://img.shields.io/badge/AppVersion-1.4.0-informational?style=flat-square)
 
 A Helm chart for Kubernetes
 
@@ -17,6 +17,12 @@ A Helm chart for Kubernetes
 * <https://github.com/evryfs/helm-charts/tree/master/charts/ecr-proxy>
 * <https://github.com/Lotto24/aws-ecr-http-proxy/>
 * <https://hub.docker.com/r/esailors/aws-ecr-http-proxy/>
+
+## Requirements
+
+| Repository | Name | Version |
+|------------|------|---------|
+| https://charts.bitnami.com/bitnami | common | 1.10.x |
 
 ## Values
 
