@@ -26,8 +26,10 @@ spec:
     http:
       paths:
       {{- range .paths }}
-      - pathType: Prefix
-        path: {{ . }}
+      - path: {{ . }}
+        {{- if eq "true" (include "common.ingress.supportsPathType" $) }}
+        pathType: Prefix
+        {{- end }}
         backend: {{ include "common.ingress.backend" (dict "serviceName" (include "ecr-proxy.fullname" $) "servicePort" "http" "context" $) | nindent 10 }}
       {{- end }}
   {{- end }}
