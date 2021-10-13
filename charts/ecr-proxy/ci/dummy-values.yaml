@@ -9,3 +9,9 @@ secret:
   create: true
   awsAccessKeyId: dummy
   awsSecretAccessKey: dummy
+ingress:
+  enabled: true
+  hosts:
+    - host: chart-example.local
+      paths:
+      - /
