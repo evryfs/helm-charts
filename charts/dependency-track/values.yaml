@@ -100,7 +100,7 @@ apiserver:
     enabled: true
     size: 8Gi
     annotations: {}
-    storageClass: "default"
+    storageClass: ""
   podSecurityContext:
     fsGroup: 1000
   securityContext:
@@ -171,7 +171,7 @@ ingress:
 
 # -- configuration of postgres
 postgresql:
-  enabled: enable
+  enabled: true
   postgresqlUsername: deptrack
   postgresqlPassword: deptrack
   postgresqlDatabase: deptrack
