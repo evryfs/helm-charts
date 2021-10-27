@@ -171,9 +171,8 @@ ingress:
 
 # -- configuration of postgres
 postgresql:
-  #enabled: false
+  enabled: enable
   postgresqlUsername: deptrack
   postgresqlPassword: deptrack
   postgresqlDatabase: deptrack
-  postgresqlHost: rdcuedddadjir01.clxbaf0cnjgd.us-east-1.rds.amazonaws.com
   # postgresqlHost: # configure for external postgresql database. Set enabled to false.
