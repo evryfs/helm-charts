@@ -100,7 +100,7 @@ apiserver:
     enabled: true
     size: 8Gi
     annotations: {}
-    storageClass: ""
+    storageClass: "default"
   podSecurityContext:
     fsGroup: 1000
   securityContext:
@@ -171,7 +171,9 @@ ingress:
 
 # -- configuration of postgres
 postgresql:
-  enabled: true
+  #enabled: false
   postgresqlUsername: deptrack
   postgresqlPassword: deptrack
   postgresqlDatabase: deptrack
+  postgresqlHost: rdcuedddadjir01.clxbaf0cnjgd.us-east-1.rds.amazonaws.com
+  # postgresqlHost: # configure for external postgresql database. Set enabled to false.
