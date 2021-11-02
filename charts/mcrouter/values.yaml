@@ -30,6 +30,7 @@ service:
   clusterIP: None
   port: 5000
   annotations: {}
+  externalTrafficPolicy: null
 
 ## Parameters for the mcrouter command
 mcrouterCommandParams:
