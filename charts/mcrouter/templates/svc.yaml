@@ -30,3 +30,6 @@ spec:
   {{- end }}
   selector:
     app: {{ template "fullname" . }}
+  {{- with .Values.service.externalTrafficPolicy }}
+  externalTrafficPolicy: {{ . }}
+  {{- end }}
