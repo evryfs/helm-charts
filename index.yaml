@@ -2833,6 +2833,28 @@ entries:
   spring-boot-admin:
   - apiVersion: v2
     appVersion: 2.5.3
+    created: "2021-11-11T17:51:32.939533266Z"
+    dependencies:
+    - name: common
+      repository: https://charts.bitnami.com/bitnami
+      version: 1.8.x
+    description: Spring Boot Admin. Admin console for sb apps.
+    digest: cc4ae17a49db4de7753be4291ae198b89b7df2c4eff9bca0cb72b5d9a04f1d0e
+    icon: https://media-exp1.licdn.com/dms/image/C4D0BAQFZ80eOhCewVw/company-logo_200_200/0?e=2159024400&v=beta&t=XFbeA46Og-bBC5Th2aFMwXfB1FssEqN5lx-hKraJuAg
+    maintainers:
+    - email: david@davidkarlsen.com
+      name: davidkarlsen
+    name: spring-boot-admin
+    sources:
+    - https://github.com/codecentric/spring-boot-admin
+    - https://github.com/evryfs/spring-boot-admin/
+    - https://github.com/evryfs/helm-charts
+    type: application
+    urls:
+    - https://github.com/evryfs/helm-charts/releases/download/spring-boot-admin-0.0.7/spring-boot-admin-0.0.7.tgz
+    version: 0.0.7
+  - apiVersion: v2
+    appVersion: 2.5.3
     created: "2021-10-29T18:41:52.755824352Z"
     dependencies:
     - name: common
@@ -2963,4 +2985,4 @@ entries:
     urls:
     - https://github.com/evryfs/helm-charts/releases/download/spring-boot-admin-0.0.1/spring-boot-admin-0.0.1.tgz
     version: 0.0.1
-generated: "2021-11-02T18:12:04.78608424Z"
+generated: "2021-11-11T17:51:32.940342922Z"
