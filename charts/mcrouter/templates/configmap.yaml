@@ -9,7 +9,9 @@ metadata:
     heritage: {{ .Release.Service }}
 data:
   config.json: |-
-{{- if .Values.mcrouterCommandParams.configFile }}{{ range .Files.Lines .Values.mcrouterCommandParams.configFile }}
+{{- if .Values.mcrouterCommandParams.config }}
+    {{ .Values.mcrouterCommandParams.config | nindent 4}}
+{{- else if .Values.mcrouterCommandParams.configFile }}{{ range .Files.Lines .Values.mcrouterCommandParams.configFile }}
     {{ . }}{{ end }}
 {{- else }}
     {{- if .Values.memcached.enabled }}
