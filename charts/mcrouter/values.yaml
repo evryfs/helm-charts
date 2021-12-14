@@ -38,7 +38,7 @@ mcrouterCommandParams:
 
   ## Pass a custom JSON config, if not specified one will be generated per the number of memcached replicas
   ## https://github.com/facebook/mcrouter/wiki/Config-Files
-  # configFile:
+  # config: |
 
 ## Pod controller. Possible values: "daemonset", "statefulset".
 controller: "daemonset"
