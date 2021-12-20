@@ -1,6 +1,6 @@
 # dependency-track
 
-![Version: 1.1.5](https://img.shields.io/badge/Version-1.1.5-informational?style=flat-square) ![AppVersion: 4.3.6](https://img.shields.io/badge/AppVersion-4.3.6-informational?style=flat-square)
+![Version: 1.1.6](https://img.shields.io/badge/Version-1.1.6-informational?style=flat-square) ![AppVersion: 4.3.6](https://img.shields.io/badge/AppVersion-4.3.6-informational?style=flat-square)
 
 Dependency-Track is an intelligent Software Supply Chain Component Analysis platform that allows organizations to identify and reduce risk from the use of third-party and open source components. Dependency-Track takes a unique and highly beneficial approach by leveraging the capabilities of Software Bill-of-Materials (SBOM). This approach provides capabilities that traditional Software Composition Analysis (SCA) solutions cannot achieve.
 
