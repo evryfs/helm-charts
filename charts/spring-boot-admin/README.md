@@ -1,6 +1,6 @@
 # spring-boot-admin
 
-![Version: 0.0.9](https://img.shields.io/badge/Version-0.0.9-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 2.5.5](https://img.shields.io/badge/AppVersion-2.5.5-informational?style=flat-square)
+![Version: 0.0.10](https://img.shields.io/badge/Version-0.0.10-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 2.6.1](https://img.shields.io/badge/AppVersion-2.6.1-informational?style=flat-square)
 
 Spring Boot Admin. Admin console for sb apps.
 
@@ -34,7 +34,7 @@ Spring Boot Admin. Admin console for sb apps.
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.registry | string | `"quay.io"` |  |
 | image.repository | string | `"evryfs/spring-boot-admin"` |  |
-| image.tag | string | `"2.5.5"` |  |
+| image.tag | string | `"2.6.1"` |  |
 | imagePullSecrets | list | `[]` |  |
 | ingress.annotations | object | `{}` |  |
 | ingress.className | string | `""` |  |
