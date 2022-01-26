@@ -168,10 +168,14 @@ ingress:
     ## allow large bom.xml uploads:
     # nginx.ingress.kubernetes.io/proxy-body-size: 10m
   host: chart-example.local
+  
+createPostgresqlSecret: true # create the postgresql secret in Dependency Track chart, outside of the postgresql chart.
 
 # -- configuration of postgres
 postgresql:
   enabled: true
   postgresqlUsername: deptrack
-  postgresqlPassword: deptrack
+  postgresqlPassword: ""
   postgresqlDatabase: deptrack
+  existingSecret: deptrack-postgresql # This is the full name of the secret that will be created 
+  secretKey: postgresql-password
