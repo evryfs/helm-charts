@@ -89,6 +89,13 @@ frontend:
 # -- config of the apiserver
 apiserver:
   enabled: true
+  # sidecarContainers - add more containers to the api-server (e.g. Google Cloud SQL Proxy)
+  # Key/Value where Key is the sidecar `- name: <Key>`
+  # Example:
+  #   sidecarContainers:
+  #      cloud-sql-proxy:
+  #        image: gcr.io/cloudsql-docker/gce-proxy:1.23.0
+  sidecarContainers: {}
 # Max: 1 - DT is not designed for HA
   replicaCount: 1
   image:
@@ -170,9 +177,25 @@ ingress:
   host: chart-example.local
   # ingressClassName: nginx
 
-# -- configuration of postgres
-postgresql:
-  enabled: true
-  postgresqlUsername: deptrack
-  postgresqlPassword: deptrack
-  postgresqlDatabase: deptrack
+  # "internal" currently only supports postgres
+  # -- configuration of SQL database setup as a Kubernetes deployment
+  internal:
+    enabled: false
+    postgresql:
+      username: deptrack
+      password: deptrack
+      database: deptrack
+
+  # -- configuration of database
+  database:
+    external:
+      enabled: false
+      # Please see variable definitions here https://docs.dependencytrack.org/getting-started/configuration/
+      databaseMode: "external"
+      databaseDriver: "org.postgresql.Driver"
+      databaseURL: ""
+      databaseUsername: ""
+      # Store the database user password in a Kubernetes Secret
+      databaseUserPassword:
+        secretName: ""
+        secretKey: ""
