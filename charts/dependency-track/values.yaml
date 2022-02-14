@@ -177,25 +177,24 @@ ingress:
   host: chart-example.local
   # ingressClassName: nginx
 
-  # "internal" currently only supports postgres
-  # -- configuration of SQL database setup as a Kubernetes deployment
+# -- configuration of database
+database:
+  # internal - deploys a PostgreSQL database to the Kubernetes cluster (currently only supports postgres)
   internal:
     enabled: false
     postgresql:
       username: deptrack
       password: deptrack
       database: deptrack
-
-  # -- configuration of database
-  database:
-    external:
-      enabled: false
-      # Please see variable definitions here https://docs.dependencytrack.org/getting-started/configuration/
-      databaseMode: "external"
-      databaseDriver: "org.postgresql.Driver"
-      databaseURL: ""
-      databaseUsername: ""
-      # Store the database user password in a Kubernetes Secret
-      databaseUserPassword:
-        secretName: ""
-        secretKey: ""
+  # Allows for configuring dependency track to use an external database
+  external:
+    enabled: false
+    # Please see variable definitions here https://docs.dependencytrack.org/getting-started/configuration/
+    databaseMode: "external"
+    databaseDriver: "org.postgresql.Driver"
+    databaseURL: ""
+    databaseUsername: ""
+    # Store the database user password in a Kubernetes Secret
+    databaseUserPassword:
+      secretName: ""
+      secretKey: ""
