@@ -181,7 +181,7 @@ ingress:
 database:
   # internal - deploys a PostgreSQL database to the Kubernetes cluster (currently only supports postgres)
   internal:
-    enabled: false
+    enabled: true
     postgresql:
       username: deptrack
       password: deptrack
