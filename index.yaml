@@ -2,6 +2,44 @@ apiVersion: v1
 entries:
   dependency-track:
   - apiVersion: v2
+    appVersion: 4.4.0
+    created: "2022-02-21T09:25:46.751117198Z"
+    dependencies:
+    - condition: postgresql.enabled
+      name: postgresql
+      repository: https://charts.bitnami.com/bitnami
+      version: ~10.10
+    - name: common
+      repository: https://charts.bitnami.com/bitnami
+      version: 1.9.x
+    description: 'Dependency-Track is an intelligent Software Supply Chain Component
+      Analysis platform that allows organizations to identify and reduce risk from
+      the use of third-party and open source components. Dependency-Track takes a
+      unique and highly beneficial approach by leveraging the capabilities of Software
+      Bill-of-Materials (SBOM). This approach provides capabilities that traditional
+      Software Composition Analysis (SCA) solutions cannot achieve. '
+    digest: 88da224f91841e0ccbef0be1b5b3d9ca97ad9aafb139a92ccbd8541a2ae9c7b0
+    home: https://dependencytrack.org/
+    icon: https://raw.githubusercontent.com/DependencyTrack/branding/master/dt-logo-black-text.svg
+    keywords:
+    - security
+    - dependency
+    - dependency-track
+    - OWASP
+    - Supply Chain Component Analysis
+    maintainers:
+    - email: david@davidkarlsen.com
+      name: davidkarlsen
+    - email: eth0linak@gmail.com
+      name: otterian
+    name: dependency-track
+    sources:
+    - https://docs.dependencytrack.org/
+    - https://github.com/evryfs/helm-charts
+    urls:
+    - https://github.com/evryfs/helm-charts/releases/download/dependency-track-1.3.0/dependency-track-1.3.0.tgz
+    version: 1.3.0
+  - apiVersion: v2
     appVersion: 4.3.6
     created: "2022-01-28T15:48:23.846247497Z"
     dependencies:
@@ -3171,4 +3209,4 @@ entries:
     urls:
     - https://github.com/evryfs/helm-charts/releases/download/spring-boot-admin-0.0.1/spring-boot-admin-0.0.1.tgz
     version: 0.0.1
-generated: "2022-01-28T15:48:23.846996797Z"
+generated: "2022-02-21T09:25:46.751805903Z"
