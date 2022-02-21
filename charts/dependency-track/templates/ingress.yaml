@@ -23,10 +23,8 @@ spec:
       paths:
       - path: /api
         pathType: Prefix
-        backend:
-          {{ include "common.ingress.backend" (dict "serviceName" (print (include "common.names.fullname" . ) "-apiserver") "servicePort" 80 "context" $) | nindent 10 }}
+        backend: {{ include "common.ingress.backend" (dict "serviceName" (print (include "common.names.fullname" . ) "-apiserver") "servicePort" 80 "context" $) | nindent 10 }}
       - path: /
         pathType: Prefix
-        backend:
-          {{ include "common.ingress.backend" (dict "serviceName" (print (include "common.names.fullname" . ) "-frontend") "servicePort" 80 "context" $) | nindent 10 }}
+        backend: {{ include "common.ingress.backend" (dict "serviceName" (print (include "common.names.fullname" . ) "-frontend") "servicePort" 80 "context" $) | nindent 10 }}
 {{- end }}
