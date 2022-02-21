@@ -6,7 +6,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        kubernetesVersion: [ "v1.16.15", "v1.23.1" ]
+        kubernetesVersion: [ "v1.16.15", "v1.23.3" ]
     runs-on: ubuntu-latest
     if: github.ref != 'refs/heads/master'
     steps:
@@ -23,7 +23,7 @@ jobs:
       with:
         version: 3.*
 
-    - uses: actions/setup-python@v2.3.1
+    - uses: actions/setup-python@v2.3.2
       with:
         python-version: 3.7
 
