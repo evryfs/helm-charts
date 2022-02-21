@@ -27,6 +27,8 @@ jobs:
       with:
         python-version: 3.7
 
+    - uses: softwaremill/helm-docs-action@master
+
     - name: Set up chart-testing
       uses: helm/chart-testing-action@v2.2.0
 
