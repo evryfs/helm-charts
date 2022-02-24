@@ -198,3 +198,6 @@ database:
     databaseUserPassword:
       secretName: ""
       secretKey: ""
+      # IT IS ADVISED THAT THIS VALUE IS NOT DECLARED AND STORED IN GIT UNENCRYPTED
+      secretValue: ""
+      createSecret: false
