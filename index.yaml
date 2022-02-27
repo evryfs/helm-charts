@@ -2940,6 +2940,25 @@ entries:
     - mcrouter-0.0.1.tgz
     version: 0.0.1
   opsgenie-marid:
+  - apiVersion: v2
+    appVersion: v2.15.0
+    created: "2022-02-27T22:31:05.522491599Z"
+    description: A Helm chart for Kubernetes
+    digest: a84079d5f7d0d148252d5d0932fa3327a226c698d60e4dbfa3bf9061b7c36369
+    home: https://docs.opsgenie.com/docs/marid-integration-server-for-opsgenie
+    icon: https://wac-cdn.atlassian.com/dam/jcr:8dbf0e36-5b84-4205-8dcb-3f7e94240ae7/marid-logo@2x.png?cdnVersion=565
+    keywords:
+    - monitoring
+    - alerting
+    - opsgenie
+    - marid
+    maintainers:
+    - email: david@davidkarlsen.com
+      name: davidkarlsen
+    name: opsgenie-marid
+    urls:
+    - https://github.com/evryfs/helm-charts/releases/download/opsgenie-marid-0.2.3/opsgenie-marid-0.2.3.tgz
+    version: 0.2.3
   - apiVersion: v1
     appVersion: v2.15.0
     created: "2021-10-20T12:07:47.297338728Z"
@@ -3414,4 +3433,4 @@ entries:
     urls:
     - https://github.com/evryfs/helm-charts/releases/download/spring-boot-admin-0.0.1/spring-boot-admin-0.0.1.tgz
     version: 0.0.1
-generated: "2022-02-21T23:15:52.670998247Z"
+generated: "2022-02-27T22:31:05.523144807Z"
