@@ -6,7 +6,7 @@ replicaCount: 1
 
 image:
   repository: quay.io/evryfs/docker-marid
-  tag: v2.15.0-6
+  tag: v2.15.0-7
   pullPolicy: IfNotPresent
 
 podSecurityContext:
@@ -16,7 +16,7 @@ gitSync:
   enabled: false
   image:
     repository: k8s.gcr.io/git-sync/git-sync
-    tag: v3.2.0
+    tag: v3.4.0
     pullPolicy: IfNotPresent
   sshKey: ""
   knownHosts: ""
