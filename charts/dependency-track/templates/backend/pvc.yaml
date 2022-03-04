@@ -10,7 +10,13 @@ metadata:
   name: {{ include "common.names.fullname" . }}-apiserver
 spec:
   accessModes:
-  - ReadWriteOnce
+  {{- if not (empty .Values.apiserver.persistentVolume.accessModes) }}
+  {{- range .Values.apiserver.persistentVolume.accessModes }}
+    - {{ . | quote }}
+  {{- end }}
+  {{- else }}
+    - {{ .Values.apiserver.persistentVolume.accessMode | quote }}
+  {{- end }}
 {{- with .Values.apiserver.persistentVolume.storageClass }}
   storageClassName: "{{ . }}"
 {{- end }}
