@@ -101,6 +101,8 @@ apiserver:
     size: 8Gi
     annotations: {}
     storageClass: ""
+    accessModes:
+      - ReadWriteOnce
   podSecurityContext:
     fsGroup: 1000
   securityContext:
