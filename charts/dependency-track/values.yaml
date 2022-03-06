@@ -93,10 +93,12 @@ apiserver:
   replicaCount: 1
   image:
     repository: dependencytrack/apiserver
-    tag: 4.4.1
+    tag: 4.4.2
     pullPolicy: IfNotPresent
   env: []
   persistentVolume:
+    accessModes:
+    - ReadWriteOnce
     enabled: true
     size: 8Gi
     annotations: {}
