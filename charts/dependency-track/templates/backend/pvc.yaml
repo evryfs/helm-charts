@@ -9,8 +9,7 @@ metadata:
   labels: {{- include "backend.labels.standard" . | nindent 4 }}
   name: {{ include "common.names.fullname" . }}-apiserver
 spec:
-  accessModes:
-  - ReadWriteOnce
+  accessModes: {{ .Values.apiserver.persistentVolume.accessModes | toYaml | nindent 2 }}
 {{- with .Values.apiserver.persistentVolume.storageClass }}
   storageClassName: "{{ . }}"
 {{- end }}

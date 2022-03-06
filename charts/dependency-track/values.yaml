@@ -97,6 +97,8 @@ apiserver:
     pullPolicy: IfNotPresent
   env: []
   persistentVolume:
+    accessModes:
+    - ReadWriteOnce
     enabled: true
     size: 8Gi
     annotations: {}
