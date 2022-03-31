@@ -1,4 +1,4 @@
-{{- if .exporter.ServiceMonitor.enabled -}}
+{{- if .exporter.serviceMonitor.enabled -}}
 apiVersion: monitoring.coreos.com/v1
 kind: ServiceMonitor
 metadata:
