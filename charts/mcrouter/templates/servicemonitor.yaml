@@ -1,0 +1,16 @@
+{{- if and .Values.exporter.serviceMonitor.enabled .Values.exporter.enabled -}}
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: {{ template "fullname" . }}
+spec:
+  endpoints:
+  - path: /metrics
+    port: monitoring
+  namespaceSelector:
+    matchNames:
+    - {{ .Release.Namespace }}
+  selector:
+    matchLabels:
+      app: {{ template "fullname" . }}
+{{- end -}}
