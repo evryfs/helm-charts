@@ -1,5 +1,5 @@
 ## Container image
-image: quay.io/evryfs/docker-mcrouter:0.40.0-6
+image: quay.io/evryfs/docker-mcrouter:0.40.0-8
 
 ## Memcached chart parameters
 memcached:
@@ -59,6 +59,8 @@ statefulset:
 
 exporter:
   enabled: false
+  serviceMonitor:
+    enabled: false
   image:
     repository: quay.io/dev25/mcrouter_exporter
     tag: 0.1.0
