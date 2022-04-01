@@ -45,7 +45,7 @@ service:
 
 ingress:
   enabled: false
-  className: ""
+  ingressClassName: ""
   hostname: chart-example.local
   pathType: ImplementationSpecific
   path: /
