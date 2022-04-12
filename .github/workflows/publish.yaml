@@ -20,8 +20,6 @@ jobs:
 
     - name: Install Helm
       uses: azure/setup-helm@v2.1
-      with:
-        version: 3.*
 
     - name: add repos
       run: |
