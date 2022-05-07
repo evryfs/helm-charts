@@ -24,65 +24,89 @@ spec:
       initContainers: {{- toYaml . | nindent 6 }}
       {{- end }}
       containers:
-      - name: {{ .Chart.Name }}-apiserver
-        securityContext: {{- toYaml .Values.apiserver.securityContext | nindent 12 }}
-        image: {{ include "apiserver.image" . }}
-        imagePullPolicy: {{ .Values.apiserver.image.pullPolicy }}
-        {{- with .Values.apiserver.resources }}
-        resources: {{ . | toYaml | nindent 10 }}
+        - name: {{ .Chart.Name }}-apiserver
+          securityContext: {{- toYaml .Values.apiserver.securityContext | nindent 12 }}
+          image: {{ include "apiserver.image" . }}
+          imagePullPolicy: {{ .Values.apiserver.image.pullPolicy }}
+          {{- with .Values.apiserver.resources }}
+          resources: {{ . | toYaml | nindent 12 }}
+          {{- end }}
+          env:
+          - name: ALPINE_DATA_DIRECTORY
+            value: "/data"
+          {{- if eq .Values.database.internal.enabled true }}
+          - name: ALPINE_DATABASE_MODE
+            value: "external"
+          - name: ALPINE_DATABASE_DRIVER
+            value: "org.postgresql.Driver"
+          - name: ALPINE_DATABASE_URL
+            value: jdbc:postgresql://{{ .Release.Name }}-postgresql/{{ .Values.database.internal.postgresql.database }}
+          - name: ALPINE_DATABASE_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: {{ .Release.Name }}-postgresql
+                key: postgresql-password
+          - name: ALPINE_DATABASE_USERNAME
+            value: {{ .Values.database.internal.postgresql.username }}
+          {{- else if eq .Values.database.external.enabled true }}
+          - name: ALPINE_DATABASE_MODE
+            value: {{ .Values.database.external.databaseMode}}
+          - name: ALPINE_DATABASE_DRIVER
+            value: {{ .Values.database.external.databaseDriver}}
+          - name: ALPINE_DATABASE_URL
+            value: {{ .Values.database.external.databaseURL}}
+          - name: ALPINE_DATABASE_USERNAME
+            value: {{ .Values.database.external.databaseUsername }}
+          - name: ALPINE_DATABASE_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: {{ .Values.database.external.databaseUserPassword.secretName }}
+                key: {{ .Values.database.external.databaseUserPassword.secretKey }}
+          {{- end }}
+          {{- with .Values.apiserver.env }}
+          {{- toYaml . | nindent 8 }}
+          {{- end }}
+          volumeMounts:
+          - name: data
+            mountPath: /data
+          - name: tmp
+            mountPath: /tmp
+          ports:
+          - name: api
+            containerPort: 8080
+            protocol: TCP
+          {{- if .Values.apiserver.livenessProbe.enabled }}
+          livenessProbe:
+            httpGet:
+              port: api
+              path: {{ .Values.apiserver.livenessProbe.path }}
+            initialDelaySeconds: {{ .Values.apiserver.livenessProbe.initialDelaySeconds }}
+            periodSeconds: {{ .Values.apiserver.livenessProbe.periodSeconds }}
+            timeoutSeconds: {{ .Values.apiserver.livenessProbe.timeoutSeconds }}
+            successThreshold: {{ .Values.apiserver.livenessProbe.successThreshold }}
+            failureThreshold: {{ .Values.apiserver.livenessProbe.failureThreshold }}
+          {{- end }}
+          {{- if .Values.apiserver.livenessProbe.enabled }}
+          readinessProbe:
+            httpGet:
+              port: api
+              path: {{ .Values.apiserver.readinessProbe.path }}
+            initialDelaySeconds: {{ .Values.apiserver.readinessProbe.initialDelaySeconds }}
+            periodSeconds: {{ .Values.apiserver.readinessProbe.periodSeconds }}
+            timeoutSeconds: {{ .Values.apiserver.readinessProbe.timeoutSeconds }}
+            successThreshold: {{ .Values.apiserver.readinessProbe.successThreshold }}
+            failureThreshold: {{ .Values.apiserver.readinessProbe.failureThreshold }}
+          {{- end }}
+      {{- if .Values.apiserver.sidecarContainers }}
+        {{- range $name, $spec := .Values.apiserver.sidecarContainers }}
+        - name: {{ $name }}
+          {{- if kindIs "string" $spec }}
+            {{- tpl $spec $ | nindent 10 }}
+          {{- else }}
+            {{- toYaml $spec | nindent 10 }}
+          {{- end }}
         {{- end }}
-        env:
-        - name: ALPINE_DATA_DIRECTORY
-          value: "/data"
-        {{- if .Values.postgresql.enabled }}
-        - name: ALPINE_DATABASE_MODE
-          value: "external"
-        - name: ALPINE_DATABASE_DRIVER
-          value: "org.postgresql.Driver"
-        - name: ALPINE_DATABASE_URL
-          value: jdbc:postgresql://{{ .Release.Name }}-postgresql/{{ .Values.postgresql.postgresqlDatabase }}
-        - name: ALPINE_DATABASE_PASSWORD
-          valueFrom:
-            secretKeyRef:
-              name: {{ .Release.Name }}-postgresql
-              key: postgresql-password
-        - name: ALPINE_DATABASE_USERNAME
-          value: {{ .Values.postgresql.postgresqlUsername }}
-        {{- end }}
-        {{- with .Values.apiserver.env }}
-        {{- toYaml . | nindent 8 }}
-        {{- end }}
-        volumeMounts:
-        - name: data
-          mountPath: /data
-        - name: tmp
-          mountPath: /tmp
-        ports:
-        - name: api
-          containerPort: 8080
-          protocol: TCP
-        {{- if .Values.apiserver.livenessProbe.enabled }}
-        livenessProbe:
-          httpGet:
-            port: api
-            path: {{ .Values.apiserver.livenessProbe.path }}
-          initialDelaySeconds: {{ .Values.apiserver.livenessProbe.initialDelaySeconds }}
-          periodSeconds: {{ .Values.apiserver.livenessProbe.periodSeconds }}
-          timeoutSeconds: {{ .Values.apiserver.livenessProbe.timeoutSeconds }}
-          successThreshold: {{ .Values.apiserver.livenessProbe.successThreshold }}
-          failureThreshold: {{ .Values.apiserver.livenessProbe.failureThreshold }}
-        {{- end }}
-        {{- if .Values.apiserver.livenessProbe.enabled }}
-        readinessProbe:
-          httpGet:
-            port: api
-            path: {{ .Values.apiserver.readinessProbe.path }}
-          initialDelaySeconds: {{ .Values.apiserver.readinessProbe.initialDelaySeconds }}
-          periodSeconds: {{ .Values.apiserver.readinessProbe.periodSeconds }}
-          timeoutSeconds: {{ .Values.apiserver.readinessProbe.timeoutSeconds }}
-          successThreshold: {{ .Values.apiserver.readinessProbe.successThreshold }}
-          failureThreshold: {{ .Values.apiserver.readinessProbe.failureThreshold }}
-        {{- end }}
+      {{- end }}
       {{- with .Values.apiserver.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
