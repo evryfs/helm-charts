@@ -34,11 +34,13 @@ spec:
         env:
         - name: ALPINE_DATA_DIRECTORY
           value: "/data"
-        {{- if .Values.postgresql.enabled }}
+        {{- if or (.Values.postgresql.enabled) (.Values.externalDatabase.enabled) }}
         - name: ALPINE_DATABASE_MODE
           value: "external"
         - name: ALPINE_DATABASE_DRIVER
           value: "org.postgresql.Driver"
+        {{- end }}
+        {{- if .Values.postgresql.enabled }}
         - name: ALPINE_DATABASE_URL
           value: jdbc:postgresql://{{ .Release.Name }}-postgresql/{{ .Values.postgresql.postgresqlDatabase }}
         - name: ALPINE_DATABASE_PASSWORD
@@ -48,6 +50,16 @@ spec:
               key: postgresql-password
         - name: ALPINE_DATABASE_USERNAME
           value: {{ .Values.postgresql.postgresqlUsername }}
+        {{- else if .Values.externalDatabase.enabled }}
+        - name: ALPINE_DATABASE_URL
+          value: {{ .Values.externalDatabase.url }}
+        - name: ALPINE_DATABASE_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: {{ .Values.externalDatabase.passwdSecretName }}
+              key: postgresql-password
+        - name: ALPINE_DATABASE_USERNAME
+          value: {{ .Values.externalDatabase.username }}
         {{- end }}
         {{- with .Values.apiserver.env }}
         {{- toYaml . | nindent 8 }}

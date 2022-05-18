@@ -178,3 +178,10 @@ postgresql:
   postgresqlUsername: deptrack
   postgresqlPassword: deptrack
   postgresqlDatabase: deptrack
+
+# -- configuration of externalDatabase
+externalDatabase:
+  enabled: false
+  url: "jdbc:postgresql://my-external-postgresql/deptrack"
+  passwdSecretName: deptrack-postgresql
+  username: myexternaluser
