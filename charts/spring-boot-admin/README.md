@@ -1,6 +1,6 @@
 # spring-boot-admin
 
-![Version: 0.1.0](https://img.shields.io/badge/Version-0.1.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 2.7.0](https://img.shields.io/badge/AppVersion-2.7.0-informational?style=flat-square)
+![Version: 0.1.0](https://img.shields.io/badge/Version-0.1.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 2.7.1](https://img.shields.io/badge/AppVersion-2.7.1-informational?style=flat-square)
 
 Spring Boot Admin. Admin console for sb apps.
 
@@ -20,7 +20,7 @@ Spring Boot Admin. Admin console for sb apps.
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://charts.bitnami.com/bitnami | common | 1.13.x |
+| https://charts.bitnami.com/bitnami | common | 1.16.x |
 
 ## Values
 
@@ -34,7 +34,7 @@ Spring Boot Admin. Admin console for sb apps.
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.registry | string | `"quay.io"` |  |
 | image.repository | string | `"evryfs/spring-boot-admin"` |  |
-| image.tag | string | `"2.7.0"` |  |
+| image.tag | string | `"2.7.1"` |  |
 | imagePullSecrets | list | `[]` |  |
 | ingress.annotations | object | `{}` |  |
 | ingress.enabled | bool | `false` |  |
