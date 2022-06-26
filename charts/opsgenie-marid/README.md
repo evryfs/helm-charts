@@ -1,6 +1,6 @@
 # opsgenie-marid
 
-![Version: 0.2.3](https://img.shields.io/badge/Version-0.2.3-informational?style=flat-square) ![AppVersion: v2.15.0](https://img.shields.io/badge/AppVersion-v2.15.0-informational?style=flat-square)
+![Version: 0.2.4](https://img.shields.io/badge/Version-0.2.4-informational?style=flat-square) ![AppVersion: v2.15.0](https://img.shields.io/badge/AppVersion-v2.15.0-informational?style=flat-square)
 
 A Helm chart for Kubernetes
 
@@ -35,6 +35,9 @@ A Helm chart for Kubernetes
 | gitSync.image.tag | string | `"v3.4.0"` |  |
 | gitSync.knownHosts | string | `""` |  |
 | gitSync.resources | object | `{}` |  |
+| gitSync.securityContext.allowPrivilegeEscalation | bool | `false` |  |
+| gitSync.securityContext.runAsNonRoot | bool | `true` |  |
+| gitSync.securityContext.runAsUser | int | `65533` |  |
 | gitSync.sshKey | string | `""` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"quay.io/evryfs/docker-marid"` |  |
@@ -50,6 +53,9 @@ A Helm chart for Kubernetes
 | podSecurityContext.fsGroup | int | `65533` |  |
 | replicaCount | int | `1` |  |
 | resources | object | `{}` |  |
+| securityContext.allowPrivilegeEscalation | bool | `false` |  |
+| securityContext.runAsNonRoot | bool | `true` |  |
+| securityContext.runAsUser | int | `999` |  |
 | service.port | int | `80` |  |
 | service.type | string | `"ClusterIP"` |  |
 | tolerations | list | `[]` |  |
