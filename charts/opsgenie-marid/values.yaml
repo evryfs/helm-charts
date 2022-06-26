@@ -12,7 +12,16 @@ image:
 podSecurityContext:
   fsGroup: 65533
 
+securityContext:
+  runAsUser: 999
+  allowPrivilegeEscalation: false
+  runAsNonRoot: true
 gitSync:
+  securityContext:
+    allowPrivilegeEscalation: false
+    runAsNonRoot: true
+    # git-sync user
+    runAsUser: 65533
   enabled: false
   image:
     repository: k8s.gcr.io/git-sync/git-sync

@@ -23,8 +23,7 @@ spec:
         - name: {{ .Chart.Name }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
-          securityContext:
-            runAsUser: 999
+          securityContext: {{ .Values.securityContext | toYaml | nindent 12 }}
           {{- if .Values.env }}
           env:
           {{ toYaml .Values.env | nindent 12 }}
@@ -71,8 +70,7 @@ spec:
             readOnly: true
             subPath: sshConfig
           {{- end }}
-          securityContext:
-            runAsUser: 65533 # git-sync user
+          securityContext: {{ .Values.gitSync.securityContext | toYaml | nindent 12 }}
           env:
           {{- toYaml .Values.gitSync.env | nindent 12 }}
         {{- end }}
@@ -91,8 +89,7 @@ spec:
         emptyDir: {}
       {{- end }}
       {{- with .Values.podSecurityContext }}
-      securityContext:
-        {{ . | toYaml | nindent 8 }}
+      securityContext: {{ . | toYaml | nindent 8 }}
       {{- end }}
       {{- with .Values.nodeSelector }}
       nodeSelector:
