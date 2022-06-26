@@ -20,7 +20,8 @@ gitSync:
   securityContext:
     allowPrivilegeEscalation: false
     runAsNonRoot: true
-    runAsUser: 65533 # git-sync user
+    # git-sync user
+    runAsUser: 65533
   enabled: false
   image:
     repository: k8s.gcr.io/git-sync/git-sync
