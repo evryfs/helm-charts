@@ -47,7 +47,7 @@ spec:
           successThreshold: {{ .Values.frontend.livenessProbe.successThreshold }}
           failureThreshold: {{ .Values.frontend.livenessProbe.failureThreshold }}
         {{- end }}
-        {{- if .Values.apiserver.livenessProbe.enabled }}
+        {{- if .Values.frontend.readinessProbe.enabled }}
         readinessProbe:
           httpGet:
             port: http
