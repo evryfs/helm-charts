@@ -6,7 +6,7 @@ replicaCount: 1
 
 image:
   repository: quay.io/evryfs/docker-marid
-  tag: v2.15.0-7
+  tag: v2.15.0-8
   pullPolicy: IfNotPresent
 
 podSecurityContext:
