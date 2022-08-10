@@ -3078,6 +3078,25 @@ entries:
   opsgenie-marid:
   - apiVersion: v2
     appVersion: v2.15.0
+    created: "2022-08-10T13:14:19.615290339Z"
+    description: A Helm chart for Kubernetes
+    digest: a98fe0bcbab9b5f4e1f6ce447b3323dc4cc9082bf6eda7f8eb75e7f2f6be6fc3
+    home: https://docs.opsgenie.com/docs/marid-integration-server-for-opsgenie
+    icon: https://wac-cdn.atlassian.com/dam/jcr:8dbf0e36-5b84-4205-8dcb-3f7e94240ae7/marid-logo@2x.png?cdnVersion=565
+    keywords:
+    - monitoring
+    - alerting
+    - opsgenie
+    - marid
+    maintainers:
+    - email: david@davidkarlsen.com
+      name: davidkarlsen
+    name: opsgenie-marid
+    urls:
+    - https://github.com/evryfs/helm-charts/releases/download/opsgenie-marid-0.2.5/opsgenie-marid-0.2.5.tgz
+    version: 0.2.5
+  - apiVersion: v2
+    appVersion: v2.15.0
     created: "2022-06-26T22:09:38.659561644Z"
     description: A Helm chart for Kubernetes
     digest: eb37899e7e07e43871457f00c5ba38e499d1788ed8a0ca2d2872fc90e57caee0
@@ -3830,4 +3849,4 @@ entries:
     urls:
     - https://github.com/evryfs/helm-charts/releases/download/spring-boot-admin-0.0.1/spring-boot-admin-0.0.1.tgz
     version: 0.0.1
-generated: "2022-08-05T19:03:00.182723287Z"
+generated: "2022-08-10T13:14:19.616014463Z"
