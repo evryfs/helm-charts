@@ -2,7 +2,7 @@ apiVersion: v2
 appVersion: "v2.15.0"
 description: A Helm chart for Kubernetes
 name: opsgenie-marid
-version: 0.2.5
+version: 0.2.6
 icon: https://wac-cdn.atlassian.com/dam/jcr:8dbf0e36-5b84-4205-8dcb-3f7e94240ae7/marid-logo@2x.png?cdnVersion=565
 home: https://docs.opsgenie.com/docs/marid-integration-server-for-opsgenie
 keywords:

@@ -1,6 +1,6 @@
 # opsgenie-marid
 
-![Version: 0.2.5](https://img.shields.io/badge/Version-0.2.5-informational?style=flat-square) ![AppVersion: v2.15.0](https://img.shields.io/badge/AppVersion-v2.15.0-informational?style=flat-square)
+![Version: 0.2.6](https://img.shields.io/badge/Version-0.2.6-informational?style=flat-square) ![AppVersion: v2.15.0](https://img.shields.io/badge/AppVersion-v2.15.0-informational?style=flat-square)
 
 A Helm chart for Kubernetes
 
@@ -32,7 +32,7 @@ A Helm chart for Kubernetes
 | gitSync.extraArgs[6] | string | `"-v=9"` |  |
 | gitSync.image.pullPolicy | string | `"IfNotPresent"` |  |
 | gitSync.image.repository | string | `"k8s.gcr.io/git-sync/git-sync"` |  |
-| gitSync.image.tag | string | `"v3.4.0"` |  |
+| gitSync.image.tag | string | `"v3.6.0"` |  |
 | gitSync.knownHosts | string | `""` |  |
 | gitSync.resources | object | `{}` |  |
 | gitSync.securityContext.allowPrivilegeEscalation | bool | `false` |  |
