@@ -8,12 +8,15 @@ global:
   imageRegistry: docker.io
   # imagePullSecrets:
   #   - name: "myRegistryKeySecretName"
+  labels: {}
 
 # -- config of the frontend
 frontend:
   enabled: true
   annotations: {}
   replicaCount: 2
+  labels:
+    app.kubernetes.io/component: frontend
   image:
     repository: dependencytrack/frontend
     tag: 4.6.1
@@ -93,6 +96,8 @@ apiserver:
   annotations: {}
 # Max: 1 - DT is not designed for HA
   replicaCount: 1
+  labels:
+    app.kubernetes.io/component: backend
   image:
     repository: dependencytrack/apiserver
     tag: 4.6.2
