@@ -8,7 +8,7 @@ image:
   registry: quay.io
   repository: evryfs/spring-boot-admin
   pullPolicy: IfNotPresent
-  tag: "2.7.4"
+  tag: "2.7.5"
 
 # if SBA should discover cluster-wide or namespaced:
 namespaced: false
