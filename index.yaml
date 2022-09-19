@@ -3078,6 +3078,23 @@ entries:
   opsgenie-marid:
   - apiVersion: v2
     appVersion: v2.15.0
+    created: "2022-09-19T22:56:06.674131004Z"
+    deprecated: true
+    description: 'NOTE: This chart is deprecated due to marid being retired: https://community.atlassian.com/t5/Opsgenie-articles/Opsgenie-s-Marid-integration-server-is-being-retired-Action/ba-p/2038354'
+    digest: 32cd5e7847b4f3132f21399fad1319fd4d6525c5c7a370dc9a1d1bb829b1d3a5
+    home: https://docs.opsgenie.com/docs/marid-integration-server-for-opsgenie
+    icon: https://wac-cdn.atlassian.com/dam/jcr:8dbf0e36-5b84-4205-8dcb-3f7e94240ae7/marid-logo@2x.png?cdnVersion=565
+    keywords:
+    - monitoring
+    - alerting
+    - opsgenie
+    - marid
+    name: opsgenie-marid
+    urls:
+    - https://github.com/evryfs/helm-charts/releases/download/opsgenie-marid-0.2.7/opsgenie-marid-0.2.7.tgz
+    version: 0.2.7
+  - apiVersion: v2
+    appVersion: v2.15.0
     created: "2022-08-11T06:48:27.934077214Z"
     description: A Helm chart for Kubernetes
     digest: cf66d4c77e84e3a0eef33d9998985e5849d50ed30695926f7eebda7102290cca
@@ -3890,4 +3907,4 @@ entries:
     urls:
     - https://github.com/evryfs/helm-charts/releases/download/spring-boot-admin-0.0.1/spring-boot-admin-0.0.1.tgz
     version: 0.0.1
-generated: "2022-09-19T07:46:31.867480345Z"
+generated: "2022-09-19T22:56:06.675425731Z"
