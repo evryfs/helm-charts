@@ -1,6 +1,6 @@
 apiVersion: v2
 appVersion: "v2.15.0"
-description: NOTE: This chart is deprecated due to marid being retired.
+description: "NOTE: This chart is deprecated due to marid being retired: https://community.atlassian.com/t5/Opsgenie-articles/Opsgenie-s-Marid-integration-server-is-being-retired-Action/ba-p/2038354"
 deprecated: true
 name: opsgenie-marid
 version: 0.2.7
