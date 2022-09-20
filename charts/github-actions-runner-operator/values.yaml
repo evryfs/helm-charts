@@ -6,7 +6,7 @@ image:
   repository: quay.io/evryfs/github-actions-runner-operator
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart version.
-  tag: v0.10.1
+  tag: v0.10.2
 
 imagePullSecrets: []
 nameOverride: ""
