@@ -1,8 +1,9 @@
 apiVersion: v2
 appVersion: "v2.15.0"
-description: A Helm chart for Kubernetes
+description: "NOTE: This chart is deprecated due to marid being retired: https://community.atlassian.com/t5/Opsgenie-articles/Opsgenie-s-Marid-integration-server-is-being-retired-Action/ba-p/2038354"
+deprecated: true
 name: opsgenie-marid
-version: 0.2.6
+version: 0.2.7
 icon: https://wac-cdn.atlassian.com/dam/jcr:8dbf0e36-5b84-4205-8dcb-3f7e94240ae7/marid-logo@2x.png?cdnVersion=565
 home: https://docs.opsgenie.com/docs/marid-integration-server-for-opsgenie
 keywords:
@@ -10,6 +11,3 @@ keywords:
 - alerting
 - opsgenie
 - marid
-maintainers:
-- name: davidkarlsen
-  email: david@davidkarlsen.com
