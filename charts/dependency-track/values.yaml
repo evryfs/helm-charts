@@ -93,7 +93,7 @@ apiserver:
   replicaCount: 1
   image:
     repository: dependencytrack/apiserver
-    tag: 4.6.0
+    tag: 4.6.1
     pullPolicy: IfNotPresent
   env: []
   persistentVolume:
