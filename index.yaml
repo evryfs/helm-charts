@@ -3,6 +3,44 @@ entries:
   dependency-track:
   - apiVersion: v2
     appVersion: 4.6.1
+    created: "2022-10-24T11:01:56.731740402Z"
+    dependencies:
+    - condition: postgresql.enabled
+      name: postgresql
+      repository: https://raw.githubusercontent.com/bitnami/charts/eb5f9a9513d987b519f0ecd732e7031241c50328/bitnami
+      version: ~10.10
+    - name: common
+      repository: https://charts.bitnami.com/bitnami
+      version: 1.15.x
+    description: 'Dependency-Track is an intelligent Software Supply Chain Component
+      Analysis platform that allows organizations to identify and reduce risk from
+      the use of third-party and open source components. Dependency-Track takes a
+      unique and highly beneficial approach by leveraging the capabilities of Software
+      Bill-of-Materials (SBOM). This approach provides capabilities that traditional
+      Software Composition Analysis (SCA) solutions cannot achieve. '
+    digest: a81a7a93399b6afebfc2fa4cd6248143b8b26671af335e06ff0b94223ac403d7
+    home: https://dependencytrack.org/
+    icon: https://raw.githubusercontent.com/DependencyTrack/branding/master/dt-logo-black-text.svg
+    keywords:
+    - security
+    - dependency
+    - dependency-track
+    - OWASP
+    - Supply Chain Component Analysis
+    maintainers:
+    - email: david@davidkarlsen.com
+      name: davidkarlsen
+    - email: eth0linak@gmail.com
+      name: otterian
+    name: dependency-track
+    sources:
+    - https://docs.dependencytrack.org/
+    - https://github.com/evryfs/helm-charts
+    urls:
+    - https://github.com/evryfs/helm-charts/releases/download/dependency-track-1.5.1/dependency-track-1.5.1.tgz
+    version: 1.5.1
+  - apiVersion: v2
+    appVersion: 4.6.1
     created: "2022-10-13T20:01:08.305538334Z"
     dependencies:
     - condition: postgresql.enabled
@@ -4019,4 +4057,4 @@ entries:
     urls:
     - https://github.com/evryfs/helm-charts/releases/download/spring-boot-admin-0.0.1/spring-boot-admin-0.0.1.tgz
     version: 0.0.1
-generated: "2022-10-17T18:42:58.130574985Z"
+generated: "2022-10-24T11:01:56.732613211Z"
