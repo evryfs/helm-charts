@@ -1,6 +1,6 @@
 # dependency-track
 
-![Version: 1.4.1](https://img.shields.io/badge/Version-1.4.1-informational?style=flat-square) ![AppVersion: 4.5.0](https://img.shields.io/badge/AppVersion-4.5.0-informational?style=flat-square)
+![Version: 1.5.2](https://img.shields.io/badge/Version-1.5.2-informational?style=flat-square) ![AppVersion: 4.6.2](https://img.shields.io/badge/AppVersion-4.6.2-informational?style=flat-square)
 
 Dependency-Track is an intelligent Software Supply Chain Component Analysis platform that allows organizations to identify and reduce risk from the use of third-party and open source components. Dependency-Track takes a unique and highly beneficial approach by leveraging the capabilities of Software Bill-of-Materials (SBOM). This approach provides capabilities that traditional Software Composition Analysis (SCA) solutions cannot achieve.
 
@@ -22,19 +22,19 @@ Dependency-Track is an intelligent Software Supply Chain Component Analysis plat
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://charts.bitnami.com/bitnami | common | 1.11.x |
-| https://charts.bitnami.com/bitnami | postgresql | ~10.10 |
+| https://charts.bitnami.com/bitnami | common | 2.0.x |
+| https://raw.githubusercontent.com/bitnami/charts/eb5f9a9513d987b519f0ecd732e7031241c50328/bitnami | postgresql | ~10.10 |
 
 ## Values
 
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
-| apiserver | object | `{"affinity":{},"emptyDir":{"sizeLimit":"8Gi"},"enabled":true,"env":[],"fullnameOverride":"","image":{"pullPolicy":"IfNotPresent","repository":"dependencytrack/apiserver","tag":"4.5.0"},"initContainers":[],"livenessProbe":{"enabled":true,"failureThreshold":3,"initialDelaySeconds":60,"path":"/api/version","periodSeconds":10,"successThreshold":1,"timeoutSeconds":2},"nameOverride":"","nodeSelector":{},"persistentVolume":{"accessModes":["ReadWriteOnce"],"annotations":{},"enabled":true,"size":"8Gi","storageClass":""},"podSecurityContext":{"fsGroup":1000},"readinessProbe":{"enabled":true,"failureThreshold":3,"initialDelaySeconds":60,"path":"/","periodSeconds":10,"successThreshold":1,"timeoutSeconds":2},"replicaCount":1,"resources":{"limits":{"cpu":4,"memory":"16Gi"},"requests":{"cpu":2,"memory":"4608Mi"}},"securityContext":{"readOnlyRootFilesystem":true,"runAsGroup":1000,"runAsNonRoot":true,"runAsUser":1000},"service":{"annotations":{},"port":80,"type":"ClusterIP"},"serviceAccount":{"annotations":{},"create":true,"name":"apiserver-serviceaccount"},"tolerations":[]}` | config of the apiserver |
-| frontend | object | `{"affinity":{},"emptyDir":{"sizeLimit":"8Gi"},"enabled":true,"env":[{"name":"API_BASE_URL","value":""}],"fullnameOverride":"","image":{"pullPolicy":"IfNotPresent","repository":"dependencytrack/frontend","tag":"4.4.0"},"initContainers":[],"livenessProbe":{"enabled":true,"failureThreshold":3,"initialDelaySeconds":60,"path":"/","periodSeconds":10,"successThreshold":1,"timeoutSeconds":2},"nameOverride":"","nodeSelector":{},"readinessProbe":{"enabled":true,"failureThreshold":3,"initialDelaySeconds":60,"path":"/","periodSeconds":10,"successThreshold":1,"timeoutSeconds":2},"replicaCount":2,"resources":{"limits":{"cpu":1,"memory":"512Mi"},"requests":{"cpu":"100m","memory":"128Mi"}},"securityContext":{"allowPrivilegeEscalation":false,"runAsUser":101},"service":{"annotations":{},"port":80,"type":"ClusterIP"},"serviceAccount":{"annotations":{},"create":true,"name":"frontend-serviceaccount"},"tolerations":[]}` | config of the frontend |
+| apiserver | object | `{"affinity":{},"emptyDir":{"sizeLimit":"8Gi"},"enabled":true,"env":[],"fullnameOverride":"","image":{"pullPolicy":"IfNotPresent","repository":"dependencytrack/apiserver","tag":"4.6.2"},"initContainers":[],"livenessProbe":{"enabled":true,"failureThreshold":3,"initialDelaySeconds":60,"path":"/api/version","periodSeconds":10,"successThreshold":1,"timeoutSeconds":2},"nameOverride":"","nodeSelector":{},"persistentVolume":{"accessModes":["ReadWriteOnce"],"annotations":{},"enabled":true,"size":"8Gi","storageClass":""},"podSecurityContext":{"fsGroup":1000},"readinessProbe":{"enabled":true,"failureThreshold":3,"initialDelaySeconds":60,"path":"/","periodSeconds":10,"successThreshold":1,"timeoutSeconds":2},"replicaCount":1,"resources":{"limits":{"cpu":4,"memory":"16Gi"},"requests":{"cpu":2,"memory":"4608Mi"}},"securityContext":{"readOnlyRootFilesystem":true,"runAsGroup":1000,"runAsNonRoot":true,"runAsUser":1000},"service":{"annotations":{},"port":80,"type":"ClusterIP"},"serviceAccount":{"annotations":{},"create":true,"name":"apiserver-serviceaccount"},"tolerations":[]}` | config of the apiserver |
+| frontend | object | `{"affinity":{},"emptyDir":{"sizeLimit":"8Gi"},"enabled":true,"env":[{"name":"API_BASE_URL","value":""}],"fullnameOverride":"","image":{"pullPolicy":"IfNotPresent","repository":"dependencytrack/frontend","tag":"4.6.1"},"initContainers":[],"livenessProbe":{"enabled":true,"failureThreshold":3,"initialDelaySeconds":60,"path":"/","periodSeconds":10,"successThreshold":1,"timeoutSeconds":2},"nameOverride":"","nodeSelector":{},"readinessProbe":{"enabled":true,"failureThreshold":3,"initialDelaySeconds":60,"path":"/","periodSeconds":10,"successThreshold":1,"timeoutSeconds":2},"replicaCount":2,"resources":{"limits":{"cpu":1,"memory":"512Mi"},"requests":{"cpu":"100m","memory":"128Mi"}},"securityContext":{"allowPrivilegeEscalation":false,"runAsUser":101},"service":{"annotations":{},"port":80,"type":"ClusterIP"},"serviceAccount":{"annotations":{},"create":true,"name":"frontend-serviceaccount"},"tolerations":[]}` | config of the frontend |
 | frontend.env | list | `[{"name":"API_BASE_URL","value":""}]` | See https://docs.dependencytrack.org/getting-started/configuration/ for frontend ENV variables. |
 | global | object | `{"imageRegistry":"docker.io"}` | global configuration |
 | ingress | object | `{"annotations":{},"enabled":false,"host":"chart-example.local","tls":{"enabled":false,"secretName":""}}` | configuration of ingress |
 | postgresql | object | `{"enabled":true,"postgresqlDatabase":"deptrack","postgresqlPassword":"deptrack","postgresqlUsername":"deptrack"}` | configuration of postgres |
 
 ----------------------------------------------
-Autogenerated from chart metadata using [helm-docs v1.10.0](https://github.com/norwoodj/helm-docs/releases/v1.10.0)
+Autogenerated from chart metadata using [helm-docs v1.11.0](https://github.com/norwoodj/helm-docs/releases/v1.11.0)
