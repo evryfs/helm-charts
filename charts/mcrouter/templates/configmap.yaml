@@ -34,7 +34,7 @@ data:
           "get": "LatestRoute|Pool|A",
           "set": "AllFastestRoute|Pool|A",
           "incr": "AllFastestRoute|Pool|A",
-          "decr"; "AllFastestRoute|Pool|A"
+          "decr": "AllFastestRoute|Pool|A"
         }
       }
     }
