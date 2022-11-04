@@ -3,6 +3,9 @@ kind: Deployment
 metadata:
   name: {{ include "common.names.fullname" . }}-apiserver
   labels: {{- include "backend.labels.standard" . | nindent 4 }}
+  {{- with .Values.apiserver.annotations }}
+  annotations: {{- toYaml . | nindent 4 }}
+  {{- end }}
 spec:
   replicas: {{ .Values.apiserver.replicaCount }}
   {{- if .Values.apiserver.persistentVolume.enabled }}
