@@ -4,6 +4,10 @@
 {{- include "common.images.image" ( dict "imageRoot" .Values.apiserver.image "global" .Values.global ) -}}
 {{- end -}}
 
+{{- define "apiserver.internalCertificate.keytool.image" -}}
+{{- include "common.images.image" ( dict "imageRoot" .Values.apiserver.internalCertificate.keytool.image "global" .Values.global ) -}}
+{{- end -}}
+
 {{- define "frontend.image" -}}
 {{- include "common.images.image" ( dict "imageRoot" .Values.frontend.image "global" .Values.global ) -}}
 {{- end -}}

@@ -1,0 +1,10 @@
+{{- if .Values.apiserver.internalCertificate.enabled }}
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: cert-{{ include "common.names.fullname" . }}-apiserver
+  labels: {{- include "backend.labels.standard" . | nindent 4 }}
+data:
+  {{ .Values.apiserver.internalCertificate.data.filename }}: |
+{{ .Values.apiserver.internalCertificate.data.content | indent 4 }}
+{{- end }}
