@@ -3,6 +3,9 @@ kind: Deployment
 metadata:
   name: {{ include "common.names.fullname" . }}-frontend
   labels: {{- include "frontend.labels.standard" . | nindent 4 }}
+  {{- with .Values.frontend.annotations }}
+  annotations: {{- toYaml . | nindent 4 }}
+  {{- end }}
 spec:
   replicas: {{ .Values.frontend.replicaCount }}
   selector:

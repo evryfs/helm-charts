@@ -12,6 +12,7 @@ global:
 # -- config of the frontend
 frontend:
   enabled: true
+  annotations: {}
   replicaCount: 2
   image:
     repository: dependencytrack/frontend
@@ -89,6 +90,7 @@ frontend:
 # -- config of the apiserver
 apiserver:
   enabled: true
+  annotations: {}
 # Max: 1 - DT is not designed for HA
   replicaCount: 1
   image:
