@@ -34,6 +34,7 @@ spec:
       {{- end }}
       - name: init-cacerts
         image: {{ include "apiserver.image" . }}
+        securityContext: {{- toYaml .Values.apiserver.securityContext | nindent 12 }}
         command:
         - bash
         - -c
@@ -44,6 +45,7 @@ spec:
           name: security
       - name: amend-cacerts
         image: {{ include "apiserver.internalCertificate.keytool.image" . }}
+        securityContext: {{- toYaml .Values.apiserver.securityContext | nindent 12 }}
         command:
         - bash
         - -c
