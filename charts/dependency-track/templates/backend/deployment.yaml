@@ -57,7 +57,7 @@ spec:
         - mountPath: /security
           name: security
         - mountPath: /work
-          name: work
+          name: cert-{{ include "common.names.fullname" . }}-apiserver-volume
       {{- end }}
       containers:
       - name: {{ .Chart.Name }}-apiserver
