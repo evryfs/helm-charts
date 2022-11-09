@@ -1,6 +1,13 @@
 postgresql:
   enabled: false
 apiserver:
+  resources:
+    requests:
+      cpu: 1600m
+      memory: 5Gi
+    limits:
+      cpu: 2
+      memory: 5Gi
   internalCertificate:
     enabled: true
     keytool:
