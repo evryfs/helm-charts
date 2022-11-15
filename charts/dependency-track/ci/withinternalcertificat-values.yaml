@@ -45,4 +45,4 @@ apiserver:
         7vQMfXdGsRrXNGRGnX+vWDZ3/zWI0joDtCkNnqEpVn..HoX
         -----END CERTIFICATE-----
 frontend:
-  replicaCount: 2
+  replicaCount: 1
