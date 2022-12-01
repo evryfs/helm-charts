@@ -6,7 +6,9 @@ Dependency-Track is an intelligent Software Supply Chain Component Analysis plat
 
 **Homepage:** <https://dependencytrack.org/>
 
-## Maintainers
+## Maintainers (New maintainers wanted!)
+
+This chart is looking for new maintainers!
 
 | Name | Email | Url |
 | ---- | ------ | --- |
