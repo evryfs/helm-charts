@@ -1,12 +1,9 @@
 [![Artifact HUB](https://img.shields.io/endpoint?url=https://artifacthub.io/badge/repository/evryfs-oss)](https://artifacthub.io/packages/search?repo=evryfs-oss)
 
-# EVRY FS OSS Charts
+# DIIT fork of [evryfs/helm-charts](https://github.com/evryfs/helm-charts)
 
-CI based on Github Actions, Kind and Chart-testing tool. See [Youtube video](https://www.youtube.com/watch?v=hL-8Jn5RTmw) for how it works.
+The repo [evryfs/helm-charts](https://github.com/evryfs/helm-charts) was forked to our DIIT Github organisation so the Helm charts in `charts/dependency-track` can be utilized. ATM this code is the only thing utilized from this repo, the rest of the repo does not play a role. 
 
-## repo
+## Changelog
 
-Add the repo:
-`helm repo add evryfs-oss https://evryfs.github.io/helm-charts/`
-
-hasdh
+1. Disable all WF files. No automatic WF runs for this repo
