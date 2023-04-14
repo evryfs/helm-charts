@@ -165,6 +165,7 @@ ingress:
     kubernetes.io/ingress.class: istio
   tls:
     enabled: true
+    secretName: "" # Please Provide the secret name on installation. Secret is created manually for the postgresql database
   host: dependencytrack.diit.health
   className: ""
 
@@ -175,6 +176,6 @@ postgresql:
   enabled: true
   external: true #If true, disable postgresql dependency
   postgresqlUsername: deptrack
-  postgresqlPassword: deptrack
+  postgresqlPassword: ""
   postgresqlDatabase: deptrack
   postgresqlHost: dependencytrack-database-server.postgres.database.azure.com:5432
