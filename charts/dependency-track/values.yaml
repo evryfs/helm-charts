@@ -5,15 +5,13 @@
 
 # -- global configuration
 global:
-  imageRegistry: docker.io
-  # imagePullSecrets:
-  #   - name: "myRegistryKeySecretName"
+  imageRegistry: diitint.azurecr.io
 
 # -- config of the frontend
 frontend:
   enabled: true
   annotations: {}
-  replicaCount: 2
+  replicaCount: 1
   image:
     repository: dependencytrack/frontend
     tag: 4.6.1
@@ -43,13 +41,13 @@ frontend:
     type: ClusterIP
     port: 80
     annotations: {}
-  nodeSelector: {}
+  nodeSelector: 
+    agentpool: deptrack
   tolerations: []
   affinity: {}
   emptyDir:
     sizeLimit: 8Gi
   resources:
-  # https://docs.dependencytrack.org/getting-started/deploy-docker/
     requests:
       cpu: 100m
       memory: 128Mi
@@ -86,7 +84,6 @@ frontend:
     successThreshold: 1
     failureThreshold: 3
 
-
 # -- config of the apiserver
 apiserver:
   enabled: true
@@ -116,7 +113,8 @@ apiserver:
     type: ClusterIP
     port: 80
     annotations: {}
-  nodeSelector: {}
+  nodeSelector: 
+    agentpool: deptrack
   tolerations: []
   affinity: {}
   emptyDir:
@@ -124,8 +122,8 @@ apiserver:
   resources:
   # https://docs.dependencytrack.org/getting-started/deploy-docker/
     requests:
-      cpu: 2
-      memory: 4608Mi
+      cpu: 0.5
+      memory: 4Gi
     limits:
       cpu: 4
       memory: 16Gi
@@ -162,21 +160,21 @@ apiserver:
 
 # -- configuration of ingress
 ingress:
-  enabled: false
+  enabled: true
+  annotations: 
+    kubernetes.io/ingress.class: istio
   tls:
-    enabled: false
-    secretName: ""
-  annotations: {}
-    # kubernetes.io/ingress.class: nginx
-    # kubernetes.io/tls-acme: "true"
-    ## allow large bom.xml uploads:
-    # nginx.ingress.kubernetes.io/proxy-body-size: 10m
-  host: chart-example.local
-  # ingressClassName: nginx
+    enabled: true
+  host: dependencytrack.diit.health
+  className: ""
 
 # -- configuration of postgres
+# For our infrastructure deployment we are not using the postgresql deployment, but an external Azure managed PostgreSQL server.
+# Therefor the values a slightly adapted
 postgresql:
   enabled: true
+  external: true #If true, disable postgresql dependency
   postgresqlUsername: deptrack
   postgresqlPassword: deptrack
   postgresqlDatabase: deptrack
+  postgresqlHost: dependencytrack-database-server.postgres.database.azure.com:5432
