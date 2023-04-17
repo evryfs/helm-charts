@@ -45,11 +45,27 @@ spec:
         - name: ALPINE_DATABASE_DRIVER
           value: "org.postgresql.Driver"
         - name: ALPINE_DATABASE_URL
-          value: jdbc:postgresql://{{ .Values.postgresql.postgresqlHost }}/{{ .Values.postgresql.postgresqlDatabase }}
+          value: jdbc:postgresql://{{ .Release.Name }}-postgresql/{{ .Values.postgresql.postgresqlDatabase }}
         - name: ALPINE_DATABASE_PASSWORD
           valueFrom:
             secretKeyRef:
               name: {{ .Release.Name }}-postgresql
+              key: postgresql-password
+        - name: ALPINE_DATABASE_USERNAME
+          value: {{ .Values.postgresql.postgresqlUsername }}
+        {{- end }}
+        # Settings for external database
+        {{- if .Values.postgresql.external }}
+        - name: ALPINE_DATABASE_MODE
+          value: "external"
+        - name: ALPINE_DATABASE_DRIVER
+          value: "org.postgresql.Driver"
+        - name: ALPINE_DATABASE_URL
+          value: jdbc:postgresql://{{ .Values.postgresql.postgresqlHost }}/{{ .Values.postgresql.postgresqlDatabase }}
+        - name: ALPINE_DATABASE_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: deptrack-pgadmin #static. Must be deployed manually before
               key: postgresql-password
         - name: ALPINE_DATABASE_USERNAME
           value: {{ .Values.postgresql.postgresqlUsername }}
