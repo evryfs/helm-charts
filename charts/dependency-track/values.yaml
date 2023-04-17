@@ -173,9 +173,8 @@ ingress:
 # For our infrastructure deployment we are not using the postgresql deployment, but an external Azure managed PostgreSQL server.
 # Therefor the values a slightly adapted
 postgresql:
-  enabled: true
+  enabled: false #If true, PostgreSQL will be installed via Helm dependency. Then postgresqlUsername=deptrack
   external: true #If true, disable postgresql dependency
-  postgresqlUsername: deptrack
-  postgresqlPassword: ""
+  postgresqlUsername: pgadmin #Admin user of Azure managed Service
   postgresqlDatabase: deptrack
   postgresqlHost: dependencytrack-database-server.postgres.database.azure.com:5432
