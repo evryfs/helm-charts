@@ -13,6 +13,12 @@ spec:
   template:
     metadata:
       labels: {{- include "frontend.labels.standard" . | nindent 8 }}
+        {{- if .Values.frontend.podLabels }}
+        {{- include "common.tplvalues.render" (dict "value" .Values.frontend.podLabels "context" $) | nindent 8 }}
+        {{- end }}
+      {{- if .Values.frontend.podAnnotations }}
+      annotations: {{- include "common.tplvalues.render" (dict "value" .Values.frontend.podAnnotations "context" $) | nindent 8 }}
+      {{- end }}
     spec:
       {{- with .Values.global.imagePullSecrets }}
       imagePullSecrets: {{- toYaml . | nindent 6 }}

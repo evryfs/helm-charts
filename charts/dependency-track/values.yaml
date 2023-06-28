@@ -12,7 +12,12 @@ global:
 # -- config of the frontend
 frontend:
   enabled: true
+  # Annotations for the frontend deployment
   annotations: {}
+  # Annotations for the frontend pods
+  podAnnotations: {}
+  # Additional labels for the frontend pods
+  podLabels: {}
   replicaCount: 2
   image:
     repository: dependencytrack/frontend
@@ -90,7 +95,12 @@ frontend:
 # -- config of the apiserver
 apiserver:
   enabled: true
+  # Annotations for the apiserver deployment
   annotations: {}
+  # Annotations for the apiserver pods
+  podAnnotations: {}
+  # Additional labels for the apiserver pods
+  podLabels: {}
 # Max: 1 - DT is not designed for HA
   replicaCount: 1
   image:
