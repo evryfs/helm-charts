@@ -16,7 +16,7 @@ frontend:
   replicaCount: 2
   image:
     repository: dependencytrack/frontend
-    tag: 4.6.1
+    tag: 4.8.1
     pullPolicy: IfNotPresent
   # https://github.com/DependencyTrack/frontend/issues/60
   # configmap:
@@ -95,7 +95,7 @@ apiserver:
   replicaCount: 1
   image:
     repository: dependencytrack/apiserver
-    tag: 4.6.3
+    tag: 4.8.2
     pullPolicy: IfNotPresent
   env: []
   persistentVolume:
