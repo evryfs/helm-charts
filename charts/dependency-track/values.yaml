@@ -29,9 +29,20 @@ frontend:
   #      "OIDC_FLOW": ""
   #    }
   # --See https://docs.dependencytrack.org/getting-started/configuration/ for frontend ENV variables.
-  env:
-    - name: API_BASE_URL
-      value: ""
+  #env:
+  #  - name: API_BASE_URL
+  #    value: ""
+  #  - name: OIDC_ISSUER
+  #    value: ""
+  #  - name: OIDC_CLIENT_ID
+  #    value: ""
+  #  - name: OIDC_SCOPE
+  #    value: "groups openid profile email offline_access"
+  #  - name: OIDC_FLOW
+  #    value: "code"
+  #  - name: OIDC_LOGIN_BUTTON_TEXT
+  #    value: "DEX"
+
     # See https://docs.dependencytrack.org/getting-started/configuration/ for frontend ENV variables.
 #  podSecurityContext:
 #    fsGroup: 1000
