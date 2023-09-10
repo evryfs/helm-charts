@@ -1878,6 +1878,32 @@ entries:
     version: 0.1.0
   github-actions-runner-operator:
   - apiVersion: v2
+    appVersion: v0.11.1
+    created: "2023-09-10T21:10:04.961544128Z"
+    description: A Helm chart for the github action runner operator.
+    digest: 83d1cfd81a5b116128f8b6542cfc9e39f1d6d5a8cd10a5dd744c00f7e04dc937
+    home: https://github.com/evryfs/github-actions-runner-operator/
+    icon: https://media-exp1.licdn.com/dms/image/C4D0BAQFZ80eOhCewVw/company-logo_200_200/0?e=2159024400&v=beta&t=XFbeA46Og-bBC5Th2aFMwXfB1FssEqN5lx-hKraJuAg
+    keywords:
+    - github
+    - action runner
+    - operator
+    - ci
+    - agent
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: david.karlsen@evry.com
+      name: davidkarlsen
+      url: https://github.com/davidkarlsen/
+    name: github-actions-runner-operator
+    sources:
+    - https://github.com/evryfs/github-actions-runner-operator/
+    - https://github.com/evryfs/helm-charts/
+    type: application
+    urls:
+    - https://github.com/evryfs/helm-charts/releases/download/github-actions-runner-operator-2.8.1/github-actions-runner-operator-2.8.1.tgz
+    version: 2.8.1
+  - apiVersion: v2
     appVersion: v0.11.0
     created: "2022-11-11T19:39:38.333211681Z"
     description: A Helm chart for the github action runner operator.
@@ -4376,4 +4402,4 @@ entries:
     urls:
     - https://github.com/evryfs/helm-charts/releases/download/spring-boot-admin-0.0.1/spring-boot-admin-0.0.1.tgz
     version: 0.0.1
-generated: "2023-01-07T19:08:45.444307717Z"
+generated: "2023-09-10T21:10:04.962147129Z"
