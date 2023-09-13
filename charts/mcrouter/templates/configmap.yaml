@@ -20,7 +20,7 @@ data:
             // hosts of replicated pool, https://github.com/facebook/mcrouter/wiki/Replicated-pools-setup e.g.:
             {{- $global := . }}
             {{- range $i, $e := until (.Values.memcached.replicaCount | int) }}
-            "{{ $global.Release.Name }}-{{ $i }}.{{ $global.Release.Name }}.{{ $global.Release.Namespace }}.svc.{{ $global.Values.clusterSuffix }}:11211",
+            "{{ $global.Release.Name }}-memcached-{{ $i }}.{{ $global.Release.Name }}-memcached.{{ $global.Release.Namespace }}.svc.{{ $global.Values.clusterSuffix }}:11211",
             {{- end }}
           ]
         }
