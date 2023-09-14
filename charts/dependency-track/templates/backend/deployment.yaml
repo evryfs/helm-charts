@@ -28,6 +28,39 @@ spec:
       {{- with .Values.apiserver.initContainers }}
       initContainers: {{- toYaml . | nindent 6 }}
       {{- end }}
+      {{- if .Values.apiserver.internalCertificate.enabled }}
+      {{- if not .Values.apiserver.initContainers }}
+      initContainers:
+      {{- end }}
+      - name: init-cacerts
+        image: {{ include "apiserver.image" . }}
+        securityContext: {{- toYaml .Values.apiserver.securityContext | nindent 12 }}
+        command:
+        - bash
+        - -c
+        - |
+          cp -R /opt/java/openjdk/lib/security/* /security/
+        volumeMounts:
+        - mountPath: /security
+          name: security
+      - name: amend-cacerts
+        image: {{ include "apiserver.internalCertificate.keytool.image" . }}
+        securityContext: {{- toYaml .Values.apiserver.securityContext | nindent 12 }}
+        command:
+        - bash
+        - -c
+        - |
+          while [ ! –e /security/cacerts ]
+          do
+            sleep 1
+          done
+          keytool -keystore /security/cacerts -storepass changeit -noprompt -trustcacerts -importcert -alias {{ .Values.apiserver.internalCertificate.data.alias }} -file /work/{{ .Values.apiserver.internalCertificate.data.filename }}
+        volumeMounts:
+        - mountPath: /security
+          name: security
+        - mountPath: /work
+          name: cert-{{ include "common.names.fullname" . }}-apiserver-volume
+      {{- end }}
       containers:
       - name: {{ .Chart.Name }}-apiserver
         securityContext: {{- toYaml .Values.apiserver.securityContext | nindent 12 }}
@@ -62,6 +95,10 @@ spec:
           mountPath: /data
         - name: tmp
           mountPath: /tmp
+        {{- if .Values.apiserver.internalCertificate.enabled }}
+        - name: security
+          mountPath: /opt/java/openjdk/lib/security
+        {{- end }}
         ports:
         - name: api
           containerPort: 8080
@@ -103,6 +140,14 @@ spec:
       volumes:
       - name: tmp
         emptyDir: {}
+      {{- if .Values.apiserver.internalCertificate.enabled }}
+      - name: security
+        emptyDir: {}
+      - configMap:
+          name: cert-{{ include "common.names.fullname" . }}-apiserver
+          defaultMode: 420
+        name: cert-{{ include "common.names.fullname" . }}-apiserver-volume
+      {{- end }}
       - name: data
         {{- if .Values.apiserver.persistentVolume.enabled }}
         persistentVolumeClaim:
