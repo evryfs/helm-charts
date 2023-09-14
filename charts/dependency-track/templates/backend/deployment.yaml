@@ -33,6 +33,18 @@ spec:
         securityContext: {{- toYaml .Values.apiserver.securityContext | nindent 12 }}
         image: {{ include "apiserver.image" . }}
         imagePullPolicy: {{ .Values.apiserver.image.pullPolicy }}
+        command: ["java"]
+        args:
+        - "-XX:+UseParallelGC"
+        - "-XX:MaxRAMPercentage=90.0"
+        - "--add-opens"
+        - "java.base/java.util.concurrent=ALL-UNNAMED"
+        - "-Dalpine.application.properties=/opt/application/application-properties"
+        - "-DdependencyTrack.logging.level=INFO"
+        - "-jar"
+        - "dependency-track-apiserver.jar"
+        - "-context"
+        - "/"
         {{- with .Values.apiserver.resources }}
         resources: {{ . | toYaml | nindent 10 }}
         {{- end }}
@@ -58,6 +70,8 @@ spec:
         {{- toYaml . | nindent 8 }}
         {{- end }}
         volumeMounts:
+        - name: application-properties-config
+          mountPath: /opt/application
         - name: data
           mountPath: /data
         - name: tmp
@@ -101,6 +115,9 @@ spec:
         {{- toYaml . | nindent 8 }}
       {{- end }}
       volumes:
+      - name: application-properties-config
+        configMap:
+          name: application-properties
       - name: tmp
         emptyDir: {}
       - name: data
