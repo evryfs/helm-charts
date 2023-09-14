@@ -8,6 +8,9 @@ global:
   imageRegistry: docker.io
   # imagePullSecrets:
   #   - name: "myRegistryKeySecretName"
+  additionalLabels: {}
+  # app : dependencytrack
+
 
 # -- config of the frontend
 frontend:

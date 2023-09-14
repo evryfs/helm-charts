@@ -13,6 +13,9 @@ spec:
   template:
     metadata:
       labels: {{- include "frontend.labels.standard" . | nindent 8 }}
+              {{- if .Values.global.additionalLabels }}
+              {{ toYaml .Values.global.additionalLabels | nindent 8 }}
+              {{- end }} 
     spec:
       {{- with .Values.global.imagePullSecrets }}
       imagePullSecrets: {{- toYaml . | nindent 6 }}
