@@ -39,6 +39,7 @@ frontend:
     allowPrivilegeEscalation: false
     # rootfs cannot be R/O because there is some messing around with file generation and whatnot
     runAsUser: 101
+  podAnnotations: {}
   service:
     type: ClusterIP
     port: 80
@@ -112,6 +113,7 @@ apiserver:
     runAsNonRoot: true
     runAsUser: 1000
     runAsGroup: 1000
+  podAnnotations: {}
   service:
     type: ClusterIP
     port: 80

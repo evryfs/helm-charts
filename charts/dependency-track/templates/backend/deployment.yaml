@@ -17,6 +17,7 @@ spec:
   template:
     metadata:
       labels: {{- include "backend.labels.standard" . | nindent 8 }}
+      annotations: {{- toYaml .Values.apiserver.podAnnotations | nindent 8 }}
     spec:
       {{- with .Values.global.imagePullSecrets }}
       imagePullSecrets: {{- toYaml . | nindent 6 }}
