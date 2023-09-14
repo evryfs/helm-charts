@@ -180,3 +180,4 @@ postgresql:
   postgresqlUsername: deptrack
   postgresqlPassword: deptrack
   postgresqlDatabase: deptrack
+  # postgresqlHost: # configure for external postgresql database. Set enabled to false.

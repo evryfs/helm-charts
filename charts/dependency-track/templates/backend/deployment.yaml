@@ -40,6 +40,7 @@ spec:
         - name: ALPINE_DATA_DIRECTORY
           value: "/data"
         {{- if .Values.postgresql.enabled }}
+        {{- if not .Values.postgresqlHost  }}
         - name: ALPINE_DATABASE_MODE
           value: "external"
         - name: ALPINE_DATABASE_DRIVER
@@ -53,6 +54,24 @@ spec:
               key: postgresql-password
         - name: ALPINE_DATABASE_USERNAME
           value: {{ .Values.postgresql.postgresqlUsername }}
+        {{- end }}
+        {{- end }}
+        {{- if not .Values.postgresql.enabled }}
+        {{- if .Values.postgresql.postgresqlHost  }}
+        - name: ALPINE_DATABASE_MODE
+          value: "external"
+        - name: ALPINE_DATABASE_DRIVER
+          value: "org.postgresql.Driver"
+        - name: ALPINE_DATABASE_URL
+          value: jdbc:postgresql://{{ .Values.postgresql.postgresqlHost}}/{{ .Values.postgresql.postgresqlDatabase }}
+        - name: ALPINE_DATABASE_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: {{ .Release.Name }}-postgresql
+              key: postgresql-password
+        - name: ALPINE_DATABASE_USERNAME
+          value: {{ .Values.postgresql.postgresqlUsername }}
+        {{- end }}
         {{- end }}
         {{- with .Values.apiserver.env }}
         {{- toYaml . | nindent 8 }}
