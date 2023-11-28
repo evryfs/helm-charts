@@ -45,7 +45,11 @@ spec:
         - name: ALPINE_DATABASE_DRIVER
           value: "org.postgresql.Driver"
         - name: ALPINE_DATABASE_URL
+        {{- if .Values.postgresql.database_url }}
+          value: {{ .Values.postgresql.database_url }}
+        {{- else }}
           value: jdbc:postgresql://{{ .Release.Name }}-postgresql/{{ .Values.postgresql.postgresqlDatabase }}
+        {{- end }}
         - name: ALPINE_DATABASE_PASSWORD
           valueFrom:
             secretKeyRef:
