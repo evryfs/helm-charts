@@ -23,7 +23,7 @@ sources:
 dependencies:
 - name: postgresql
   version: ~10.10
-  repository: https://raw.githubusercontent.com/bitnami/charts/eb5f9a9513d987b519f0ecd732e7031241c50328/bitnami
+  repository: https://raw.githubusercontent.com/bitnami/charts/main/bitnami/postgresql/values.yaml
   condition: postgresql.enabled
 - name: common
   version: 2.0.x
